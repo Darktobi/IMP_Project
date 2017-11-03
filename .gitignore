@@ -1,31 +1,3 @@
-# =============== #
-# Unity generated #
-# =============== #
-Temp/
-Library/
- 
-# ===================================== #
-# Visual Studio / MonoDevelop generated #
-# ===================================== #
-ExportedObj/
-obj/
-*.svd
-*.userprefs
-/*.csproj
-*.pidb
-*.suo
-/*.sln
-*.user
-*.unityproj
-*.booproj
- 
-# ============ #
-# OS generated #
-# ============ #
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+version https://git-lfs.github.com/spec/v1
+oid sha256:75fd73acb09aef7fb49796b8784687428d7e5a8d482035dcb0b140135fa1ad98
+size 454
