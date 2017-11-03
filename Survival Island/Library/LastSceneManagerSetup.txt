@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9e34d1ab794f9cd64371386eb8a5eb1f244062a3d395a0a70705fdff8741565a
-size 86
+sceneSetups:
+- path: Assets/SurvivalIslandConceptUI.unity
+  isLoaded: 1
+  isActive: 1

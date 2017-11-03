@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09d26348a6c56c2a7a26097e82874bcf0fdc8f948c51248546f8c84261facf28
-size 297
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
