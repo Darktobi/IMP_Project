@@ -20,6 +20,16 @@ public class MainMenu : MonoBehaviour {
 
 
         //Sound
+        if(PlayerPrefs.HasKey("music Volume"))
+        {
+            musicSlider.value = PlayerPrefs.GetFloat("music Volume");
+        }
+        if (PlayerPrefs.HasKey("sound Volume"))
+        {
+            soundSlider.value = PlayerPrefs.GetFloat("sound Volume");
+
+        }
+
         soundValue.text = soundSlider.value.ToString();
         musicValue.text = musicSlider.value.ToString();
 
@@ -41,6 +51,8 @@ public class MainMenu : MonoBehaviour {
         soundValue.text = soundSlider.value.ToString();
         musicValue.text = musicSlider.value.ToString();
         AudioListener.volume = soundSlider.value / 100;
+        PlayerPrefs.SetFloat("music Volume", musicSlider.value);
+        PlayerPrefs.SetFloat("sound Volume", soundSlider.value);
         //Debug.Log(AudioListener.volume);
     }
 
