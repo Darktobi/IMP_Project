@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9268bae0a5572f849a65cf204bbe810b
+timeCreated: 1510149124
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Jimmy Sans
+  fontNames:
+  - Jimmy Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1439551e4843e324d9ce78ee6d195a15, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
