@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour {
 
     public void Start()
     {
-
+        mainMenu.SetActive(true);
     }
 
     
