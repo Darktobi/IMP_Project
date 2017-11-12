@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour {
 
         //Sorgt dafür, dass das Spiel als ein neues geladen wird
         PlayerPrefs.SetInt("New Game", 1);
+
         //Debug.Log("PlayerPrefs deleted!");
         SceneManager.LoadScene("SurvivalIsland");
     }
