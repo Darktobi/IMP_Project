@@ -7,6 +7,8 @@ public class Location : MonoBehaviour {
     public List<Activity> activities;
     private bool isActive;
 
+    public string locationName; 
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -32,6 +34,7 @@ public class Location : MonoBehaviour {
         {
             if (activity.isAvaiable)
             {
+                activity.setCurrentLocation(this);
                 activity.gameObject.SetActive(true);
             }
             

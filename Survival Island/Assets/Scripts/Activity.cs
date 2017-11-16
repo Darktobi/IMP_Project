@@ -5,7 +5,10 @@ using UnityEngine;
 public class Activity : MonoBehaviour {
 
     public int activityPoints;
-    public int duration;
+    public float workingTime;
+    public string activityName;
+
+    public Location currentLocation;
 
     public bool isAvaiable;
     
@@ -18,6 +21,12 @@ public class Activity : MonoBehaviour {
     {
 
         isAvaiable = true;
+    }
+
+ 
+    public void setCurrentLocation(Location currentLocation)
+    {
+        this.currentLocation = currentLocation;
     }
 	
 
