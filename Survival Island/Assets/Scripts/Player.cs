@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     private bool isWorking;
     private Location currentLocation;
     private Activity currentWork;
+    private MaterialManager materialManager;
 
     private float workingTime;
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour {
         activityPoints = 5;
         workingTime = 0;
         isWorking = false;
+        materialManager = new MaterialManager();
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,8 @@ public class Player : MonoBehaviour {
             {
                 isWorking = false;
                 workingTime = 0;
-                
+
+                collectMaterials();
                 //ToDo: Set a basic location and basic work
                 currentLocation = null;
                 currentWork = null;
@@ -40,6 +43,15 @@ public class Player : MonoBehaviour {
         }
         
 	}
+
+    private void collectMaterials()
+    {
+        List<string> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
+       foreach(string collectedMaterial in collectedMaterials)
+        {
+            Debug.Log("Folgende Materialien gesammelt: " + collectedMaterial);
+        }
+    }
 
     public int getHealth()
     {

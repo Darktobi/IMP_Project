@@ -2114,7 +2114,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -4804,7 +4804,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -5154,6 +5154,9 @@ MonoBehaviour:
   activityPoints: 3
   workingTime: 20
   activityName: Fischen
+  collectableMaterials:
+  - Makrele
+  - Kugelfisch
   currentLocation: {fileID: 0}
   isAvaiable: 0
 --- !u!114 &1167702415
@@ -7342,6 +7345,9 @@ MonoBehaviour:
   activities:
   - {fileID: 1769405257}
   - {fileID: 1167702414}
+  collectableMaterials:
+  - Muscheln
+  - Makrele
   locationName: Strand
 --- !u!1 &1433902500
 GameObject:
@@ -8335,6 +8341,8 @@ MonoBehaviour:
   activityPoints: 2
   workingTime: 25
   activityName: Holz hacken
+  collectableMaterials:
+  - Holz
   currentLocation: {fileID: 0}
   isAvaiable: 1
 --- !u!114 &1580361108
@@ -8801,6 +8809,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activities:
   - {fileID: 1167702414}
+  collectableMaterials:
+  - Makrele
+  - Kugelfisch
   locationName: Meer
 --- !u!1 &1698135960
 GameObject:
@@ -9261,6 +9272,9 @@ MonoBehaviour:
   activityPoints: 2
   workingTime: 10
   activityName: Sammeln
+  collectableMaterials:
+  - Muscheln
+  - Pilze
   currentLocation: {fileID: 0}
   isAvaiable: 1
 --- !u!1 &1819802323
@@ -9565,7 +9579,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -10063,6 +10077,9 @@ MonoBehaviour:
   activities:
   - {fileID: 1769405257}
   - {fileID: 1580361107}
+  collectableMaterials:
+  - Pilze
+  - Holz
   locationName: Wald
 --- !u!1 &1921745806
 GameObject:
