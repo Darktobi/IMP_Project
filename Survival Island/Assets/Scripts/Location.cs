@@ -10,10 +10,6 @@ public class Location : MonoBehaviour {
 
     public string locationName; 
 
-	// Use this for initialization
-	void Start () {
-	}
-
     public bool checkActive()
     {
         // Location is only active if there is at least one avaiable activity
