@@ -11,11 +11,13 @@ public class Player : MonoBehaviour {
     private Activity currentWork;
     private MaterialManager materialManager;
 
+    public Inventory inventory;
+
     private float workingTime;
 
 	// Use this for initialization
 	void Start () {
-        activityPoints = 5;
+        activityPoints = 10;
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
@@ -46,10 +48,10 @@ public class Player : MonoBehaviour {
 
     private void collectMaterials()
     {
-        List<string> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
-       foreach(string collectedMaterial in collectedMaterials)
+        List<Mat> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
+       foreach(Mat collectedMaterial in collectedMaterials)
         {
-            Debug.Log("Folgende Materialien gesammelt: " + collectedMaterial);
+            inventory.addItem(collectedMaterial);
         }
     }
 

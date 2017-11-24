@@ -15,6 +15,8 @@ public class InventoryHandler : MonoBehaviour {
     public GameObject eqList;
     public GameObject toolsList;
 
+    public Inventory inventory;
+
 
     public void Start()
     {
@@ -28,17 +30,19 @@ public class InventoryHandler : MonoBehaviour {
     }
 
     
-
-
     public void OpenEQ()
     {
         btnFood.color = darkened;
         btnTools.color = darkened;
         btnEQ.color = white;
 
+        
+
         eqList.SetActive(true);
         toolsList.SetActive(false);
         foodList.SetActive(false);
+
+        inventory.showItems(typeof(Equipment));
     }
 
     public void OpenFood()
@@ -50,6 +54,8 @@ public class InventoryHandler : MonoBehaviour {
         foodList.SetActive(true);
         eqList.SetActive(false);
         toolsList.SetActive(false);
+
+        inventory.showItems(typeof(Food));
     }
 
     public void OpenTools()
@@ -61,6 +67,13 @@ public class InventoryHandler : MonoBehaviour {
         toolsList.SetActive(true);
         eqList.SetActive(false);
         foodList.SetActive(false);
+
+        inventory.showItems(typeof(Tool));
+    }
+
+    public void OpenMaterials()
+    {
+        inventory.showItems(typeof(Mat));
     }
 
 
