@@ -8,12 +8,14 @@ public class InventoryHandler : MonoBehaviour {
     public Image btnEQ;
     public Image btnFood;
     public Image btnTools;
+    public Image btnMats;
     private Color32 white;
     private Color32 darkened;
 
     public GameObject foodList;
     public GameObject eqList;
     public GameObject toolsList;
+    public GameObject matsList;
 
     public Inventory inventory;
 
@@ -23,57 +25,63 @@ public class InventoryHandler : MonoBehaviour {
         white = new Color32(255, 255, 255, 255);
         darkened = new Color32(191, 191, 191, 255);
 
-        btnEQ.color = white;
-        btnFood.color = darkened;
-        btnTools.color = darkened;
+        OpenEQ();
 
     }
 
     
     public void OpenEQ()
     {
-        btnFood.color = darkened;
-        btnTools.color = darkened;
+        DarkenAll();
         btnEQ.color = white;
 
-        
-
+        CloseAll();
         eqList.SetActive(true);
-        toolsList.SetActive(false);
-        foodList.SetActive(false);
-
         inventory.showItems(typeof(Equipment));
     }
 
     public void OpenFood()
     {
-        btnEQ.color = darkened;
-        btnTools.color = darkened;
+        DarkenAll();
         btnFood.color = white;
 
+        CloseAll();
         foodList.SetActive(true);
-        eqList.SetActive(false);
-        toolsList.SetActive(false);
-
         inventory.showItems(typeof(Food));
     }
 
     public void OpenTools()
     {
-        btnEQ.color = darkened;
-        btnFood.color = darkened;
+        DarkenAll();
         btnTools.color = white;
-
+        CloseAll();
         toolsList.SetActive(true);
-        eqList.SetActive(false);
-        foodList.SetActive(false);
-
         inventory.showItems(typeof(Tool));
     }
 
     public void OpenMaterials()
     {
+        DarkenAll();
+        btnMats.color = white;
+        CloseAll();
+        matsList.SetActive(true);
         inventory.showItems(typeof(Mat));
+    }
+
+    private void DarkenAll()
+    {
+        btnEQ.color = darkened;
+        btnFood.color = darkened;
+        btnTools.color = darkened;
+        btnMats.color = darkened;
+    }
+
+    private void CloseAll()
+    {
+        eqList.SetActive(false);
+        toolsList.SetActive(false);
+        foodList.SetActive(false);
+        matsList.SetActive(false);
     }
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour {
     private MaterialManager materialManager;
 
     public Inventory inventory;
+    public Text currentLocationText;
 
     private float workingTime;
 
@@ -21,7 +23,11 @@ public class Player : MonoBehaviour {
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
-	}
+
+        //Keine aktuelle aufgabe vom start her -- Platzhalter
+        PlayerPrefs.SetString("CurrentLocationName", "Camp");
+        PlayerPrefs.SetString("CurrentActivityName", "None");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,10 +47,17 @@ public class Player : MonoBehaviour {
                 currentWork = null;
 
                 Debug.Log("Fertig mit Tätigkeit");
+                
+                //Am lager chillen
+                PlayerPrefs.SetString("CurrentLocationName", "Camp");
+                PlayerPrefs.SetString("CurrentActivityName", "None");
+
             }
         }
-        
-	}
+
+        //Zuweisung der Aktuellen Tätigkeit und Ort zum Text in der UI
+        currentLocationText.text = PlayerPrefs.GetString("CurrentLocationName") + ": " + PlayerPrefs.GetString("CurrentActivityName");
+    }
 
     private void collectMaterials()
     {
@@ -55,14 +68,14 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public int getHealth()
+    public float getHealth()
     {
-        return health;
+        return PlayerPrefs.GetFloat("foodValue");
     }
 
-    public int getActivityPoints()
+    public float getActivityPoints()
     {
-        return activityPoints;
+        return PlayerPrefs.GetFloat("apValue");
     }
 
     public void setActivity(Activity activity)
@@ -77,7 +90,12 @@ public class Player : MonoBehaviour {
                 workingTime = currentWork.workingTime;
                 isWorking = true;
                 Debug.Log("Der Spieler befindet sich an folgenden Ort: " + currentLocation.locationName + " und führt folgende Tätigkeit aus: " + currentWork.activityName);
-            }
+
+                //Zuweisung der aktuellen Location in die Playerprefs
+                PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
+                PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
+
+}
             else
             {
                 Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
