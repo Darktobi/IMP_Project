@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour {
 
     public string name;
+    public List<Item> neededMaterials;
 
     private int count;
 

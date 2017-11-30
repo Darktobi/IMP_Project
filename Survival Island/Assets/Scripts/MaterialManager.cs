@@ -5,10 +5,10 @@ using UnityEngine;
 public class MaterialManager : MonoBehaviour {
 
 
-    public List<Mat> collectMaterials(Activity activity, Location location)
+    public List<Item> collectMaterials(Activity activity, Location location)
     {
-        List<Mat> collectedMaterials = new List<Mat>();
-        foreach (Mat activityMaterial in activity.collectableMaterials)
+        List<Item> collectedMaterials = new List<Item>();
+        foreach (Item activityMaterial in activity.collectableMaterials)
         {
             if (location.collectableMaterials.Contains(activityMaterial))
             {

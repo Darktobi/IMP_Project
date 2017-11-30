@@ -134,6 +134,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 759865121}
+  - {fileID: 2094774460}
   m_Father: {fileID: 1094517373}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -668,7 +669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2122866055}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &202645416
 MonoBehaviour:
@@ -682,6 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Pilz
+  neededMaterials: []
 --- !u!1 &212251311
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2122866055}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &216853099
 MonoBehaviour:
@@ -840,6 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Muschel
+  neededMaterials: []
 --- !u!1001 &221805960
 Prefab:
   m_ObjectHideFlags: 0
@@ -965,6 +968,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &266732670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 266732672}
+  - component: {fileID: 266732671}
+  m_Layer: 0
+  m_Name: Crafter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &266732671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266732670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e028cc3abd980f4dab5ac44f86a2487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftableItems:
+  - {fileID: 600988153}
+  - {fileID: 759865122}
+  - {fileID: 361121760}
+  inventory: {fileID: 1969177562}
+--- !u!4 &266732672
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266732670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 782.73334, y: 611.8311, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330866064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,47 +1241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Axt
---- !u!1 &366756598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 366756599}
-  - component: {fileID: 366756600}
-  m_Layer: 0
-  m_Name: Mackerele
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &366756599
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 366756598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2122866055}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &366756600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 366756598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc578caaa640f64c87f509f3deee606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Makele
+  neededMaterials:
+  - {fileID: 216853099}
+  - {fileID: 1652516305}
 --- !u!1 &378518339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2065,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Schwert
+  neededMaterials:
+  - {fileID: 1652516305}
+  - {fileID: 1652516305}
 --- !u!1 &611674825
 GameObject:
   m_ObjectHideFlags: 0
@@ -3292,7 +3305,7 @@ GameObject:
   - component: {fileID: 759865121}
   - component: {fileID: 759865122}
   m_Layer: 0
-  m_Name: Meat
+  m_Name: RoastedMackerele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3322,7 +3335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Fleisch
+  name: Gebratene Makrele
+  neededMaterials:
+  - {fileID: 2094774461}
 --- !u!1 &771197496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4486,7 +4501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2122866055}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1035995108
 MonoBehaviour:
@@ -4500,6 +4515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Kugelfisch
+  neededMaterials: []
 --- !u!1 &1058747157 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007,
@@ -5531,10 +5547,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 3
-  workingTime: 15
+  workingTime: 25
   activityName: Fischen
   collectableMaterials:
-  - {fileID: 366756600}
+  - {fileID: 2094774461}
   - {fileID: 1035995108}
   currentLocation: {fileID: 0}
   isAvaiable: 1
@@ -7711,6 +7727,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 266732671}
+        m_MethodName: craft
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 600988153}
+          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1412792903
@@ -7885,7 +7912,7 @@ MonoBehaviour:
   - {fileID: 1167702414}
   collectableMaterials:
   - {fileID: 216853099}
-  - {fileID: 366756600}
+  - {fileID: 2094774461}
   locationName: Strand
 --- !u!1 &1433902500
 GameObject:
@@ -8877,7 +8904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 25
+  workingTime: 15
   activityName: Holz hacken
   collectableMaterials:
   - {fileID: 1652516305}
@@ -9069,7 +9096,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2122866055}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1652516305
 MonoBehaviour:
@@ -9083,6 +9110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Holz
+  neededMaterials: []
 --- !u!224 &1654618125 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224057858957955374, guid: 43b92f912f11aac43af0621cb3d4a007,
@@ -9463,7 +9491,7 @@ MonoBehaviour:
   activities:
   - {fileID: 1167702414}
   collectableMaterials:
-  - {fileID: 366756600}
+  - {fileID: 2094774461}
   - {fileID: 1035995108}
   locationName: Meer
 --- !u!1 &1698135960
@@ -9788,6 +9816,7 @@ MonoBehaviour:
   foodList: {fileID: 213459646}
   eqList: {fileID: 1058747157}
   toolsList: {fileID: 389875539}
+  crafter: {fileID: 266732671}
 --- !u!1 &1769405252
 GameObject:
   m_ObjectHideFlags: 0
@@ -10013,6 +10042,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 266732671}
+        m_MethodName: craft
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 759865122}
+          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10557,6 +10597,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 266732671}
+        m_MethodName: craft
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 361121760}
+          m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11543,6 +11594,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2081356439}
+--- !u!1 &2094774459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2094774460}
+  - component: {fileID: 2094774461}
+  m_Layer: 0
+  m_Name: Mackerele
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2094774460
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2094774459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 72173080}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094774461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2094774459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Mackrele
+  neededMaterials:
+  - {fileID: 0}
 --- !u!1 &2095877695
 GameObject:
   m_ObjectHideFlags: 0
@@ -11683,7 +11777,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 366756599}
   - {fileID: 202645415}
   - {fileID: 1035995107}
   - {fileID: 216853098}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Location : MonoBehaviour {
 
     public List<Activity> activities;
-    public List<Mat> collectableMaterials;
+    public List<Item> collectableMaterials;
     private bool isActive;
 
     public string locationName; 

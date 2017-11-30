@@ -39,16 +39,22 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    public void subItem(Item item)
+    public bool subItem(Item item)
     {
         if (items.Contains(item))
         {
             item.subCount();
 
-            if(item.getCount() == 0)
+            if (item.getCount() == 0)
             {
                 items.Remove(item);
             }
+            return true;
         }
+
+        return false;
+        
+        
     }
+
 }

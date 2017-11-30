@@ -7,7 +7,7 @@ public class Activity : MonoBehaviour {
     public int activityPoints;
     public float workingTime;
     public string activityName;
-    public List<Mat> collectableMaterials;
+    public List<Item> collectableMaterials;
 
     public Location currentLocation;
 

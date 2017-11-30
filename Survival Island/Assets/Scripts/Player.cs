@@ -48,8 +48,8 @@ public class Player : MonoBehaviour {
 
     private void collectMaterials()
     {
-        List<Mat> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
-       foreach(Mat collectedMaterial in collectedMaterials)
+        List<Item> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
+       foreach(Item collectedMaterial in collectedMaterials)
         {
             inventory.addItem(collectedMaterial);
         }

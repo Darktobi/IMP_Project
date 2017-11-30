@@ -15,6 +15,8 @@ public class CraftingHandler : MonoBehaviour {
     public GameObject eqList;
     public GameObject toolsList;
 
+    public Crafter crafter;
+
 
     public void Start()
     {
@@ -39,6 +41,8 @@ public class CraftingHandler : MonoBehaviour {
         eqList.SetActive(true);
         toolsList.SetActive(false);
         foodList.SetActive(false);
+
+        crafter.showItems(typeof(Equipment));
     }
 
     public void OpenFood()
@@ -50,6 +54,8 @@ public class CraftingHandler : MonoBehaviour {
         foodList.SetActive(true);
         eqList.SetActive(false);
         toolsList.SetActive(false);
+
+        crafter.showItems(typeof(Food));
     }
 
     public void OpenTools()
@@ -61,6 +67,8 @@ public class CraftingHandler : MonoBehaviour {
         toolsList.SetActive(true);
         eqList.SetActive(false);
         foodList.SetActive(false);
+
+        crafter.showItems(typeof(Tool));
     }
 
 
