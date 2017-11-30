@@ -3332,6 +3332,7 @@ MonoBehaviour:
   name: Gebratene Makrele
   neededMaterials:
   - {fileID: 2094774461}
+  healthPoints: 10
 --- !u!1 &771197496
 GameObject:
   m_ObjectHideFlags: 0
@@ -11683,6 +11684,7 @@ MonoBehaviour:
   name: Mackrele
   neededMaterials:
   - {fileID: 0}
+  healthPoints: 5
 --- !u!1 &2095877695
 GameObject:
   m_ObjectHideFlags: 0

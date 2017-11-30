@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Food : Item {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public int healthPoints;
+
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

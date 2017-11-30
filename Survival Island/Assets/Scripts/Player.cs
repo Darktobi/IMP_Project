@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
+    private const int MAX_HEALTH = 100;
     private int health;
     private int activityPoints;
     private bool isWorking;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        health = MAX_HEALTH;
         activityPoints = 10;
         workingTime = 0;
         isWorking = false;
@@ -108,9 +110,31 @@ public class Player : MonoBehaviour {
        
     }
 
-    public void setHealth(int health)
+    public void eat(Food food)
     {
+        Debug.Log("Aktuelle Gesundheit: " + health);
+        if (inventory.subItem(food))
+        {
+            Debug.Log("Spieler geheilt um " + food.healthPoints);
+            setHealth(food.healthPoints);
 
+            Debug.Log("Gesundheit nach dem Essen: " + health);
+        }
+
+        else
+        {
+            Debug.Log(food.name + " nicht im Inventar vorhanden");
+        }
+    }
+
+    private void setHealth(int health)
+    {
+        this.health += health;
+
+        if(this.health >= MAX_HEALTH)
+        {
+            this.health = MAX_HEALTH;
+        }
     }
 
 }
