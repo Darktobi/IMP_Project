@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Equipment : Item {
 
+
+    public int str, kon, ges, wei;
+    public enum Types{ Weapon, Head, Breast, Hands, Legs, Feet };
+
+    public Types type;
+
 	// Use this for initialization
 	void Start () {
 		

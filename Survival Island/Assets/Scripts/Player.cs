@@ -9,10 +9,12 @@ public class Player : MonoBehaviour {
     private int health;
     private int activityPoints;
     private bool isWorking;
+    private int str, kon, ges, wei;
     private Location currentLocation;
     private Activity currentWork;
     private MaterialManager materialManager;
 
+    public Equipment weapon, head, breast, hands, legs, feet;
     public Inventory inventory;
     public Text currentLocationText;
 
@@ -25,6 +27,12 @@ public class Player : MonoBehaviour {
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
+
+        str = 5;
+        kon = 5;
+        ges = 5;
+        wei = 5;
+        Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
@@ -135,6 +143,68 @@ public class Player : MonoBehaviour {
         {
             this.health = MAX_HEALTH;
         }
+    }
+
+    public void equip(Equipment equipment)
+    {
+        if(equipment.type == Equipment.Types.Weapon)
+        {
+            unequip(weapon);
+            weapon = equipment;
+        }
+        else if(equipment.type == Equipment.Types.Head)
+        {
+            unequip(head);
+            head = equipment;
+        }
+        else if (equipment.type == Equipment.Types.Breast)
+        {
+            unequip(breast);
+            breast = equipment;
+        }
+        else if (equipment.type == Equipment.Types.Hands)
+        {
+            unequip(hands);
+            hands = equipment;
+        }
+        else if (equipment.type == Equipment.Types.Legs)
+        {
+            unequip(legs);
+            legs = equipment;
+        }
+        else if (equipment.type == Equipment.Types.Feet)
+        {
+            unequip(feet);
+            feet = equipment;
+        }
+
+        str += equipment.str;
+        kon += equipment.kon;
+        ges += equipment.ges;
+        wei += equipment.wei;
+        Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
+
+
+        /*
+        Debug.Log("Waffe: " + weapon.name);
+        Debug.Log("Kopf: " + head.name);
+        Debug.Log("Brust: " + breast.name);
+        Debug.Log("Hände: " + hands.name);
+        Debug.Log("Beine: " + legs.name);
+        Debug.Log("Füße: " + feet.name);
+        */
+    }
+
+    private void unequip(Equipment equipment)
+    {
+        if(equipment != null)
+        {
+            str -= equipment.str;
+            kon -= equipment.kon;
+            ges -= equipment.ges;
+            wei -= equipment.wei;
+        }
+
     }
 
 }
