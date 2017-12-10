@@ -115,8 +115,17 @@ public class Player : MonoBehaviour {
                 PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
                 PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
                 totalTime = workingTime;
-
-                PlayerPrefs.SetFloat("apValue", activityPoints);
+                Debug.Log("AP: "+ activityPoints);
+                if (activityPoints > PlayerPrefs.GetFloat("apMAX"))
+                {
+                    PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
+                    Debug.Log("Max AP erreicht.");
+                    activityPoints = PlayerPrefs.GetFloat("apMAX");
+                }
+                else
+                {
+                    PlayerPrefs.SetFloat("apValue", activityPoints);
+                }
                 Debug.Log("AP Werte: "+PlayerPrefs.GetFloat("apValue") + " : " + activityPoints);
             }
             else
@@ -124,28 +133,7 @@ public class Player : MonoBehaviour {
                 Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
             }
 
-            //Backup
-            //if (activityPoints >= activity.activityPoints)
-            //{
-            //    currentWork = activity;
-            //    currentLocation = currentWork.currentLocation;
-            //    activityPoints -= currentWork.activityPoints;
-            //    workingTime = currentWork.workingTime;
-            //    isWorking = true;
-            //    Debug.Log("Der Spieler befindet sich an folgenden Ort: " + currentLocation.locationName + " und führt folgende Tätigkeit aus: " + currentWork.activityName);
-
-            //    //Zuweisung der aktuellen Location in die Playerprefs
-            //    PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
-            //    PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
-            //    totalTime = workingTime;
-
-            //    //PlayerPrefs.SetFloat("apValue", activityPoints);
-            //    Debug.Log("AP Werte: " + PlayerPrefs.GetFloat("apValue") + " : " + activityPoints);
-            //}
-            //else
-            //{
-            //    Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
-            //}
+            
         }
         else
         {
