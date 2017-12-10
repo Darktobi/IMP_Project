@@ -17,6 +17,11 @@ public class CraftingHandler : MonoBehaviour {
 
     public Crafter crafter;
 
+    public Button itemButton;
+    public Transform eqPanel;
+    public Transform foodPanel;
+    public Transform toolsPanel;
+
 
     public void Start()
     {
@@ -26,6 +31,9 @@ public class CraftingHandler : MonoBehaviour {
         btnEQ.color = white;
         btnFood.color = darkened;
         btnTools.color = darkened;
+
+        OpenEQ();
+        loadLists();
 
     }
 
@@ -42,7 +50,7 @@ public class CraftingHandler : MonoBehaviour {
         toolsList.SetActive(false);
         foodList.SetActive(false);
 
-        crafter.showItems(typeof(Equipment));
+        //crafter.showItems(typeof(Equipment),itemButton, eqPanel);
     }
 
     public void OpenFood()
@@ -55,7 +63,7 @@ public class CraftingHandler : MonoBehaviour {
         eqList.SetActive(false);
         toolsList.SetActive(false);
 
-        crafter.showItems(typeof(Food));
+        /*crafter.showItems(typeof(Food), itemButton, foodPanel);*/
     }
 
     public void OpenTools()
@@ -68,7 +76,14 @@ public class CraftingHandler : MonoBehaviour {
         eqList.SetActive(false);
         foodList.SetActive(false);
 
-        crafter.showItems(typeof(Tool));
+        //crafter.showItems(typeof(Tool), itemButton, toolsPanel);
+    }
+
+    private void loadLists()
+    {
+        crafter.showItems(typeof(Tool), itemButton, toolsPanel);
+        crafter.showItems(typeof(Food), itemButton, foodPanel);
+        crafter.showItems(typeof(Equipment), itemButton, eqPanel);
     }
 
 

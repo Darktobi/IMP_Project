@@ -14,11 +14,16 @@ public class BarHandler : MonoBehaviour {
     public float apValue;
     public float foodValue;
 
-    private void Start()
+    private void Awake()
     {
         PlayerPrefs.SetFloat("foodMAX", 500);
         PlayerPrefs.SetFloat("apMAX", 8);
+
+        PlayerPrefs.SetFloat("apValue", apValue);
+        PlayerPrefs.SetFloat("foodValue", foodValue);
     }
+
+   
 
     // Update is called once per frame
     private void Update ()
@@ -26,9 +31,6 @@ public class BarHandler : MonoBehaviour {
         //Just placeholder for input
 
         SetRightValues();
-
-        PlayerPrefs.SetFloat("apValue", apValue);
-        PlayerPrefs.SetFloat("foodValue", foodValue);
 
         foodText.text= Mathf.Round(PlayerPrefs.GetFloat("foodValue")) + "/"+ PlayerPrefs.GetFloat("foodMAX");
         apText.text = Mathf.Round(PlayerPrefs.GetFloat("apValue")) + "/" + PlayerPrefs.GetFloat("apMAX");

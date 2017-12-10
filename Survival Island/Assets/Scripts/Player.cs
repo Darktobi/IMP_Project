@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
-    private const int MAX_HEALTH = 100;
-    private int health;
-    private int activityPoints;
+    //private const int MAX_HEALTH = 100;
+    private float health;
+    private float activityPoints;
     private bool isWorking;
     private int str, kon, ges, wei;
     private Location currentLocation;
@@ -17,36 +17,46 @@ public class Player : MonoBehaviour {
     public Equipment weapon, head, breast, hands, legs, feet;
     public Inventory inventory;
     public Text currentLocationText;
+    public Image durationBar;
 
     private float workingTime;
+    private float totalTime;
 
 	// Use this for initialization
 	void Start () {
-        health = MAX_HEALTH;
-        activityPoints = 10;
+        health = PlayerPrefs.GetFloat("foodMAX");
+        activityPoints = PlayerPrefs.GetFloat("apValue");
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
 
-        str = 5;
-        kon = 5;
-        ges = 5;
-        wei = 5;
+        str = PlayerPrefs.GetInt("STR");
+        kon = PlayerPrefs.GetInt("CON");
+        ges = PlayerPrefs.GetInt("FIN");
+        wei = PlayerPrefs.GetInt("WIS");
         Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
         PlayerPrefs.SetString("CurrentActivityName", "None");
+
+        durationBar.fillAmount = 1;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        
+        
         if (isWorking)
         {
             Debug.Log("Tätigkeitsdauer: " + workingTime + " Sekunden");
+            
             workingTime -= Time.deltaTime;
-            if(workingTime <= 0)
+
+            //in der Leiste darstellen
+            durationBar.fillAmount = workingTime/totalTime;
+
+            if (workingTime <= 0)
             {
                 isWorking = false;
                 workingTime = 0;
@@ -59,9 +69,9 @@ public class Player : MonoBehaviour {
                 Debug.Log("Fertig mit Tätigkeit");
                 
                 //Am lager chillen
-                PlayerPrefs.SetString("CurrentLocationName", "Camp");
-                PlayerPrefs.SetString("CurrentActivityName", "None");
-
+                PlayerPrefs.SetString("CurrentLocationName", "Lager");
+                PlayerPrefs.SetString("CurrentActivityName", "Nichts");
+                durationBar.fillAmount = 1;
             }
         }
 
@@ -92,7 +102,7 @@ public class Player : MonoBehaviour {
     {
         if (!isWorking)
         {
-            if (activityPoints >= activity.activityPoints)
+            if (PlayerPrefs.GetFloat("apValue") >= activity.activityPoints)
             {
                 currentWork = activity;
                 currentLocation = currentWork.currentLocation;
@@ -104,12 +114,38 @@ public class Player : MonoBehaviour {
                 //Zuweisung der aktuellen Location in die Playerprefs
                 PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
                 PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
+                totalTime = workingTime;
 
-}
+                PlayerPrefs.SetFloat("apValue", activityPoints);
+                Debug.Log("AP Werte: "+PlayerPrefs.GetFloat("apValue") + " : " + activityPoints);
+            }
             else
             {
                 Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
             }
+
+            //Backup
+            //if (activityPoints >= activity.activityPoints)
+            //{
+            //    currentWork = activity;
+            //    currentLocation = currentWork.currentLocation;
+            //    activityPoints -= currentWork.activityPoints;
+            //    workingTime = currentWork.workingTime;
+            //    isWorking = true;
+            //    Debug.Log("Der Spieler befindet sich an folgenden Ort: " + currentLocation.locationName + " und führt folgende Tätigkeit aus: " + currentWork.activityName);
+
+            //    //Zuweisung der aktuellen Location in die Playerprefs
+            //    PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
+            //    PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
+            //    totalTime = workingTime;
+
+            //    //PlayerPrefs.SetFloat("apValue", activityPoints);
+            //    Debug.Log("AP Werte: " + PlayerPrefs.GetFloat("apValue") + " : " + activityPoints);
+            //}
+            //else
+            //{
+            //    Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
+            //}
         }
         else
         {
@@ -139,9 +175,9 @@ public class Player : MonoBehaviour {
     {
         this.health += health;
 
-        if(this.health >= MAX_HEALTH)
+        if(this.health >= PlayerPrefs.GetFloat("foodMAX", 500))
         {
-            this.health = MAX_HEALTH;
+            this.health = PlayerPrefs.GetFloat("foodMAX", 500);
         }
     }
 

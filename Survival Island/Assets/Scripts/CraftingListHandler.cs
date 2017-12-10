@@ -11,18 +11,14 @@ public class CraftingListHandler : MonoBehaviour {
     public Transform parent;
     public Transform rowPanel;
     public int itemCount;
-    
+
+    public Crafter crafter;
 
     // Use this for initialization
     void Start () {
 
-        
-        for (int j = 0; j<itemCount; j++)
-        {
 
-            AddRow();
-            
-        }
+        
         
 	}
 	

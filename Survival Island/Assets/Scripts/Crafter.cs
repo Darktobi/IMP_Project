@@ -1,27 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Crafter : MonoBehaviour {
 
     public List<Item> craftableItems;
     public Inventory inventory;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
+    //Darstellung
+    
+    public int itemCount;
+    
 
-    public void showItems(System.Type type)
+
+    // Use this for initialization
+    private void Start () {
+        Debug.Log(gameObject.name + ", child of " + transform.parent.name);
+    }
+
+    public void showItems(System.Type type, Button button, Transform parentPanel)
     {
         foreach (Item item in craftableItems)
         {
+
             if (item.GetType().Equals(type))
             {
+                AddRow(item.name, button, parentPanel, item);
                 Debug.Log(item.name);
             }
         }
     }
+
+
 
     public void craft(Item item)
     {
@@ -60,5 +71,18 @@ public class Crafter : MonoBehaviour {
             inventory.addItem(mat);
         }
     }
+
+    private void AddRow(string name, Button button2, Transform parentPanel, Item item)
+    {
+
+        Debug.Log("Row Added: "+ name + " in " + item);
+        Button btnPanel = Instantiate(button2);
+        btnPanel.onClick.AddListener(()=> craft(item));
+        btnPanel.GetComponentInChildren<Text>().text = name;
+        btnPanel.transform.SetParent(parentPanel.GetComponent<Transform>());
+
+       
+    }
+    
 
 }

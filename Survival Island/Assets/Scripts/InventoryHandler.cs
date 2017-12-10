@@ -19,6 +19,12 @@ public class InventoryHandler : MonoBehaviour {
 
     public Inventory inventory;
 
+    public Button itemButton;
+    public Transform eqPanel;
+    public Transform foodPanel;
+    public Transform toolsPanel;
+    public Transform matsPanel;
+    public Transform rowPanel;
 
     public void Start()
     {
@@ -26,10 +32,14 @@ public class InventoryHandler : MonoBehaviour {
         darkened = new Color32(191, 191, 191, 255);
 
         OpenEQ();
-
+        //loadLists();
     }
 
-    
+    private void OnEnable()
+    {
+        OpenEQ();
+    }
+
     public void OpenEQ()
     {
         DarkenAll();
@@ -37,7 +47,8 @@ public class InventoryHandler : MonoBehaviour {
 
         CloseAll();
         eqList.SetActive(true);
-        inventory.showItems(typeof(Equipment));
+        inventory.clearPage(eqPanel);
+        inventory.showItems(typeof(Equipment), rowPanel, itemButton, eqPanel);
     }
 
     public void OpenFood()
@@ -47,7 +58,8 @@ public class InventoryHandler : MonoBehaviour {
 
         CloseAll();
         foodList.SetActive(true);
-        inventory.showItems(typeof(Food));
+        inventory.clearPage(foodPanel);
+        inventory.showItems(typeof(Food), rowPanel, itemButton, foodPanel);
     }
 
     public void OpenTools()
@@ -56,7 +68,8 @@ public class InventoryHandler : MonoBehaviour {
         btnTools.color = white;
         CloseAll();
         toolsList.SetActive(true);
-        inventory.showItems(typeof(Tool));
+        inventory.clearPage(toolsPanel);
+        inventory.showItems(typeof(Tool), rowPanel, itemButton, toolsPanel);
     }
 
     public void OpenMaterials()
@@ -65,7 +78,8 @@ public class InventoryHandler : MonoBehaviour {
         btnMats.color = white;
         CloseAll();
         matsList.SetActive(true);
-        inventory.showItems(typeof(Mat));
+        inventory.clearPage(matsPanel);
+        inventory.showItems(typeof(Mat), rowPanel, itemButton, matsPanel);
     }
 
     private void DarkenAll()
@@ -82,6 +96,15 @@ public class InventoryHandler : MonoBehaviour {
         toolsList.SetActive(false);
         foodList.SetActive(false);
         matsList.SetActive(false);
+    }
+
+    private void loadLists()
+    {
+        Debug.Log("inv loaded");
+        inventory.showItems(typeof(Tool), rowPanel, itemButton, toolsPanel);
+        inventory.showItems(typeof(Food), rowPanel, itemButton, foodPanel);
+        inventory.showItems(typeof(Equipment), rowPanel, itemButton, eqPanel);
+        inventory.showItems(typeof(Mat), rowPanel, itemButton, matsPanel);
     }
 
 
