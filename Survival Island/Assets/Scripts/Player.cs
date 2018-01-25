@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
     private Location currentLocation;
     private Activity currentWork;
     private MaterialManager materialManager;
+    private EventManager eventManager;
+    private GameEvent currentEvent;
 
     public Equipment weapon, head, breast, hands, legs, feet;
     public Inventory inventory;
@@ -29,12 +31,13 @@ public class Player : MonoBehaviour {
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
+        eventManager = new EventManager();
 
         str = PlayerPrefs.GetInt("STR");
         kon = PlayerPrefs.GetInt("CON");
         ges = PlayerPrefs.GetInt("FIN");
         wei = PlayerPrefs.GetInt("WIS");
-        Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
+       // Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
@@ -46,11 +49,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        
         if (isWorking)
-        {
-            Debug.Log("Tätigkeitsdauer: " + workingTime + " Sekunden");
-            
+        {   
             workingTime -= Time.deltaTime;
 
             //in der Leiste darstellen
@@ -62,11 +62,28 @@ public class Player : MonoBehaviour {
                 workingTime = 0;
 
                 collectMaterials();
+
+                if(currentLocation.locationName != "Lager")
+                {
+                    //Check if event occured
+                    if (eventManager.checkForEvent())
+                    {
+                        Debug.Log("Event ist eingetreten");
+                        currentEvent = eventManager.chooseEvent(currentLocation);
+
+                        if(currentEvent != null)
+                        {
+                            Debug.Log(currentEvent.title);
+                            Debug.Log(currentEvent.description);
+                        }
+                        
+                    }
+
+                }
+                
                 //ToDo: Set a basic location and basic work
                 currentLocation = null;
                 currentWork = null;
-
-                Debug.Log("Fertig mit Tätigkeit");
                 
                 //Am lager chillen
                 PlayerPrefs.SetString("CurrentLocationName", "Lager");
@@ -109,13 +126,11 @@ public class Player : MonoBehaviour {
                 activityPoints -= currentWork.activityPoints;
                 workingTime = currentWork.workingTime;
                 isWorking = true;
-                Debug.Log("Der Spieler befindet sich an folgenden Ort: " + currentLocation.locationName + " und führt folgende Tätigkeit aus: " + currentWork.activityName);
 
                 //Zuweisung der aktuellen Location in die Playerprefs
                 PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
                 PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
                 totalTime = workingTime;
-                Debug.Log("AP: "+ activityPoints);
                 if (activityPoints > PlayerPrefs.GetFloat("apMAX"))
                 {
                     PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
@@ -126,7 +141,6 @@ public class Player : MonoBehaviour {
                 {
                     PlayerPrefs.SetFloat("apValue", activityPoints);
                 }
-                Debug.Log("AP Werte: "+PlayerPrefs.GetFloat("apValue") + " : " + activityPoints);
             }
             else
             {

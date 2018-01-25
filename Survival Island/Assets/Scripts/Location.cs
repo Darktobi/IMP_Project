@@ -6,6 +6,8 @@ public class Location : MonoBehaviour {
 
     public List<Activity> activities;
     public List<Item> collectableMaterials;
+
+    public List<GameEvent> possibleEvents;
     private bool isActive;
 
     public string locationName; 

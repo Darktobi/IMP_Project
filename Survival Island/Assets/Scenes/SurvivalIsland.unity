@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: -10
-  workingTime: 30
+  workingTime: 1
   activityName: Schlafen
   collectableMaterials: []
   currentLocation: {fileID: 0}
@@ -2271,6 +2271,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 461555966}
+--- !u!1 &471255742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 471255743}
+  - component: {fileID: 471255744}
+  m_Layer: 0
+  m_Name: Beach_Sunny
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &471255743
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 471255742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &471255744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 471255742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sonniger Strand
+  description: "Du genie\xDFt das sch\xF6ne Wetter am Strand!"
+  changeItems: 0
+  hasDescision: 0
+  dangerLevel: 0
 --- !u!224 &478448643 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
@@ -2499,6 +2544,51 @@ MonoBehaviour:
   ges: 2
   wei: 0
   type: 3
+--- !u!1 &544929035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 544929036}
+  - component: {fileID: 544929037}
+  m_Layer: 0
+  m_Name: Forest_Tiger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &544929036
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544929035}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &544929037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544929035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Tiger
+  description: Du begegnest einem Wilden Tiger!
+  changeItems: 0
+  hasDescision: 0
+  dangerLevel: 2
 --- !u!1 &586666332 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1077192728202062, guid: d575514bae4e46041999f200f49f1d85,
@@ -4378,6 +4468,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844719779}
+--- !u!1 &845897518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 845897519}
+  - component: {fileID: 845897520}
+  m_Layer: 0
+  m_Name: Ocean_Storm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &845897519
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845897518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &845897520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845897518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sturmflut
+  description: "Du ger\xE4tst in einem Sturm."
+  changeItems: 0
+  hasDescision: 0
+  dangerLevel: 2
 --- !u!1 &854869898
 GameObject:
   m_ObjectHideFlags: 0
@@ -6253,7 +6388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 3
-  workingTime: 25
+  workingTime: 1
   activityName: Fischen
   collectableMaterials:
   - {fileID: 2094774461}
@@ -6649,6 +6784,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d575514bae4e46041999f200f49f1d85, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1187115819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1187115820}
+  - component: {fileID: 1187115821}
+  m_Layer: 0
+  m_Name: Find_Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187115820
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187115819}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187115821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1187115819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Item gefunden
+  description: Du hast eine Truhe gefunden.
+  changeItems: 1
+  hasDescision: 0
+  dangerLevel: 0
 --- !u!1 &1189108738
 GameObject:
   m_ObjectHideFlags: 0
@@ -6977,6 +7157,51 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1244337415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1244337416}
+  - component: {fileID: 1244337417}
+  m_Layer: 0
+  m_Name: Beach_Dead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244337416
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244337415}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244337417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244337415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Gestorben am Strand
+  description: "Du k\xF6nntest sterben. Gefahr"
+  changeItems: 0
+  hasDescision: 0
+  dangerLevel: 2
 --- !u!1 &1284265536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8724,6 +8949,14 @@ MonoBehaviour:
   collectableMaterials:
   - {fileID: 216853099}
   - {fileID: 2094774461}
+  possibleEvents:
+  - {fileID: 471255744}
+  - {fileID: 2080029413}
+  - {fileID: 1187115821}
+  - {fileID: 1244337417}
+  - {fileID: 845897520}
+  - {fileID: 544929037}
+  - {fileID: 1589311797}
   locationName: Strand
 --- !u!1 &1433902500
 GameObject:
@@ -9763,7 +9996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 15
+  workingTime: 1
   activityName: Holz hacken
   collectableMaterials:
   - {fileID: 1652516305}
@@ -9865,6 +10098,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1580361105}
+--- !u!1 &1589311795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1589311796}
+  - component: {fileID: 1589311797}
+  m_Layer: 0
+  m_Name: Forest_Mushroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1589311796
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589311795}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589311797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589311795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Pilz gefunden
+  description: Du findest einen seltsamen Pilz. Dieser sieht sehr lecker aus.
+  changeItems: 0
+  hasDescision: 0
+  dangerLevel: 1
 --- !u!1 &1626802546
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,6 +10688,9 @@ MonoBehaviour:
   collectableMaterials:
   - {fileID: 2094774461}
   - {fileID: 1035995108}
+  possibleEvents:
+  - {fileID: 845897520}
+  - {fileID: 1187115821}
   locationName: Meer
 --- !u!1 &1698135960
 GameObject:
@@ -10485,6 +10766,41 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1698135960}
+--- !u!1 &1703701637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1703701638}
+  m_Layer: 0
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703701638
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1703701637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 782.73334, y: 611.8311, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 471255743}
+  - {fileID: 2080029412}
+  - {fileID: 845897519}
+  - {fileID: 544929036}
+  - {fileID: 1589311796}
+  - {fileID: 1187115820}
+  - {fileID: 1244337416}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714162806
 GameObject:
   m_ObjectHideFlags: 0
@@ -10679,6 +10995,7 @@ MonoBehaviour:
   activities:
   - {fileID: 461555968}
   collectableMaterials: []
+  possibleEvents: []
   locationName: Lager
 --- !u!224 &1761386001
 RectTransform:
@@ -11023,7 +11340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 10
+  workingTime: 1
   activityName: Sammeln
   collectableMaterials:
   - {fileID: 202645416}
@@ -12048,6 +12365,10 @@ MonoBehaviour:
   collectableMaterials:
   - {fileID: 202645416}
   - {fileID: 1652516305}
+  possibleEvents:
+  - {fileID: 544929037}
+  - {fileID: 1589311797}
+  - {fileID: 1187115821}
   locationName: Wald
 --- !u!1 &1921745806
 GameObject:
@@ -12720,6 +13041,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064000742}
+--- !u!1 &2080029411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2080029412}
+  - component: {fileID: 2080029413}
+  m_Layer: 0
+  m_Name: Beach_Waves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2080029412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080029411}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080029413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080029411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Riesige Wellen
+  description: Du wirst von einer riesigen Welle getroffen
+  changeItems: 0
+  hasDescision: 0
+  dangerLevel: 1
 --- !u!1 &2081356439
 GameObject:
   m_ObjectHideFlags: 0

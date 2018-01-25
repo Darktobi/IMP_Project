@@ -13,7 +13,7 @@ public class MaterialManager : MonoBehaviour {
             if (location.collectableMaterials.Contains(activityMaterial))
             {
                 collectedMaterials.Add(activityMaterial);
-                Debug.Log("Added: "+ activityMaterial);
+                //Debug.Log("Added: "+ activityMaterial);
             }
             
         }

@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour {
     public void clearPage(Transform parentPanel)
     {
 
-        Debug.Log("Cleared!");
+        //Debug.Log("Cleared!");
         foreach (Transform child in parentPanel) {
             GameObject.Destroy(child.gameObject);
         }
