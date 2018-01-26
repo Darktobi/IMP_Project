@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEvent : MonoBehaviour {
+public abstract class GameEvent : MonoBehaviour {
 
 
     public string title;
     public string description;
 
-    public bool changeItems;
     public bool hasDescision;
 
     public enum DangerLevel { None, Medium, High };
@@ -16,13 +15,6 @@ public class GameEvent : MonoBehaviour {
     public DangerLevel dangerLevel;
 
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public abstract void run(Player player);
+
 }

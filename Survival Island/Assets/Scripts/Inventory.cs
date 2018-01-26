@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour {
         num = 0;
     }
 
+    
+
     public void showItems(System.Type type, Transform rowPanel, Button button, Transform parentPanel)
     {
         foreach(Item item in items)

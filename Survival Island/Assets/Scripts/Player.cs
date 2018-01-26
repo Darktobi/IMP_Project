@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         health = PlayerPrefs.GetFloat("foodMAX");
+        PlayerPrefs.SetFloat("foodValue", health);
         activityPoints = PlayerPrefs.GetFloat("apValue");
         workingTime = 0;
         isWorking = false;
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+
         if (isWorking)
         {   
             workingTime -= Time.deltaTime;
@@ -75,6 +77,7 @@ public class Player : MonoBehaviour {
                         {
                             Debug.Log(currentEvent.title);
                             Debug.Log(currentEvent.description);
+                            currentEvent.run(this);
                         }
                         
                     }
@@ -96,14 +99,6 @@ public class Player : MonoBehaviour {
         currentLocationText.text = PlayerPrefs.GetString("CurrentLocationName") + ": " + PlayerPrefs.GetString("CurrentActivityName");
     }
 
-    private void collectMaterials()
-    {
-        List<Item> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
-       foreach(Item collectedMaterial in collectedMaterials)
-        {
-            inventory.addItem(collectedMaterial);
-        }
-    }
 
     public float getHealth()
     {
@@ -113,6 +108,12 @@ public class Player : MonoBehaviour {
     public float getActivityPoints()
     {
         return PlayerPrefs.GetFloat("apValue");
+    }
+
+    public void changeStatus(int health, int activityPoints)
+    {
+        setHealth(health);
+        setActivityPoints(activityPoints);
     }
 
     public void setActivity(Activity activity)
@@ -131,6 +132,8 @@ public class Player : MonoBehaviour {
                 PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
                 PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
                 totalTime = workingTime;
+
+                //TODO: Bedingung anpassen für Fal, dass apMAX erhöht wird
                 if (activityPoints > PlayerPrefs.GetFloat("apMAX"))
                 {
                     PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
@@ -173,24 +176,14 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void setHealth(int health)
-    {
-        this.health += health;
-
-        if(this.health >= PlayerPrefs.GetFloat("foodMAX", 500))
-        {
-            this.health = PlayerPrefs.GetFloat("foodMAX", 500);
-        }
-    }
-
     public void equip(Equipment equipment)
     {
-        if(equipment.type == Equipment.Types.Weapon)
+        if (equipment.type == Equipment.Types.Weapon)
         {
             unequip(weapon);
             weapon = equipment;
         }
-        else if(equipment.type == Equipment.Types.Head)
+        else if (equipment.type == Equipment.Types.Head)
         {
             unequip(head);
             head = equipment;
@@ -222,16 +215,39 @@ public class Player : MonoBehaviour {
         wei += equipment.wei;
         Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
 
-
-        /*
-        Debug.Log("Waffe: " + weapon.name);
-        Debug.Log("Kopf: " + head.name);
-        Debug.Log("Brust: " + breast.name);
-        Debug.Log("Hände: " + hands.name);
-        Debug.Log("Beine: " + legs.name);
-        Debug.Log("Füße: " + feet.name);
-        */
     }
+
+    private void collectMaterials()
+    {
+        List<Item> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
+        foreach (Item collectedMaterial in collectedMaterials)
+        {
+            inventory.addItem(collectedMaterial);
+        }
+    }
+
+    private void setHealth(int health)
+    {
+        this.health += health;
+        PlayerPrefs.SetFloat("foodValue", this.health);
+
+        if (this.health >= PlayerPrefs.GetFloat("foodMAX", 500))
+        {
+            this.health = PlayerPrefs.GetFloat("foodMAX", 500);
+        }
+    }
+
+    private void setActivityPoints(int activityPoints)
+    {
+        this.activityPoints += activityPoints;
+        PlayerPrefs.SetFloat("apValue", this.activityPoints);
+
+        if (this.activityPoints >= PlayerPrefs.GetFloat("apValue", 10))
+        {
+            this.activityPoints = PlayerPrefs.GetFloat("apValue", 10);
+        }
+    }
+
 
     private void unequip(Equipment equipment)
     {
