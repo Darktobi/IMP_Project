@@ -13,7 +13,7 @@ public class EventManager : MonoBehaviour {
 
         // 25% Chance, dass Event eintritt
         // Zu Testzwecken tritt Event zurzeit immer ein
-        if(number > 0)
+        if(number > 74)
         {
             return true;
         }

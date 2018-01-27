@@ -1465,7 +1465,7 @@ Transform:
   m_Children:
   - {fileID: 1187115820}
   m_Father: {fileID: 1703701638}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &378518339
 GameObject:
@@ -2199,7 +2199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: -10
-  workingTime: 1
+  workingTime: 30
   activityName: Schlafen
   collectableMaterials: []
   currentLocation: {fileID: 0}
@@ -2381,6 +2381,52 @@ Transform:
   m_Father: {fileID: 456481303}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &489286890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 489286891}
+  - component: {fileID: 489286892}
+  m_Layer: 0
+  m_Name: Ocean_Shark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &489286891
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 489286890}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 645395778}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &489286892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 489286890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec78336546ca1804abeac8627b66d173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Hai
+  description: Ein Hai greift dich an!
+  hasDescision: 0
+  dangerLevel: 2
+  str: 20
+  Max_health: 50
 --- !u!1 &498505869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,7 +2646,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1703701638}
+  m_Father: {fileID: 645395778}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &544929037
@@ -2611,9 +2657,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 544929035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Script: {fileID: 11500000, guid: ec78336546ca1804abeac8627b66d173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Tiger
+  description: Ein Tiger taucht auf und greift dich an!
+  hasDescision: 0
+  dangerLevel: 2
+  str: 10
+  Max_health: 20
 --- !u!1 &586666332 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1077192728202062, guid: d575514bae4e46041999f200f49f1d85,
@@ -3074,6 +3126,36 @@ Prefab:
     - {fileID: 114229009449697004, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &645395777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 645395778}
+  m_Layer: 0
+  m_Name: BattleEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &645395778
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 645395777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 544929036}
+  - {fileID: 489286891}
+  m_Father: {fileID: 1703701638}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649522185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,8 +4805,9 @@ Transform:
   - {fileID: 471255743}
   - {fileID: 2080029412}
   - {fileID: 845897519}
+  - {fileID: 1589311796}
   m_Father: {fileID: 1703701638}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907256092
 GameObject:
@@ -6445,7 +6528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 3
-  workingTime: 1
+  workingTime: 20
   activityName: Fischen
   collectableMaterials:
   - {fileID: 2094774461}
@@ -7218,46 +7301,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1244337415
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1244337416}
-  - component: {fileID: 1244337417}
-  m_Layer: 0
-  m_Name: Beach_Dead
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1244337416
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1244337415}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1703701638}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1244337417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1244337415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1284265536
 GameObject:
   m_ObjectHideFlags: 0
@@ -10048,7 +10091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 1
+  workingTime: 20
   activityName: Holz hacken
   collectableMaterials:
   - {fileID: 1652516305}
@@ -10176,8 +10219,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1703701638}
-  m_RootOrder: 1
+  m_Father: {fileID: 895895701}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1589311797
 MonoBehaviour:
@@ -10187,9 +10230,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1589311795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91872f02f24332c48b5cd8c730799564, type: 3}
+  m_Script: {fileID: 11500000, guid: cda3f9b3cadfa554fbb91cced1d760e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Pilz
+  description: Du findest einen Pilz im Wald und isst ihn. Leider bekommt er dir nicht
+    gut.
+  hasDescision: 0
+  dangerLevel: 1
+  healthPoints: -50
+  activityPoints: 0
 --- !u!1 &1626802546
 GameObject:
   m_ObjectHideFlags: 0
@@ -10737,6 +10787,7 @@ MonoBehaviour:
   - {fileID: 1035995108}
   possibleEvents:
   - {fileID: 845897520}
+  - {fileID: 489286892}
   locationName: Meer
 --- !u!1 &1698135960
 GameObject:
@@ -10837,11 +10888,9 @@ Transform:
   m_LocalPosition: {x: 782.73334, y: 611.8311, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 544929036}
-  - {fileID: 1589311796}
-  - {fileID: 1244337416}
   - {fileID: 364545215}
   - {fileID: 895895701}
+  - {fileID: 645395778}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11384,7 +11433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 1
+  workingTime: 15
   activityName: Sammeln
   collectableMaterials:
   - {fileID: 202645416}
@@ -12410,9 +12459,8 @@ MonoBehaviour:
   - {fileID: 202645416}
   - {fileID: 1652516305}
   possibleEvents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 544929037}
+  - {fileID: 1589311797}
   locationName: Wald
 --- !u!1 &1921745806
 GameObject:

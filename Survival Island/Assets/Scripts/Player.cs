@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -105,9 +106,15 @@ public class Player : MonoBehaviour {
         return PlayerPrefs.GetFloat("foodValue");
     }
 
+
     public float getActivityPoints()
     {
         return PlayerPrefs.GetFloat("apValue");
+    }
+
+    public int getStr()
+    {
+        return PlayerPrefs.GetInt("STR");
     }
 
     public void changeStatus(int health, int activityPoints)
@@ -229,23 +236,43 @@ public class Player : MonoBehaviour {
     private void setHealth(int health)
     {
         this.health += health;
+
+        if (this.health <= 0)
+        {
+            // Vorrübergehend, bis bessere Lösung
+            Debug.Log("Spieler ist gestorben! ");
+            SceneManager.LoadScene("MainMenu");
+        }
+
         PlayerPrefs.SetFloat("foodValue", this.health);
 
         if (this.health >= PlayerPrefs.GetFloat("foodMAX", 500))
         {
             this.health = PlayerPrefs.GetFloat("foodMAX", 500);
         }
+
+
     }
 
     private void setActivityPoints(int activityPoints)
     {
         this.activityPoints += activityPoints;
+
+        if (this.activityPoints < 0)
+        {
+            this.activityPoints = 0;
+        }
+
         PlayerPrefs.SetFloat("apValue", this.activityPoints);
 
         if (this.activityPoints >= PlayerPrefs.GetFloat("apValue", 10))
         {
             this.activityPoints = PlayerPrefs.GetFloat("apValue", 10);
         }
+
+        
+
+        
     }
 
 
