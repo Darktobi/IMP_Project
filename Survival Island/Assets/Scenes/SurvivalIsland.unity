@@ -322,12 +322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Eisenhose
+  name: 
   neededMaterials: []
   str: 0
-  kon: 5
-  ges: 2
-  wei: 4
+  con: 0
+  agi: 0
+  wis: 0
   type: 4
 --- !u!1 &167354864
 GameObject:
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 168934625}
   - component: {fileID: 168934624}
   m_Layer: 5
-  m_Name: Text_Finesse
+  m_Name: Text_Agility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 191030064}
   - component: {fileID: 191030063}
   m_Layer: 5
-  m_Name: Text_Finesse
+  m_Name: Text_Agility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1056,7 +1056,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -1171,12 +1171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Eisenstiefel
+  name: 
   neededMaterials: []
   str: 1
-  kon: 15
-  ges: 3
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 5
 --- !u!1 &330866064
 GameObject:
@@ -1435,9 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Axt
-  neededMaterials:
-  - {fileID: 216853099}
-  - {fileID: 1652516305}
+  neededMaterials: []
 --- !u!1 &378518339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,7 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: -10
-  workingTime: 30
+  workingTime: 1
   activityName: Schlafen
   collectableMaterials: []
   currentLocation: {fileID: 0}
@@ -2492,12 +2490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Eisenhandschuhe
+  name: 
   neededMaterials: []
   str: 3
-  kon: 2
-  ges: 2
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 3
 --- !u!1 &586666332 stripped
 GameObject:
@@ -2550,13 +2548,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Schwert
-  neededMaterials:
-  - {fileID: 1652516305}
-  - {fileID: 1652516305}
+  neededMaterials: []
   str: 5
-  kon: 0
-  ges: 0
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 0
 --- !u!1 &611674825
 GameObject:
@@ -3783,9 +3779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Gebratene Makrele
-  neededMaterials:
-  - {fileID: 2094774461}
+  name: gebratene Makrele
+  neededMaterials: []
   healthPoints: 10
 --- !u!1 &771197496
 GameObject:
@@ -4138,7 +4133,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -4528,6 +4523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db24a112eb61b69428dddcccdb4f915a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 2098058902}
   apBar: {fileID: 1678151922}
   foodBar: {fileID: 649522187}
   apText: {fileID: 771197498}
@@ -4648,12 +4644,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hose
+  name: 
   neededMaterials: []
   str: 0
-  kon: 3
-  ges: 2
-  wei: 2
+  con: 0
+  agi: 0
+  wis: 0
   type: 4
 --- !u!1 &934791857
 GameObject:
@@ -4890,12 +4886,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Helm
+  name: 
   neededMaterials: []
   str: 0
-  kon: 2
-  ges: 0
-  wei: 3
+  con: 0
+  agi: 0
+  wis: 0
   type: 1
 --- !u!1 &1003141567
 GameObject:
@@ -4967,12 +4963,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "R\xFCstung"
+  name: 
   neededMaterials: []
   str: 2
-  kon: 6
-  ges: 0
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 2
 --- !u!1 &1017192748
 GameObject:
@@ -5231,7 +5227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc578caaa640f64c87f509f3deee606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Kugelfisch
+  name: Pufferfisch
   neededMaterials: []
 --- !u!1 &1058747157 stripped
 GameObject:
@@ -6253,7 +6249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 3
-  workingTime: 25
+  workingTime: 1
   activityName: Fischen
   collectableMaterials:
   - {fileID: 2094774461}
@@ -6955,7 +6951,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -7669,7 +7665,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -8436,12 +8432,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Eisenhelm
+  name: 
   neededMaterials: []
   str: 1
-  kon: 5
-  ges: 0
-  wei: 3
+  con: 0
+  agi: 0
+  wis: 0
   type: 1
 --- !u!1 &1412792900
 GameObject:
@@ -8951,12 +8947,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Handschuhe
+  name: 
   neededMaterials: []
   str: 1
-  kon: 1
-  ges: 2
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 3
 --- !u!1 &1482308938
 GameObject:
@@ -9908,9 +9904,9 @@ MonoBehaviour:
   name: Dolch
   neededMaterials: []
   str: 3
-  kon: 0
-  ges: 1
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 0
 --- !u!1 &1645181285
 GameObject:
@@ -11023,7 +11019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 10
+  workingTime: 1
   activityName: Sammeln
   collectableMaterials:
   - {fileID: 202645416}
@@ -11855,12 +11851,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "Eisenr\xFCstung"
+  name: 
   neededMaterials: []
   str: 4
-  kon: 10
-  ges: 0
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 2
 --- !u!1 &1911833107
 GameObject:
@@ -12541,12 +12537,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Stiefel
+  name: 
   neededMaterials: []
   str: 0
-  kon: 8
-  ges: 1
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 5
 --- !u!1 &2060279006
 GameObject:
@@ -12852,9 +12848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Mackrele
-  neededMaterials:
-  - {fileID: 0}
+  name: Makrele
+  neededMaterials: []
   healthPoints: 5
 --- !u!1 &2095877695
 GameObject:
@@ -12938,6 +12933,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2098058901}
+  - component: {fileID: 2098058902}
   - component: {fileID: 2098058900}
   m_Layer: 0
   m_Name: Player
@@ -12964,6 +12960,7 @@ MonoBehaviour:
   legs: {fileID: 0}
   feet: {fileID: 0}
   inventory: {fileID: 1969177562}
+  playerData: {fileID: 2098058902}
   currentLocationText: {fileID: 1326910163}
   durationBar: {fileID: 1727322843}
 --- !u!4 &2098058901
@@ -12979,6 +12976,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098058902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098058899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847335b4be81e3f409a09cbf2a5c16d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  str: 0
+  con: 0
+  agi: 0
+  wis: 0
+  health: 0
+  healthMAX: 0
+  ap: 0
+  apMAX: 0
+  inventory: {fileID: 1969177562}
 --- !u!224 &2118789359 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
@@ -13267,5 +13284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: {fileID: 1189108740}
   constitution: {fileID: 1698135962}
-  finesse: {fileID: 168934624}
+  agility: {fileID: 168934624}
   wisdom: {fileID: 1080726309}
+  playerData: {fileID: 2098058902}

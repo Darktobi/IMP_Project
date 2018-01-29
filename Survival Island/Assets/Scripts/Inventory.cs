@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
-
+    //[SerializeField]
     public List<Item> items;
     private int num;
+    //public PlayerDatas playerDatas;
 
     // Use this for initialization
     void Start()
     {
         num = 0;
     }
+
 
     public void showItems(System.Type type, Transform rowPanel, Button button, Transform parentPanel)
     {
@@ -33,13 +35,18 @@ public class Inventory : MonoBehaviour {
         {
             
             item.addCount();
+            Debug.Log(item.name + " +1");
         }
 
         else
         {
             items.Add(item);
             item.addCount();
+            Debug.Log(item.name + " added");
         }
+
+        
+
     }
 
     public bool subItem(Item item)
@@ -79,7 +86,7 @@ public class Inventory : MonoBehaviour {
     public void clearPage(Transform parentPanel)
     {
 
-        Debug.Log("Cleared!");
+        //Debug.Log("Cleared!");
         foreach (Transform child in parentPanel) {
             GameObject.Destroy(child.gameObject);
         }

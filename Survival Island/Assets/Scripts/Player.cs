@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Player : MonoBehaviour {
 
     //private const int MAX_HEALTH = 100;
     private float health;
     private float activityPoints;
     private bool isWorking;
-    private int str, kon, ges, wei;
+    private int str, con, agi, wis;
     private Location currentLocation;
     private Activity currentWork;
     private MaterialManager materialManager;
 
     public Equipment weapon, head, breast, hands, legs, feet;
     public Inventory inventory;
+    public PlayerDatas playerData;
     public Text currentLocationText;
     public Image durationBar;
 
@@ -24,17 +26,19 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        health = PlayerPrefs.GetFloat("foodMAX");
-        activityPoints = PlayerPrefs.GetFloat("apValue");
+
+        health = playerData.health;
+        activityPoints = playerData.ap;
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
 
-        str = PlayerPrefs.GetInt("STR");
-        kon = PlayerPrefs.GetInt("CON");
-        ges = PlayerPrefs.GetInt("FIN");
-        wei = PlayerPrefs.GetInt("WIS");
-        Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
+        //str = playerData.str;
+        //con = playerData.con;
+        //agi = playerData.agi;
+        //wis = playerData.wis;
+
+        Debug.Log("Stärke: " + playerData.str + ", Konstitution: " + playerData.con + ", Geschicklichkeit: " + playerData.agi + ", Wissen: " + playerData.wis);
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
@@ -45,11 +49,18 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-        
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            playerData.Save();
+            Debug.Log("Saved!");
+
+        }
+
+
         if (isWorking)
         {
-            Debug.Log("Tätigkeitsdauer: " + workingTime + " Sekunden");
+            //Debug.Log("Tätigkeitsdauer: " + workingTime + " Sekunden");
             
             workingTime -= Time.deltaTime;
 
@@ -75,34 +86,34 @@ public class Player : MonoBehaviour {
             }
         }
 
-        //Zuweisung der Aktuellen Tätigkeit und Ort zum Text in der UI
+        //Zuwissung der Aktuellen Tätigkeit und Ort zum Text in der UI
         currentLocationText.text = PlayerPrefs.GetString("CurrentLocationName") + ": " + PlayerPrefs.GetString("CurrentActivityName");
     }
 
     private void collectMaterials()
     {
-        List<Item> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
-       foreach(Item collectedMaterial in collectedMaterials)
-        {
+         List<Item> collectedMaterials = materialManager.collectMaterials(currentWork, currentLocation);
+         foreach(Item collectedMaterial in collectedMaterials)
+         {
             inventory.addItem(collectedMaterial);
-        }
+         }
     }
 
     public float getHealth()
     {
-        return PlayerPrefs.GetFloat("foodValue");
+        return playerData.health;
     }
 
     public float getActivityPoints()
     {
-        return PlayerPrefs.GetFloat("apValue");
+        return playerData.ap;
     }
 
     public void setActivity(Activity activity)
     {
         if (!isWorking)
         {
-            if (PlayerPrefs.GetFloat("apValue") >= activity.activityPoints)
+            if (playerData.ap >= activity.activityPoints)
             {
                 currentWork = activity;
                 currentLocation = currentWork.currentLocation;
@@ -111,22 +122,24 @@ public class Player : MonoBehaviour {
                 isWorking = true;
                 Debug.Log("Der Spieler befindet sich an folgenden Ort: " + currentLocation.locationName + " und führt folgende Tätigkeit aus: " + currentWork.activityName);
 
-                //Zuweisung der aktuellen Location in die Playerprefs
+                //Zuwissung der aktuellen Location in die Playerprefs
                 PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
                 PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
                 totalTime = workingTime;
                 Debug.Log("AP: "+ activityPoints);
-                if (activityPoints > PlayerPrefs.GetFloat("apMAX"))
+                if (activityPoints > playerData.apMAX)
                 {
-                    PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
+                    //PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
+                    playerData.ap = playerData.apMAX;
                     Debug.Log("Max AP erreicht.");
-                    activityPoints = PlayerPrefs.GetFloat("apMAX");
+                    activityPoints = playerData.apMAX;
                 }
                 else
                 {
-                    PlayerPrefs.SetFloat("apValue", activityPoints);
+                    //PlayerPrefs.SetFloat("apValue", activityPoints);
+                    playerData.ap = activityPoints;
                 }
-                Debug.Log("AP Werte: "+PlayerPrefs.GetFloat("apValue") + " : " + activityPoints);
+                Debug.Log("AP Werte: "+playerData.ap + " : " + activityPoints);
             }
             else
             {
@@ -163,9 +176,9 @@ public class Player : MonoBehaviour {
     {
         this.health += health;
 
-        if(this.health >= PlayerPrefs.GetFloat("foodMAX", 500))
+        if(this.health >= playerData.healthMAX)
         {
-            this.health = PlayerPrefs.GetFloat("foodMAX", 500);
+            this.health = playerData.healthMAX;
         }
     }
 
@@ -203,10 +216,10 @@ public class Player : MonoBehaviour {
         }
 
         str += equipment.str;
-        kon += equipment.kon;
-        ges += equipment.ges;
-        wei += equipment.wei;
-        Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
+        con += equipment.con;
+        agi += equipment.agi;
+        wis += equipment.wis;
+        Debug.Log("Stärke: " + str + ", Konstitution: " + con + ", Geschicklichkeit: " + agi + ", Wissen: " + wis);
 
 
         /*
@@ -224,11 +237,26 @@ public class Player : MonoBehaviour {
         if(equipment != null)
         {
             str -= equipment.str;
-            kon -= equipment.kon;
-            ges -= equipment.ges;
-            wei -= equipment.wei;
+            con -= equipment.con;
+            agi -= equipment.agi;
+            wis -= equipment.wis;
         }
 
     }
 
+    
+
+    //private void OnGUI()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.S))
+    //    {
+    //        playerData.Save();
+    //        Debug.Log("Saved!");
+
+    //    }
+    //}
+  
+    
 }
+
+
