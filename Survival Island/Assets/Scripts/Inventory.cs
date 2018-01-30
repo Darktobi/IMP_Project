@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour {
             if (item.GetType().Equals(type))
             {
                 addSlot(item.name, button, rowPanel, parentPanel, item);
-                Debug.Log("Containing" + item.name + " x" + item.getCount() );
+                
             }
         }
     }
@@ -51,6 +51,7 @@ public class Inventory : MonoBehaviour {
 
     public bool subItem(Item item)
     {
+        Debug.Log(item.name);
         if (items.Contains(item))
         {
             item.subCount();

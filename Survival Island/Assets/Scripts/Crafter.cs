@@ -36,6 +36,8 @@ public class Crafter : MonoBehaviour {
 
     public void craft(Item item)
     {
+
+        
         bool canCraft = true;
 
         List<Item> subtractedMaterials = new List<Item>();

@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266732670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e028cc3abd980f4dab5ac44f86a2487, type: 3}
   m_Name: 
@@ -1435,7 +1435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Axt
-  neededMaterials: []
+  neededMaterials:
+  - {fileID: 216853099}
+  - {fileID: 1652516305}
 --- !u!1 &378518339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,7 +2170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: -10
-  workingTime: 1
+  workingTime: 30
   activityName: Schlafen
   collectableMaterials: []
   currentLocation: {fileID: 0}
@@ -2548,7 +2550,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Schwert
-  neededMaterials: []
+  neededMaterials:
+  - {fileID: 1652516305}
+  - {fileID: 1652516305}
   str: 5
   con: 0
   agi: 0
@@ -3780,7 +3784,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: gebratene Makrele
-  neededMaterials: []
+  neededMaterials:
+  - {fileID: 2094774461}
   healthPoints: 10
 --- !u!1 &771197496
 GameObject:
@@ -6249,7 +6254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 3
-  workingTime: 1
+  workingTime: 15
   activityName: Fischen
   collectableMaterials:
   - {fileID: 2094774461}
@@ -9759,7 +9764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 15
+  workingTime: 20
   activityName: Holz hacken
   collectableMaterials:
   - {fileID: 1652516305}
@@ -11019,7 +11024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityPoints: 2
-  workingTime: 1
+  workingTime: 15
   activityName: Sammeln
   collectableMaterials:
   - {fileID: 202645416}
