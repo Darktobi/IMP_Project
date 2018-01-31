@@ -325,9 +325,9 @@ MonoBehaviour:
   name: Eisenhose
   neededMaterials: []
   str: 0
-  kon: 5
-  ges: 2
-  wei: 4
+  con: 0
+  agi: 0
+  wis: 0
   type: 4
 --- !u!1 &167354864
 GameObject:
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266732670}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e028cc3abd980f4dab5ac44f86a2487, type: 3}
   m_Name: 
@@ -1117,6 +1117,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 2098058900}
   itemCount: 0
 --- !u!4 &266732672
 Transform:
@@ -1174,9 +1175,9 @@ MonoBehaviour:
   name: Eisenstiefel
   neededMaterials: []
   str: 1
-  kon: 15
-  ges: 3
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 5
 --- !u!1 &330866064
 GameObject:
@@ -2616,9 +2617,9 @@ MonoBehaviour:
   name: Eisenhandschuhe
   neededMaterials: []
   str: 3
-  kon: 2
-  ges: 2
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 3
 --- !u!1 &544929035
 GameObject:
@@ -2721,9 +2722,9 @@ MonoBehaviour:
   - {fileID: 1652516305}
   - {fileID: 1652516305}
   str: 5
-  kon: 0
-  ges: 0
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 0
 --- !u!1 &611674825
 GameObject:
@@ -4771,6 +4772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db24a112eb61b69428dddcccdb4f915a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 2098058902}
   apBar: {fileID: 1678151922}
   foodBar: {fileID: 649522187}
   apText: {fileID: 771197498}
@@ -4926,9 +4928,9 @@ MonoBehaviour:
   name: Hose
   neededMaterials: []
   str: 0
-  kon: 3
-  ges: 2
-  wei: 2
+  con: 0
+  agi: 0
+  wis: 0
   type: 4
 --- !u!1 &934791857
 GameObject:
@@ -5168,9 +5170,9 @@ MonoBehaviour:
   name: Helm
   neededMaterials: []
   str: 0
-  kon: 2
-  ges: 0
-  wei: 3
+  con: 0
+  agi: 0
+  wis: 0
   type: 1
 --- !u!1 &1003141567
 GameObject:
@@ -5245,9 +5247,9 @@ MonoBehaviour:
   name: "R\xFCstung"
   neededMaterials: []
   str: 2
-  kon: 6
-  ges: 0
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 2
 --- !u!1 &1017192748
 GameObject:
@@ -8763,9 +8765,9 @@ MonoBehaviour:
   name: Eisenhelm
   neededMaterials: []
   str: 1
-  kon: 5
-  ges: 0
-  wei: 3
+  con: 0
+  agi: 0
+  wis: 0
   type: 1
 --- !u!1 &1412792900
 GameObject:
@@ -8907,6 +8909,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 0}
   itemCount: 0
 --- !u!1 &1420899570
 GameObject:
@@ -9282,9 +9285,9 @@ MonoBehaviour:
   name: Handschuhe
   neededMaterials: []
   str: 1
-  kon: 1
-  ges: 2
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 3
 --- !u!1 &1482308938
 GameObject:
@@ -10283,9 +10286,9 @@ MonoBehaviour:
   name: Dolch
   neededMaterials: []
   str: 3
-  kon: 0
-  ges: 1
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 0
 --- !u!1 &1645181285
 GameObject:
@@ -11585,6 +11588,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 0}
   itemCount: 0
 --- !u!1 &1827272519
 GameObject:
@@ -12150,6 +12154,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 0}
   itemCount: 0
 --- !u!1 &1887305363
 GameObject:
@@ -12268,9 +12273,9 @@ MonoBehaviour:
   name: "Eisenr\xFCstung"
   neededMaterials: []
   str: 4
-  kon: 10
-  ges: 0
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 2
 --- !u!1 &1911833107
 GameObject:
@@ -12957,9 +12962,9 @@ MonoBehaviour:
   name: Stiefel
   neededMaterials: []
   str: 0
-  kon: 8
-  ges: 1
-  wei: 0
+  con: 0
+  agi: 0
+  wis: 0
   type: 5
 --- !u!1 &2060279006
 GameObject:
@@ -13398,6 +13403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098058901}
   - component: {fileID: 2098058900}
+  - component: {fileID: 2098058902}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -13423,6 +13429,7 @@ MonoBehaviour:
   legs: {fileID: 0}
   feet: {fileID: 0}
   inventory: {fileID: 1969177562}
+  playerData: {fileID: 2098058902}
   currentLocationText: {fileID: 1326910163}
   durationBar: {fileID: 1727322843}
 --- !u!4 &2098058901
@@ -13438,6 +13445,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098058902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098058899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847335b4be81e3f409a09cbf2a5c16d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  str: 0
+  con: 0
+  agi: 0
+  wis: 0
+  health: 0
+  healthMAX: 0
+  ap: 0
+  apMAX: 0
+  inventory: {fileID: 1969177562}
 --- !u!224 &2118789359 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
@@ -13726,5 +13753,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: {fileID: 1189108740}
   constitution: {fileID: 1698135962}
-  finesse: {fileID: 168934624}
+  agility: {fileID: 168934624}
   wisdom: {fileID: 1080726309}
+  playerData: {fileID: 2098058902}

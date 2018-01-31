@@ -60,92 +60,20 @@ public class PlayerDatas : MonoBehaviour {
         data.str = str;
         data.con = con;
         data.agi = agi;
-        data.wis = wis;
-
-       
-
-        //Debug.Log(inventory.items);
-        //data.items = inventory.items;
-        //Debug.Log(inventory.items.ToString());
-
-        //int i = 0;
-        //foreach (Item item in inventory.items)
-        //{
-        //    if (item.GetType().Equals(typeof(Mat)))
-        //    {
-
-        //        Debug.Log("Containing" + item.name + " x" + item.getCount());
-        //        //data.matArray[i] = item.name;
-        //        //data.matArray[i] = (Mat)item;
-
-        //        data.items.Add(item);
-        //        i++;
-        //    }
-        //}
-
-        //Debug.Log(data.matArray);
-
-        //data.itemMono = inventory.items;
+        data.wis = wis; 
 
         data.addresses = new Dictionary<string, int>();
 
-        //int i = 0;
-        //foreach (Item item in inventory.items)
-        //{
-        //    if (item.GetType().Equals(typeof(Mat)))
-        //    {
-
-        //        //Debug.Log("Containing" + item.name + " x" + item.getCount());
-        //        data.addresses.Add(item.name, item.getCount());
-        //        i++;
-        //    }
-        //}
 
         foreach (Item item in inventory.items)
         {
 
-            //if (item.GetType().Equals(typeof(Mat)))
-            //{
-
-            //    //Debug.Log("Containing" + item.name + " x" + item.getCount());
-            //    data.addresses.Add(item.name, item.getCount());
-            //    Debug.Log("Item: " + item);
-            //    Debug.Log("Name: " + item.name);
-
-            //}
-
-            Debug.Log("Item: " + item + "\nName: " +  item.name + "\nCount: " + item.getCount());
+          
             data.addresses.Add(item.name, item.getCount());
         }
 
 
         Debug.Log("Elements: "+data.addresses.Count());
-
-        //Dictionary<string, int>.ValueCollection values = data.addresses.Values;
-        //foreach (int mat in values)
-        //{
-        //    Debug.Log("Values: "+mat);
-        //}
-
-        foreach(KeyValuePair<string, int> item in data.addresses)
-        {
-            Debug.Log("Name: " + item.Key + " | Wert: " +  item.Value);
-            //Debug.Log("Search for Object: " + GameObject.Find(item.Key));
-
-        }
-
-
-        //Geht alle von typ Mat durch
-        //Mat[] test = GameObject.FindObjectsOfType<Mat>();
-        //foreach (Mat mat in test)
-        //{
-
-        //    if(mat.name == "Holz")
-        //    Debug.Log("includes: "+ mat);
-
-        //    if (mat.name == "Muschel")
-        //    Debug.Log("includes: " + mat);
-        //}
 
         return data;
     }
@@ -159,8 +87,6 @@ public class PlayerDatas : MonoBehaviour {
 
         bf.Serialize(file, data);
         file.Close();
-
-        //Debug.Log("File saved to:" + Application.persistentDataPath);
     }
 
     public void Load()
@@ -175,7 +101,7 @@ public class PlayerDatas : MonoBehaviour {
             SaveLoad data = (SaveLoad)bf.Deserialize(file);
             file.Close();
 
-            //data.addresses.Clear();
+            
 
             //Stats
             healthMAX = data.healthMAX;
@@ -191,11 +117,8 @@ public class PlayerDatas : MonoBehaviour {
 
             new Inventory();
 
-            //inventory.items = data.items;
-            //Debug.Log(data.addresses);
             Item[] test2 = GameObject.FindObjectsOfType<Item>();
-            //Debug.Log(test2);
-            //int j = 0;
+
             foreach (KeyValuePair<string, int> item in data.addresses)
             {
                 Debug.Log("Name: " + item.Key + " | Wert: " + item.Value);
@@ -210,18 +133,6 @@ public class PlayerDatas : MonoBehaviour {
                             Debug.Log("i = " + i);
                             inventory.addItem(mat);
 
-                            //Testint to get cuttent content of the Inventory
-                            //foreach (Item item2 in inventory.items)
-                            //{
-                            //    if (item.GetType().Equals(typeof(Food)))
-                            //    {
-                            //        Debug.Log("Containing" + item2.name + " x" + item2.getCount());
-                            //    }
-                            //    if (item.GetType().Equals(typeof(Mat)))
-                            //    {
-                            //        Debug.Log("Containing" + item2.name + " x" + item2.getCount());
-                            //    }
-                            //}
                         }
                         
                     }
@@ -229,15 +140,6 @@ public class PlayerDatas : MonoBehaviour {
                 }
             }
 
-            
-            
-
-            //foreach (Item item in data.addresses)
-            //{
-            //    Debug.Log("Test");
-            //}
-
-            Debug.Log("File loaded from:" + Application.persistentDataPath);
         }
         
     }
