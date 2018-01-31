@@ -1056,7 +1056,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -1117,6 +1117,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 2098058900}
   itemCount: 0
 --- !u!4 &266732672
 Transform:
@@ -4138,7 +4139,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -6956,7 +6957,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -7670,7 +7671,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -8584,6 +8585,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 0}
   itemCount: 0
 --- !u!1 &1420899570
 GameObject:
@@ -11176,6 +11178,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 0}
   itemCount: 0
 --- !u!1 &1827272519
 GameObject:
@@ -11741,6 +11744,7 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   inventory: {fileID: 1969177562}
+  player: {fileID: 0}
   itemCount: 0
 --- !u!1 &1887305363
 GameObject:

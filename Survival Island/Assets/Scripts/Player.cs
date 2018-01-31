@@ -52,9 +52,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.S))
         {
-            playerData.Save();
-            Debug.Log("Saved!");
-
+            save();
         }
 
 
@@ -83,6 +81,9 @@ public class Player : MonoBehaviour {
                 PlayerPrefs.SetString("CurrentLocationName", "Lager");
                 PlayerPrefs.SetString("CurrentActivityName", "Nichts");
                 durationBar.fillAmount = 1;
+
+                save();
+                
             }
         }
 
@@ -244,7 +245,11 @@ public class Player : MonoBehaviour {
 
     }
 
-    
+    public void save()
+    {
+        playerData.Save();
+        Debug.Log("Saved!");
+    }
 
     //private void OnGUI()
     //{
