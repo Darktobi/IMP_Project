@@ -7,6 +7,7 @@ public class Crafter : MonoBehaviour {
 
     public List<Item> craftableItems;
     public Inventory inventory;
+    public Player player;
 
     //Darstellung
     
@@ -36,6 +37,8 @@ public class Crafter : MonoBehaviour {
 
     public void craft(Item item)
     {
+
+        
         bool canCraft = true;
 
         List<Item> subtractedMaterials = new List<Item>();
@@ -60,6 +63,7 @@ public class Crafter : MonoBehaviour {
         if (canCraft)
         {
             inventory.addItem(item);
+            player.save();
         }
         
     }

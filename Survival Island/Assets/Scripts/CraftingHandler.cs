@@ -50,7 +50,7 @@ public class CraftingHandler : MonoBehaviour {
         toolsList.SetActive(false);
         foodList.SetActive(false);
 
-        //crafter.showItems(typeof(Equipment),itemButton, eqPanel);
+       // crafter.showItems(typeof(Equipment),itemButton, eqPanel);
     }
 
     public void OpenFood()

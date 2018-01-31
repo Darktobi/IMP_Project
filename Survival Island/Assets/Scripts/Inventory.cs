@@ -5,17 +5,16 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
-
+    //[SerializeField]
     public List<Item> items;
     private int num;
+    //public PlayerDatas playerDatas;
 
     // Use this for initialization
     void Start()
     {
         num = 0;
     }
-
-    
 
     public void showItems(System.Type type, Transform rowPanel, Button button, Transform parentPanel)
     {
@@ -24,7 +23,7 @@ public class Inventory : MonoBehaviour {
             if (item.GetType().Equals(type))
             {
                 addSlot(item.name, button, rowPanel, parentPanel, item);
-                Debug.Log("Containing" + item.name + " x" + item.getCount() );
+                
             }
         }
     }
@@ -35,17 +34,23 @@ public class Inventory : MonoBehaviour {
         {
             
             item.addCount();
+            //Debug.Log(item.name + " +1");
         }
 
         else
         {
             items.Add(item);
             item.addCount();
+           // Debug.Log(item.name + " added");
         }
+
+        
+
     }
 
     public bool subItem(Item item)
     {
+        Debug.Log(item.name);
         if (items.Contains(item))
         {
             item.subCount();

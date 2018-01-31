@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class Player : MonoBehaviour {
 
     //private const int MAX_HEALTH = 100;
     private float health;
     private float activityPoints;
     private bool isWorking;
-    private int str, kon, ges, wei;
+    private int str, con, agi, wis;
     private Location currentLocation;
     private Activity currentWork;
     private MaterialManager materialManager;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour {
 
     public Equipment weapon, head, breast, hands, legs, feet;
     public Inventory inventory;
+    public PlayerDatas playerData;
     public Text currentLocationText;
     public Image durationBar;
 
@@ -31,16 +33,28 @@ public class Player : MonoBehaviour {
         health = PlayerPrefs.GetFloat("foodMAX");
         PlayerPrefs.SetFloat("foodValue", health);
         activityPoints = PlayerPrefs.GetFloat("apValue");
+
+        health = playerData.health;
+        activityPoints = playerData.ap;
+
         workingTime = 0;
         isWorking = false;
         materialManager = new MaterialManager();
         eventManager = new EventManager();
 
         str = PlayerPrefs.GetInt("STR");
-        kon = PlayerPrefs.GetInt("CON");
-        ges = PlayerPrefs.GetInt("FIN");
-        wei = PlayerPrefs.GetInt("WIS");
+        con = PlayerPrefs.GetInt("CON");
+        agi = PlayerPrefs.GetInt("FIN");
+        wis = PlayerPrefs.GetInt("WIS");
        // Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
+
+        //str = playerData.str;
+        //con = playerData.con;
+        //agi = playerData.agi;
+        //wis = playerData.wis;
+
+        Debug.Log("Stärke: " + playerData.str + ", Konstitution: " + playerData.con + ", Geschicklichkeit: " + playerData.agi + ", Wissen: " + playerData.wis);
+
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
@@ -52,8 +66,17 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            save();
+        }
+
+
         if (isWorking)
-        {   
+        {
+            //Debug.Log("Tätigkeitsdauer: " + workingTime + " Sekunden");
+            
             workingTime -= Time.deltaTime;
 
             //in der Leiste darstellen
@@ -93,23 +116,26 @@ public class Player : MonoBehaviour {
                 PlayerPrefs.SetString("CurrentLocationName", "Lager");
                 PlayerPrefs.SetString("CurrentActivityName", "Nichts");
                 durationBar.fillAmount = 1;
+
+                save();
+                
             }
         }
 
-        //Zuweisung der Aktuellen Tätigkeit und Ort zum Text in der UI
+        //Zuwissung der Aktuellen Tätigkeit und Ort zum Text in der UI
         currentLocationText.text = PlayerPrefs.GetString("CurrentLocationName") + ": " + PlayerPrefs.GetString("CurrentActivityName");
     }
 
 
     public float getHealth()
     {
-        return PlayerPrefs.GetFloat("foodValue");
+        return playerData.health;
     }
 
 
     public float getActivityPoints()
     {
-        return PlayerPrefs.GetFloat("apValue");
+        return playerData.ap;
     }
 
     public int getStr()
@@ -123,11 +149,17 @@ public class Player : MonoBehaviour {
         setActivityPoints(activityPoints);
     }
 
+    public void save()
+    {
+        playerData.Save();
+        Debug.Log("Saved!");
+    }
+
     public void setActivity(Activity activity)
     {
         if (!isWorking)
         {
-            if (PlayerPrefs.GetFloat("apValue") >= activity.activityPoints)
+            if (playerData.ap >= activity.activityPoints)
             {
                 currentWork = activity;
                 currentLocation = currentWork.currentLocation;
@@ -135,22 +167,28 @@ public class Player : MonoBehaviour {
                 workingTime = currentWork.workingTime;
                 isWorking = true;
 
-                //Zuweisung der aktuellen Location in die Playerprefs
+                //Zuwissung der aktuellen Location in die Playerprefs
                 PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
                 PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
                 totalTime = workingTime;
 
-                //TODO: Bedingung anpassen für Fal, dass apMAX erhöht wird
-                if (activityPoints > PlayerPrefs.GetFloat("apMAX"))
+                Debug.Log("AP: "+ activityPoints);
+                if (activityPoints > playerData.apMAX)
+
                 {
-                    PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
+                    //PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
+                    playerData.ap = playerData.apMAX;
                     Debug.Log("Max AP erreicht.");
-                    activityPoints = PlayerPrefs.GetFloat("apMAX");
+                    activityPoints = playerData.apMAX;
                 }
                 else
                 {
-                    PlayerPrefs.SetFloat("apValue", activityPoints);
+                    //PlayerPrefs.SetFloat("apValue", activityPoints);
+                    playerData.ap = activityPoints;
                 }
+
+                Debug.Log("AP Werte: "+playerData.ap + " : " + activityPoints);
+
             }
             else
             {
@@ -217,10 +255,10 @@ public class Player : MonoBehaviour {
         }
 
         str += equipment.str;
-        kon += equipment.kon;
-        ges += equipment.ges;
-        wei += equipment.wei;
-        Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
+        con += equipment.con;
+        agi += equipment.agi;
+        wis += equipment.wis;
+        Debug.Log("Stärke: " + str + ", Konstitution: " + con + ", Geschicklichkeit: " + agi + ", Wissen: " + wis);
 
     }
 
@@ -244,14 +282,12 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene("MainMenu");
         }
 
-        PlayerPrefs.SetFloat("foodValue", this.health);
-
-        if (this.health >= PlayerPrefs.GetFloat("foodMAX", 500))
+        if (this.health >= playerData.healthMAX)
         {
-            this.health = PlayerPrefs.GetFloat("foodMAX", 500);
+            this.health = playerData.healthMAX;
         }
 
-
+        playerData.health = this.health;
     }
 
     private void setActivityPoints(int activityPoints)
@@ -263,29 +299,26 @@ public class Player : MonoBehaviour {
             this.activityPoints = 0;
         }
 
-        PlayerPrefs.SetFloat("apValue", this.activityPoints);
-
-        if (this.activityPoints >= PlayerPrefs.GetFloat("apValue", 10))
+        if (this.activityPoints >= playerData.apMAX)
         {
-            this.activityPoints = PlayerPrefs.GetFloat("apValue", 10);
+            this.activityPoints = playerData.apMAX;
         }
 
-        
-
-        
+        playerData.ap = this.activityPoints;
     }
-
 
     private void unequip(Equipment equipment)
     {
         if(equipment != null)
         {
             str -= equipment.str;
-            kon -= equipment.kon;
-            ges -= equipment.ges;
-            wei -= equipment.wei;
+            con -= equipment.con;
+            agi -= equipment.agi;
+            wis -= equipment.wis;
         }
 
     }
-
+ 
 }
+
+
