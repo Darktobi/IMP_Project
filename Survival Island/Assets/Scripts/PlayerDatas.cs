@@ -28,10 +28,6 @@ public class PlayerDatas : MonoBehaviour {
             agi = 5;
             wis = 5;
 
-            Debug.Log("Stärke: " + str + ", Konstitution: " + con + ", Geschicklichkeit: " + agi + ", Wissen: " + wis);
-
-
-
             healthMAX = 500;
             apMAX = 8;
             health = 500;
@@ -71,9 +67,6 @@ public class PlayerDatas : MonoBehaviour {
           
             data.addresses.Add(item.name, item.getCount());
         }
-
-
-        Debug.Log("Elements: "+data.addresses.Count());
 
         return data;
     }
@@ -121,16 +114,13 @@ public class PlayerDatas : MonoBehaviour {
 
             foreach (KeyValuePair<string, int> item in data.addresses)
             {
-                Debug.Log("Name: " + item.Key + " | Wert: " + item.Value);
                 foreach (Item mat in test2)
                 {
 
                     if (mat.name == item.Key)
                     {
-                        Debug.Log("To Inv: " + mat + " " +item.Value + " times");
                         for(int i = 0; i < item.Value; i++)
                         {
-                            Debug.Log("i = " + i);
                             inventory.addItem(mat);
 
                         }

@@ -53,9 +53,6 @@ public class Player : MonoBehaviour {
         //agi = playerData.agi;
         //wis = playerData.wis;
 
-        Debug.Log("Stärke: " + playerData.str + ", Konstitution: " + playerData.con + ", Geschicklichkeit: " + playerData.agi + ", Wissen: " + playerData.wis);
-
-
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
         PlayerPrefs.SetString("CurrentActivityName", "None");
