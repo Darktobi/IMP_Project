@@ -13,18 +13,7 @@ class SaveLoad
 
     public int str, con, agi, wis;
     public List<Item> items = new List<Item>();
-    //public Item item;
-
-    //public MonoBehaviour itemMono;
 
     public Dictionary<string, int> addresses;
-
-    //public Item item;
-    //public List<string> mat;
-    //public string[] matArray = new string[3];
-    //public Mat[] matArray = new Mat[3];
-
-    //public System.Type Mat, Tool, Food, Equipment;
-
 
 }

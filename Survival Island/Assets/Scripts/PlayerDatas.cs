@@ -56,15 +56,12 @@ public class PlayerDatas : MonoBehaviour {
         data.str = str;
         data.con = con;
         data.agi = agi;
-        data.wis = wis; 
+        data.wis = wis;
 
         data.addresses = new Dictionary<string, int>();
 
-
         foreach (Item item in inventory.items)
         {
-
-          
             data.addresses.Add(item.name, item.getCount());
         }
 
@@ -93,8 +90,6 @@ public class PlayerDatas : MonoBehaviour {
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             SaveLoad data = (SaveLoad)bf.Deserialize(file);
             file.Close();
-
-            
 
             //Stats
             healthMAX = data.healthMAX;

@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
     private GameEvent currentEvent;
 
     public Equipment weapon, head, breast, hands, legs, feet;
+    public Tool tool;
+
     public Inventory inventory;
     public PlayerDatas playerData;
     public Text currentLocationText;
@@ -30,12 +32,9 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        health = PlayerPrefs.GetFloat("foodMAX");
-        PlayerPrefs.SetFloat("foodValue", health);
-        activityPoints = PlayerPrefs.GetFloat("apValue");
-
         health = playerData.health;
         activityPoints = playerData.ap;
+        PlayerPrefs.SetFloat("foodValue", health);
 
         workingTime = 0;
         isWorking = false;
@@ -46,12 +45,6 @@ public class Player : MonoBehaviour {
         con = PlayerPrefs.GetInt("CON");
         agi = PlayerPrefs.GetInt("FIN");
         wis = PlayerPrefs.GetInt("WIS");
-       // Debug.Log("Stärke: " + str + ", Konstitution: " + kon + ", Geschicklichkeit: " + ges + ", Wissen: " + wei);
-
-        //str = playerData.str;
-        //con = playerData.con;
-        //agi = playerData.agi;
-        //wis = playerData.wis;
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
         PlayerPrefs.SetString("CurrentLocationName", "Camp");
@@ -63,7 +56,6 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
         if (Input.GetKeyUp(KeyCode.S))
         {
             save();
@@ -72,8 +64,6 @@ public class Player : MonoBehaviour {
 
         if (isWorking)
         {
-            //Debug.Log("Tätigkeitsdauer: " + workingTime + " Sekunden");
-            
             workingTime -= Time.deltaTime;
 
             //in der Leiste darstellen
@@ -99,11 +89,21 @@ public class Player : MonoBehaviour {
                             Debug.Log(currentEvent.title);
                             Debug.Log(currentEvent.description);
                             currentEvent.run(this);
-                        }
-                        
+                        } 
                     }
-
                 }
+
+                //Check for tool stability if a tool is equiped
+                if(tool != null)
+                {
+                    if (tool.getCurrentStability() <= 0)
+                    {
+                        tool.resetStability();
+                        inventory.subItem(tool);
+                        tool = null;
+                    }
+                }
+               
                 
                 //ToDo: Set a basic location and basic work
                 currentLocation = null;
@@ -156,43 +156,51 @@ public class Player : MonoBehaviour {
     {
         if (!isWorking)
         {
-            if (playerData.ap >= activity.activityPoints)
-            {
-                currentWork = activity;
-                currentLocation = currentWork.currentLocation;
-                activityPoints -= currentWork.activityPoints;
-                workingTime = currentWork.workingTime;
-                isWorking = true;
-
-                //Zuwissung der aktuellen Location in die Playerprefs
-                PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
-                PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
-                totalTime = workingTime;
-
-                Debug.Log("AP: "+ activityPoints);
-                if (activityPoints > playerData.apMAX)
-
+                if (playerData.ap >= activity.activityPoints)
                 {
-                    //PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
-                    playerData.ap = playerData.apMAX;
-                    Debug.Log("Max AP erreicht.");
-                    activityPoints = playerData.apMAX;
+                    if (checkEquipptedTool(activity))
+                    {
+                        currentWork = activity;
+                        currentLocation = currentWork.currentLocation;
+                        activityPoints -= currentWork.activityPoints;
+                        workingTime = currentWork.workingTime;
+                        isWorking = true;
+
+                        //Zuwissung der aktuellen Location in die Playerprefs
+                        PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
+                        PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
+                        totalTime = workingTime;
+
+                        Debug.Log("AP: " + activityPoints);
+                        if (activityPoints > playerData.apMAX)
+
+                        {
+                            //PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
+                            playerData.ap = playerData.apMAX;
+                            Debug.Log("Max AP erreicht.");
+                            activityPoints = playerData.apMAX;
+                        }
+                        else
+                        {
+                            //PlayerPrefs.SetFloat("apValue", activityPoints);
+                            playerData.ap = activityPoints;
+                        }
+
+                        Debug.Log("AP Werte: " + playerData.ap + " : " + activityPoints);
+
                 }
+
                 else
                 {
-                    //PlayerPrefs.SetFloat("apValue", activityPoints);
-                    playerData.ap = activityPoints;
+                    Debug.Log("Nicht das benötigte Werkzeug ausgerüstet. Du brauchst " + activity.neededTool.name);
                 }
-
-                Debug.Log("AP Werte: "+playerData.ap + " : " + activityPoints);
-
             }
             else
             {
                 Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
+               
             }
-
-            
+           
         }
         else
         {
@@ -216,6 +224,11 @@ public class Player : MonoBehaviour {
         {
             Debug.Log(food.name + " nicht im Inventar vorhanden");
         }
+    }
+
+    public void equip(Tool tool)
+    {
+        this.tool = tool;
     }
 
     public void equip(Equipment equipment)
@@ -314,6 +327,22 @@ public class Player : MonoBehaviour {
             wis -= equipment.wis;
         }
 
+    }
+
+    private bool checkEquipptedTool(Activity activity)
+    {
+        if(activity.neededTool == null)
+        {
+            return true;
+        }
+
+        if(tool == activity.neededTool)
+        {
+            tool.subStability();
+            return true;
+        }
+
+        return false;
     }
  
 }

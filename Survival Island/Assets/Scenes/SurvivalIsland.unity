@@ -1116,6 +1116,7 @@ MonoBehaviour:
   - {fileID: 600988153}
   - {fileID: 759865122}
   - {fileID: 361121760}
+  - {fileID: 1019929377}
   inventory: {fileID: 1969177562}
   player: {fileID: 2098058900}
   itemCount: 0
@@ -1438,7 +1439,7 @@ MonoBehaviour:
   name: Axt
   neededMaterials:
   - {fileID: 216853099}
-  - {fileID: 1652516305}
+  MaxStability: 2
 --- !u!1 &364545214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,6 +2204,7 @@ MonoBehaviour:
   workingTime: 30
   activityName: Schlafen
   collectableMaterials: []
+  neededTool: {fileID: 0}
   currentLocation: {fileID: 0}
   isAvaiable: 1
 --- !u!114 &461555969
@@ -5373,6 +5375,50 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1017192748}
+--- !u!1 &1019929375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1019929376}
+  - component: {fileID: 1019929377}
+  m_Layer: 0
+  m_Name: FishingRod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019929376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019929375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1381847124}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019929377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1019929375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fadfe4e8b8de0c4eb5fa164cb50d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Angel
+  neededMaterials:
+  - {fileID: 216853099}
+  MaxStability: 2
 --- !u!1 &1035985871
 GameObject:
   m_ObjectHideFlags: 0
@@ -6535,6 +6581,7 @@ MonoBehaviour:
   collectableMaterials:
   - {fileID: 2094774461}
   - {fileID: 1035995108}
+  neededTool: {fileID: 1019929377}
   currentLocation: {fileID: 0}
   isAvaiable: 1
 --- !u!114 &1167702415
@@ -8651,6 +8698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 361121759}
+  - {fileID: 1019929376}
   m_Father: {fileID: 1094517373}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10098,6 +10146,7 @@ MonoBehaviour:
   activityName: Holz hacken
   collectableMaterials:
   - {fileID: 1652516305}
+  neededTool: {fileID: 361121760}
   currentLocation: {fileID: 0}
   isAvaiable: 1
 --- !u!114 &1580361108
@@ -11441,6 +11490,7 @@ MonoBehaviour:
   collectableMaterials:
   - {fileID: 202645416}
   - {fileID: 216853099}
+  neededTool: {fileID: 0}
   currentLocation: {fileID: 0}
   isAvaiable: 1
 --- !u!1 &1798050048 stripped
@@ -13428,6 +13478,7 @@ MonoBehaviour:
   hands: {fileID: 0}
   legs: {fileID: 0}
   feet: {fileID: 0}
+  tool: {fileID: 0}
   inventory: {fileID: 1969177562}
   playerData: {fileID: 2098058902}
   currentLocationText: {fileID: 1326910163}

@@ -9,6 +9,7 @@ public class Activity : MonoBehaviour {
     public string activityName;
     public List<Item> collectableMaterials;
 
+    public Tool neededTool;
     public Location currentLocation;
 
     public bool isAvaiable;
