@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     private float health;
     private float activityPoints;
     private bool isWorking;
-    private int str, con, agi, wis;
+    private int str, con, agi, wis, counter;
     private Location currentLocation;
     private Activity currentWork;
     private MaterialManager materialManager;
@@ -28,8 +28,15 @@ public class Player : MonoBehaviour {
     public Text currentLocationText;
     public Image durationBar;
 
+    //NotificationWindow
+    public GameObject notiWindow;
+    public Text eventTitle;
+    public Text eventText;
+
     private float workingTime;
     private float totalTime;
+
+    public int foodDownSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -38,18 +45,23 @@ public class Player : MonoBehaviour {
         PlayerPrefs.SetFloat("foodValue", health);
 
         workingTime = 0;
+        counter = 0;
         isWorking = false;
         materialManager = new MaterialManager();
         eventManager = new EventManager();
 
-        str = PlayerPrefs.GetInt("STR");
-        con = PlayerPrefs.GetInt("CON");
-        agi = PlayerPrefs.GetInt("FIN");
-        wis = PlayerPrefs.GetInt("WIS");
+        //str = PlayerPrefs.GetInt("STR");
+        //con = PlayerPrefs.GetInt("CON");
+        //agi = PlayerPrefs.GetInt("FIN");
+        //wis = PlayerPrefs.GetInt("WIS");
 
         //Keine aktuelle aufgabe vom start her -- Platzhalter
-        PlayerPrefs.SetString("CurrentLocationName", "Camp");
-        PlayerPrefs.SetString("CurrentActivityName", "None");
+        //PlayerPrefs.SetString("CurrentLocationName", "Camp");
+        //PlayerPrefs.SetString("CurrentActivityName", "None");
+
+        playerData.currentLocationName = "Lager";
+        playerData.currentActivityName = "Nichts";
+
 
         durationBar.fillAmount = 1;
     }
@@ -89,6 +101,14 @@ public class Player : MonoBehaviour {
                         {
                             Debug.Log(currentEvent.title);
                             Debug.Log(currentEvent.description);
+
+                            //Eventwindow
+                            notiWindow.SetActive(true);
+                            //Text eventText = (Text)FindObjectOfType(typeof(Text));
+                            //notiWindow.transform.Find("/Image/Upper_Panel/Event_Text").GetComponent<Text>().text = "Test";
+                            eventText.text = currentEvent.description;
+                            eventTitle.text = currentEvent.title;
+
                             currentEvent.run(this);
                         } 
                     }
@@ -109,19 +129,40 @@ public class Player : MonoBehaviour {
                 //ToDo: Set a basic location and basic work
                 currentLocation = null;
                 currentWork = null;
-                
+
                 //Am lager chillen
-                PlayerPrefs.SetString("CurrentLocationName", "Lager");
-                PlayerPrefs.SetString("CurrentActivityName", "Nichts");
+                //PlayerPrefs.SetString("CurrentLocationName", "Lager");
+                //PlayerPrefs.SetString("CurrentActivityName", "Nichts");
+                playerData.currentLocationName = "Lager";
+                playerData.currentActivityName = "Nichts";
+
                 durationBar.fillAmount = 1;
 
                 save();
                 
             }
+
         }
 
         //Zuwissung der Aktuellen Tätigkeit und Ort zum Text in der UI
-        currentLocationText.text = PlayerPrefs.GetString("CurrentLocationName") + ": " + PlayerPrefs.GetString("CurrentActivityName");
+        currentLocationText.text = playerData.currentLocationName  + ": " + playerData.currentActivityName;
+    }
+
+    public void OnGUI()
+    {
+        counter++;
+        if (counter == foodDownSpeed)
+        {
+            if (playerData.food != 0)
+            {
+                playerData.food--;
+            } else
+            {
+                playerData.health--;                
+            }
+            counter = 0;
+        }
+
     }
 
 
@@ -168,9 +209,12 @@ public class Player : MonoBehaviour {
                         isWorking = true;
 
                         //Zuwissung der aktuellen Location in die Playerprefs
-                        PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
-                        PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
-                        totalTime = workingTime;
+                        //PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
+                        //PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
+                        playerData.currentLocationName = currentLocation.locationName;
+                        playerData.currentActivityName = currentWork.activityName;
+
+                    totalTime = workingTime;
 
                         Debug.Log("AP: " + activityPoints);
                         if (activityPoints > playerData.apMAX)

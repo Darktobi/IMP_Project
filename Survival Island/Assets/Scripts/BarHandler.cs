@@ -9,12 +9,15 @@ public class BarHandler : MonoBehaviour {
 
     public Image apBar;
     public Image foodBar;
+    public Image healthBar;
 
     public Text apText;
     public Text foodText;
+    public Text healthText;
 
     public float apValue;
     public float foodValue;
+    public float healthValue;
 
     private void Awake()
     {
@@ -41,8 +44,10 @@ public class BarHandler : MonoBehaviour {
         //foodText.text= Mathf.Round(PlayerPrefs.GetFloat("foodValue")) + "/"+ PlayerPrefs.GetFloat("foodMAX");
         //apText.text = Mathf.Round(PlayerPrefs.GetFloat("apValue")) + "/" + PlayerPrefs.GetFloat("apMAX");
 
-        foodText.text = playerData.health + "/" + playerData.healthMAX;
-        apText.text = playerData.ap + "/" + playerData.apMAX;
+        foodText.text = playerData.food + "/" + playerData.foodMAX + " FP";
+        apText.text = playerData.ap + "/" + playerData.apMAX + " AP";
+        healthText.text = playerData.health + "/" + playerData.healthMAX + " HP";
+
 
     }
 
@@ -51,8 +56,10 @@ public class BarHandler : MonoBehaviour {
         //foodBar.fillAmount = PlayerPrefs.GetFloat("foodValue") / (PlayerPrefs.GetFloat("foodMAX"));
         //apBar.fillAmount = PlayerPrefs.GetFloat("apValue") / (PlayerPrefs.GetFloat("apMAX"));
         //apBar.fillAmount = PlayerPrefs.GetFloat("apMAX");
-        foodBar.fillAmount = playerData.health / playerData.healthMAX;
+        healthBar.fillAmount = playerData.health / playerData.healthMAX;
         apBar.fillAmount = playerData.ap / playerData.apMAX;
+        foodBar.fillAmount = playerData.food / playerData.foodMAX;
+
 
 
     }

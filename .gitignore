@@ -33,3 +33,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Survival Island/.vs/
+*.meta

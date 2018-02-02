@@ -9,8 +9,10 @@ using System.Linq;
 public class PlayerDatas : MonoBehaviour {
 
     public int str, con, agi, wis;
-    public float health, healthMAX, ap, apMAX;
+    public float health, healthMAX, ap, apMAX, food, foodMAX;
     public Inventory inventory;
+    public string currentLocationName;
+    public string currentActivityName;
 
     //public SaveLoad data;
 
@@ -28,10 +30,13 @@ public class PlayerDatas : MonoBehaviour {
             agi = 5;
             wis = 5;
 
-            healthMAX = 500;
+            foodMAX = 100;
+            food = 100;
             apMAX = 8;
-            health = 500;
             ap = 8;
+            healthMAX = 50;
+            health = 50;
+
         }
         else
         {
@@ -46,11 +51,13 @@ public class PlayerDatas : MonoBehaviour {
         SaveLoad data = new SaveLoad();
         Debug.Log("Saving...");
 
-        //Stats
+        //Ressources
         data.healthMAX = healthMAX;
         data.health = health;
         data.apMAX = apMAX;
         data.ap = ap;
+        data.foodMAX = foodMAX;
+        data.food = food;
 
         //Attributes
         data.str = str;
@@ -58,12 +65,19 @@ public class PlayerDatas : MonoBehaviour {
         data.agi = agi;
         data.wis = wis;
 
+        //Actions
+        data.currentLocationName = currentLocationName;
+        data.currentActivityName = currentActivityName;
+
+        //Inventory
         data.addresses = new Dictionary<string, int>();
 
         foreach (Item item in inventory.items)
         {
             data.addresses.Add(item.name, item.getCount());
         }
+
+        
 
         return data;
     }
@@ -91,11 +105,15 @@ public class PlayerDatas : MonoBehaviour {
             SaveLoad data = (SaveLoad)bf.Deserialize(file);
             file.Close();
 
-            //Stats
+            //Ressources
             healthMAX = data.healthMAX;
             health = data.health;
+
             apMAX = data.apMAX;
             ap =  data.ap;
+
+            foodMAX = data.foodMAX;
+            food = data.food;
 
             //Attributes
             str = data.str;
@@ -103,13 +121,14 @@ public class PlayerDatas : MonoBehaviour {
             agi = data.agi;
             wis = data.wis;
 
+            //Inventory
             new Inventory();
 
-            Item[] test2 = GameObject.FindObjectsOfType<Item>();
+            Item[] savedItems = GameObject.FindObjectsOfType<Item>();
 
             foreach (KeyValuePair<string, int> item in data.addresses)
             {
-                foreach (Item mat in test2)
+                foreach (Item mat in savedItems)
                 {
 
                     if (mat.name == item.Key)
@@ -125,8 +144,12 @@ public class PlayerDatas : MonoBehaviour {
                 }
             }
 
+            //Actions
+            currentLocationName = data.currentLocationName;
+            currentActivityName = data.currentActivityName;
+
         }
-        
+
     }
 
 }
