@@ -1117,6 +1117,11 @@ MonoBehaviour:
   - {fileID: 759865122}
   - {fileID: 361121760}
   - {fileID: 1019929377}
+  - {fileID: 996808449}
+  - {fileID: 1476981375}
+  - {fileID: 1016448476}
+  - {fileID: 913202694}
+  - {fileID: 2011367906}
   inventory: {fileID: 1969177562}
   player: {fileID: 2098058900}
   itemCount: 0
@@ -12860,6 +12865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+  player: {fileID: 2098058900}
 --- !u!1 &2006391053
 GameObject:
   m_ObjectHideFlags: 0
@@ -13480,6 +13486,7 @@ MonoBehaviour:
   feet: {fileID: 0}
   tool: {fileID: 0}
   inventory: {fileID: 1969177562}
+  inventoryHandler: {fileID: 844719781}
   playerData: {fileID: 2098058902}
   currentLocationText: {fileID: 1326910163}
   durationBar: {fileID: 1727322843}

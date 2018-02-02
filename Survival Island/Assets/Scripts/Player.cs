@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     public Tool tool;
 
     public Inventory inventory;
+    public InventoryHandler inventoryHandler;
     public PlayerDatas playerData;
     public Text currentLocationText;
     public Image durationBar;
@@ -224,6 +225,8 @@ public class Player : MonoBehaviour {
         {
             Debug.Log(food.name + " nicht im Inventar vorhanden");
         }
+
+        inventoryHandler.OpenFood();
     }
 
     public void equip(Tool tool)

@@ -8,6 +8,8 @@ public class Inventory : MonoBehaviour {
     //[SerializeField]
     public List<Item> items;
     private int num;
+
+    public Player player;
     //public PlayerDatas playerDatas;
 
     // Use this for initialization
@@ -76,6 +78,22 @@ public class Inventory : MonoBehaviour {
 
         var btnItem = Instantiate(button2);
         btnItem.transform.SetParent(btnPanel);
+
+        if(item.GetType() == typeof(Equipment))
+        {
+            btnItem.onClick.AddListener(() => player.equip(item as Equipment));
+        }
+
+        else if(item.GetType() == typeof(Food))
+        {
+            btnItem.onClick.AddListener(() => player.eat(item as Food));
+        }
+
+        else if(item.GetType() == typeof(Tool))
+        {
+            btnItem.onClick.AddListener(() => player.equip(item as Tool));
+        }
+        
         btnItem.GetComponentInChildren<Text>().text = name +" x"+ item.getCount();
 
         num++;
