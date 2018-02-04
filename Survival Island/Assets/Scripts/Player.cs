@@ -27,11 +27,21 @@ public class Player : MonoBehaviour {
     public PlayerDatas playerData;
     public Text currentLocationText;
     public Image durationBar;
+    public PopUpWindowManager popUpWindow;
 
     //NotificationWindow
-    public GameObject notiWindow;
-    public Text eventTitle;
-    public Text eventText;
+    //public GameObject notiWindow;
+    //public Text eventTitle;
+    //public Text eventText;
+
+    //ItemDiscriptionWindow
+    public GameObject descrWindow;
+    public Text descrTitle;
+    public Text descrText;
+    public Button confirmBtn;
+
+    //EQ-Slots in UI in Character Display
+    public Text[] eqSlots;
 
     private float workingTime;
     private float totalTime;
@@ -44,20 +54,13 @@ public class Player : MonoBehaviour {
         activityPoints = playerData.ap;
         PlayerPrefs.SetFloat("foodValue", health);
 
+        //eqSlots = new Text[5];
+
         workingTime = 0;
         counter = 0;
         isWorking = false;
         materialManager = new MaterialManager();
         eventManager = new EventManager();
-
-        //str = PlayerPrefs.GetInt("STR");
-        //con = PlayerPrefs.GetInt("CON");
-        //agi = PlayerPrefs.GetInt("FIN");
-        //wis = PlayerPrefs.GetInt("WIS");
-
-        //Keine aktuelle aufgabe vom start her -- Platzhalter
-        //PlayerPrefs.SetString("CurrentLocationName", "Camp");
-        //PlayerPrefs.SetString("CurrentActivityName", "None");
 
         playerData.currentLocationName = "Lager";
         playerData.currentActivityName = "Nichts";
@@ -103,11 +106,7 @@ public class Player : MonoBehaviour {
                             Debug.Log(currentEvent.description);
 
                             //Eventwindow
-                            notiWindow.SetActive(true);
-                            //Text eventText = (Text)FindObjectOfType(typeof(Text));
-                            //notiWindow.transform.Find("/Image/Upper_Panel/Event_Text").GetComponent<Text>().text = "Test";
-                            eventText.text = currentEvent.description;
-                            eventTitle.text = currentEvent.title;
+                            popUpWindow.createNotificationWindow(currentEvent.title, currentEvent.description);
 
                             currentEvent.run(this);
                         } 
@@ -131,8 +130,6 @@ public class Player : MonoBehaviour {
                 currentWork = null;
 
                 //Am lager chillen
-                //PlayerPrefs.SetString("CurrentLocationName", "Lager");
-                //PlayerPrefs.SetString("CurrentActivityName", "Nichts");
                 playerData.currentLocationName = "Lager";
                 playerData.currentActivityName = "Nichts";
 
@@ -179,7 +176,7 @@ public class Player : MonoBehaviour {
 
     public int getStr()
     {
-        return PlayerPrefs.GetInt("STR");
+        return playerData.str;
     }
 
     public void changeStatus(int health, int activityPoints)
@@ -208,50 +205,57 @@ public class Player : MonoBehaviour {
                         workingTime = currentWork.workingTime;
                         isWorking = true;
 
-                        //Zuwissung der aktuellen Location in die Playerprefs
-                        //PlayerPrefs.SetString("CurrentLocationName", currentLocation.locationName);
-                        //PlayerPrefs.SetString("CurrentActivityName", currentWork.activityName);
+                        //Zuwissung der aktuellen Location
                         playerData.currentLocationName = currentLocation.locationName;
                         playerData.currentActivityName = currentWork.activityName;
 
-                    totalTime = workingTime;
+                        totalTime = workingTime;
 
                         Debug.Log("AP: " + activityPoints);
                         if (activityPoints > playerData.apMAX)
 
                         {
-                            //PlayerPrefs.SetFloat("apValue", PlayerPrefs.GetFloat("apMAX"));
                             playerData.ap = playerData.apMAX;
                             Debug.Log("Max AP erreicht.");
                             activityPoints = playerData.apMAX;
                         }
                         else
                         {
-                            //PlayerPrefs.SetFloat("apValue", activityPoints);
                             playerData.ap = activityPoints;
                         }
 
-                        Debug.Log("AP Werte: " + playerData.ap + " : " + activityPoints);
 
                 }
 
                 else
                 {
                     Debug.Log("Nicht das benötigte Werkzeug ausgerüstet. Du brauchst " + activity.neededTool.name);
+
+                    string title = "Achtung!";
+                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.neededTool.name;
+
+                    popUpWindow.createNotificationWindow(title, description);
                 }
             }
             else
             {
                 Debug.Log("Leider nicht genug Aktivitätspunkte zur Verfügung");
-               
+                string title = "Achtung";
+                string description = "Leider nicht genug Aktivitätspunkte zur Verfügung";
+                popUpWindow.createNotificationWindow(title, description);
+
             }
-           
+
         }
         else
         {
             Debug.Log("Es wird noch eine andere Tätigkeit ausgeführt!");
+            string title = "Achtung";
+            string description = "Es wird noch eine andere Tätigkeit ausgeführt!";
+            popUpWindow.createNotificationWindow(title, description);
+
         }
-       
+
     }
 
     public void eat(Food food)
@@ -260,7 +264,11 @@ public class Player : MonoBehaviour {
         if (inventory.subItem(food))
         {
             Debug.Log("Spieler geheilt um " + food.healthPoints);
+            string title = "Heilung";
+            string description = "Du wurdest um \n" + food.healthPoints + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
             setHealth(food.healthPoints);
+            playerData.food = playerData.foodMAX;
+            popUpWindow.createNotificationWindow(title, description);
 
             Debug.Log("Gesundheit nach dem Essen: " + health);
         }
@@ -268,6 +276,11 @@ public class Player : MonoBehaviour {
         else
         {
             Debug.Log(food.name + " nicht im Inventar vorhanden");
+            string title = "Nicht möglich";
+            string description = food.name + " nicht im Inventar vorhanden";
+
+            popUpWindow.createNotificationWindow(title, description);
+
         }
 
         inventoryHandler.OpenFood();
@@ -276,6 +289,7 @@ public class Player : MonoBehaviour {
     public void equip(Tool tool)
     {
         this.tool = tool;
+        eqSlots[5].text = "Waffe: "+tool.name;
     }
 
     public void equip(Equipment equipment)
@@ -284,37 +298,43 @@ public class Player : MonoBehaviour {
         {
             unequip(weapon);
             weapon = equipment;
+            eqSlots[5].text = "Waffe: " + weapon.name;
         }
         else if (equipment.type == Equipment.Types.Head)
         {
             unequip(head);
             head = equipment;
+            eqSlots[0].text = "Kopf: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Breast)
         {
             unequip(breast);
             breast = equipment;
+            eqSlots[1].text = "Brust: "+ equipment.name;
         }
         else if (equipment.type == Equipment.Types.Hands)
         {
             unequip(hands);
             hands = equipment;
+            eqSlots[2].text = "Hände: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Legs)
         {
             unequip(legs);
             legs = equipment;
+            eqSlots[3].text = "Beine: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Feet)
         {
             unequip(feet);
             feet = equipment;
+            eqSlots[4].text = "Füße: "+ equipment.name;
         }
 
-        str += equipment.str;
-        con += equipment.con;
-        agi += equipment.agi;
-        wis += equipment.wis;
+        playerData.str += equipment.str;
+        playerData.con += equipment.con;
+        playerData.agi += equipment.agi;
+        playerData.wis += equipment.wis;
         Debug.Log("Stärke: " + str + ", Konstitution: " + con + ", Geschicklichkeit: " + agi + ", Wissen: " + wis);
 
     }
@@ -325,6 +345,11 @@ public class Player : MonoBehaviour {
         foreach (Item collectedMaterial in collectedMaterials)
         {
             inventory.addItem(collectedMaterial);
+            string title = "Du hast etwas gefunden!";
+            string description = "Du hast eine/n \n" + collectedMaterial.name + "\ngefunden";
+
+            popUpWindow.createNotificationWindow(title, description);
+
         }
     }
 

@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour {
     private int num;
 
     public Player player;
+    public PopUpWindowManager popUpWindow;
     //public PlayerDatas playerDatas;
 
     // Use this for initialization
@@ -81,19 +82,25 @@ public class Inventory : MonoBehaviour {
 
         if(item.GetType() == typeof(Equipment))
         {
-            btnItem.onClick.AddListener(() => player.equip(item as Equipment));
+            string text = "Möchtest du \n\n" + item.name + "\n\nAusrüsten?";
+            string type = "EQ";
+            btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
         else if(item.GetType() == typeof(Food))
         {
-            btnItem.onClick.AddListener(() => player.eat(item as Food));
+            string text = "Möchtest du \n\n" + item.name + "\n\nessen?";
+            string type = "Food";
+            btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
         else if(item.GetType() == typeof(Tool))
         {
-            btnItem.onClick.AddListener(() => player.equip(item as Tool));
+            string text = "Möchtest du \n\n" + item.name + "\n\nAusrüsten?";
+            string type = "Tool";
+            btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
-        
+
         btnItem.GetComponentInChildren<Text>().text = name +" x"+ item.getCount();
 
         num++;
