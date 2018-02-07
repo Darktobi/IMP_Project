@@ -393,10 +393,10 @@ public class Player : MonoBehaviour {
     {
         if(equipment != null)
         {
-            str -= equipment.str;
-            con -= equipment.con;
-            agi -= equipment.agi;
-            wis -= equipment.wis;
+            playerData.str -= equipment.str;
+            playerData.con -= equipment.con;
+            playerData.agi -= equipment.agi;
+            playerData.wis -= equipment.wis;
         }
 
     }

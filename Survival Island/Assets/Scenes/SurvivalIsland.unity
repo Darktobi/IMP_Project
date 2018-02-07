@@ -13774,7 +13774,8 @@ MonoBehaviour:
   currentLocationText: {fileID: 1326910163}
   durationBar: {fileID: 1727322843}
   popUpWindow: {fileID: 2098058903}
-  descrWindow: {fileID: 0}
+  descrWindow: {fileID: 1835408895383830, guid: 83462ffca386b6b4aba05f95b815dffd,
+    type: 2}
   descrTitle: {fileID: 0}
   descrText: {fileID: 0}
   confirmBtn: {fileID: 0}
@@ -13831,16 +13832,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2098058899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4f705e5b0899d469a71b0f3f6c860f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6400ade2385d18c4c8a114e03432427d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 330866065}
   crafter: {fileID: 266732671}
   player: {fileID: 2098058900}
-  notiWindow: {fileID: 1887701694446056, guid: d826127dc86d1a6499d4e22a7ea05a2c, type: 2}
+  notiWindow: {fileID: 1887701694446056, guid: cc53f9822a3bb3949bdb66a92088b11d, type: 2}
   eventTitle: {fileID: 0}
   eventText: {fileID: 0}
-  descrWindow: {fileID: 1835408895383830, guid: 058c1c7fcc2c1184cbf73abab5a23a73,
+  descrWindow: {fileID: 1835408895383830, guid: 83462ffca386b6b4aba05f95b815dffd,
     type: 2}
 --- !u!224 &2118789359 stripped
 RectTransform:
