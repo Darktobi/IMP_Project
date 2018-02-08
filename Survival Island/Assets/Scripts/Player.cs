@@ -19,8 +19,8 @@ public class Player : MonoBehaviour {
     private EventManager eventManager;
     private GameEvent currentEvent;
 
-    public Equipment weapon, head, breast, hands, legs, feet;
-    public Tool tool;
+    //public Equipment weapon, head, breast, hands, legs, feet;
+    //public Tool tool;
 
     public Inventory inventory;
     public InventoryHandler inventoryHandler;
@@ -28,20 +28,6 @@ public class Player : MonoBehaviour {
     public Text currentLocationText;
     public Image durationBar;
     public PopUpWindowManager popUpWindow;
-
-    //NotificationWindow
-    //public GameObject notiWindow;
-    //public Text eventTitle;
-    //public Text eventText;
-
-    //ItemDiscriptionWindow
-    public GameObject descrWindow;
-    public Text descrTitle;
-    public Text descrText;
-    public Button confirmBtn;
-
-    //EQ-Slots in UI in Character Display
-    public Text[] eqSlots;
 
     private float workingTime;
     private float totalTime;
@@ -114,13 +100,13 @@ public class Player : MonoBehaviour {
                 }
 
                 //Check for tool stability if a tool is equiped
-                if(tool != null)
+                if(playerData.tool != null)
                 {
-                    if (tool.getCurrentStability() <= 0)
+                    if (playerData.tool.getCurrentStability() <= 0)
                     {
-                        tool.resetStability();
-                        inventory.subItem(tool);
-                        tool = null;
+                        playerData.tool.resetStability();
+                        inventory.subItem(playerData.tool);
+                        playerData.tool = null;
                     }
                 }
                
@@ -264,10 +250,10 @@ public class Player : MonoBehaviour {
         if (inventory.subItem(food))
         {
             Debug.Log("Spieler geheilt um " + food.healthPoints);
-            string title = "Heilung";
-            string description = "Du wurdest um \n" + food.healthPoints + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
             setHealth(food.healthPoints);
             playerData.food = playerData.foodMAX;
+            string title = "Heilung";
+            string description = "Du wurdest um \n" + food.healthPoints + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
             popUpWindow.createNotificationWindow(title, description);
 
             Debug.Log("Gesundheit nach dem Essen: " + health);
@@ -288,47 +274,48 @@ public class Player : MonoBehaviour {
 
     public void equip(Tool tool)
     {
-        this.tool = tool;
-        eqSlots[5].text = "Waffe: "+tool.name;
+        this.playerData.tool = tool;
+        playerData.eqSlots[6].text = "Werkz.: "+tool.name;
+        playerData.Save();
     }
 
     public void equip(Equipment equipment)
     {
         if (equipment.type == Equipment.Types.Weapon)
         {
-            unequip(weapon);
-            weapon = equipment;
-            eqSlots[5].text = "Waffe: " + weapon.name;
+            unequip(playerData.weapon);
+            playerData.weapon = equipment;
+            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.name;
         }
         else if (equipment.type == Equipment.Types.Head)
         {
-            unequip(head);
-            head = equipment;
-            eqSlots[0].text = "Kopf: " + equipment.name;
+            unequip(playerData.head);
+            playerData.head = equipment;
+            playerData.eqSlots[1].text = "Kopf: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Breast)
         {
-            unequip(breast);
-            breast = equipment;
-            eqSlots[1].text = "Brust: "+ equipment.name;
+            unequip(playerData.chest);
+            playerData.chest = equipment;
+            playerData.eqSlots[2].text = "Brust: "+ equipment.name;
         }
         else if (equipment.type == Equipment.Types.Hands)
         {
-            unequip(hands);
-            hands = equipment;
-            eqSlots[2].text = "Hände: " + equipment.name;
+            unequip(playerData.hands);
+            playerData.hands = equipment;
+            playerData.eqSlots[3].text = "Hände: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Legs)
         {
-            unequip(legs);
-            legs = equipment;
-            eqSlots[3].text = "Beine: " + equipment.name;
+            unequip(playerData.legs);
+            playerData.legs = equipment;
+            playerData.eqSlots[4].text = "Beine: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Feet)
         {
-            unequip(feet);
-            feet = equipment;
-            eqSlots[4].text = "Füße: "+ equipment.name;
+            unequip(playerData.feet);
+            playerData.feet = equipment;
+            playerData.eqSlots[5].text = "Füße: "+ equipment.name;
         }
 
         playerData.str += equipment.str;
@@ -336,7 +323,7 @@ public class Player : MonoBehaviour {
         playerData.agi += equipment.agi;
         playerData.wis += equipment.wis;
         Debug.Log("Stärke: " + str + ", Konstitution: " + con + ", Geschicklichkeit: " + agi + ", Wissen: " + wis);
-
+        playerData.Save();
     }
 
     private void collectMaterials()
@@ -408,13 +395,20 @@ public class Player : MonoBehaviour {
             return true;
         }
 
-        if(tool == activity.neededTool)
+        //Da Daten jetzt in PlayerDatas sind, musste wurde tools gg playerData.tool geändert
+        //this.playerData.tool = playerData.tool;
+        if(playerData.tool == activity.neededTool)
         {
-            tool.subStability();
+            playerData.tool.subStability();
             return true;
         }
 
         return false;
+    }
+
+    public void Test()
+    {
+        Debug.Log("Test");
     }
  
 }

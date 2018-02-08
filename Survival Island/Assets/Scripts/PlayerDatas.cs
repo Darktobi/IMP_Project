@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -10,17 +11,22 @@ public class PlayerDatas : MonoBehaviour {
 
     public int str, con, agi, wis;
     public float health, healthMAX, ap, apMAX, food, foodMAX;
+    public Equipment weapon, head, chest, hands, legs, feet;
+    public Tool tool;
     public Inventory inventory;
+    public Player player;
     public string currentLocationName;
     public string currentActivityName;
 
-    //public SaveLoad data;
+    //EQ-Slots in UI in Character Display
+    public Text[] eqSlots;
+
 
     private void Awake()
     {
         //data = new PlayerData();
         //new PlayerDatas();
-
+        
         if (PlayerPrefs.GetInt("New Game") == 1)
         {
             Debug.Log("New Game");
@@ -41,6 +47,7 @@ public class PlayerDatas : MonoBehaviour {
         else
         {
             Load();
+            
         }
     }
 
@@ -65,16 +72,40 @@ public class PlayerDatas : MonoBehaviour {
         data.agi = agi;
         data.wis = wis;
 
+        //Equipment
+        data.currentEquipment = new List<string>();
+        if (weapon != null)
+            data.currentEquipment.Add(weapon.name);
+        if (head != null)
+            data.currentEquipment.Add(head.name);
+        if (chest != null)
+            data.currentEquipment.Add(chest.name);
+        if (hands != null)
+            data.currentEquipment.Add(hands.name);
+        if (legs != null)
+            data.currentEquipment.Add(legs.name);
+        if (feet != null)
+            data.currentEquipment.Add(feet.name);
+        if (tool != null)
+            data.currentEquipment.Add(tool.name);
+
+        foreach (string name in data.currentEquipment)
+        {
+             Debug.Log(name);
+        }
+
+        
+
         //Actions
         data.currentLocationName = currentLocationName;
         data.currentActivityName = currentActivityName;
 
         //Inventory
-        data.addresses = new Dictionary<string, int>();
+        data.currentInventory = new Dictionary<string, int>();
 
         foreach (Item item in inventory.items)
         {
-            data.addresses.Add(item.name, item.getCount());
+            data.currentInventory.Add(item.name, item.getCount());
         }
 
         
@@ -120,13 +151,57 @@ public class PlayerDatas : MonoBehaviour {
             con = data.con;
             agi = data.agi;
             wis = data.wis;
+            
+
+            //Equipment
+            //new Equipment();
+           
+            Equipment[] savedEquip = GameObject.FindObjectsOfType<Equipment>();
+            Tool[] savedTools = GameObject.FindObjectsOfType<Tool>();
+            new Player();
+
+            foreach (string name in data.currentEquipment)
+            {
+                foreach (Equipment eq in savedEquip)
+                {
+                    //Debug.Log(eq);
+                    if (eq.name == name)
+                    {
+                        
+                        str -= eq.str;
+                        con -= eq.con;
+                        agi -= eq.agi;
+                        wis -= eq.wis;
+                        player.equip(eq);
+                    }
+
+                }
+                foreach (Tool eq in savedTools)
+                {
+                    //Debug.Log(eq);
+                    if (eq.name == name)
+                    {
+
+                        //str -= eq.str;
+                        //con -= eq.con;
+                        //agi -= eq.agi;
+                        //wis -= eq.wis;
+                        player.equip(eq);
+                    }
+
+                }
+
+            }
+
+
+            
 
             //Inventory
             new Inventory();
 
             Item[] savedItems = GameObject.FindObjectsOfType<Item>();
 
-            foreach (KeyValuePair<string, int> item in data.addresses)
+            foreach (KeyValuePair<string, int> item in data.currentInventory)
             {
                 foreach (Item mat in savedItems)
                 {

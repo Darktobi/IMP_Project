@@ -12,8 +12,6 @@ public class PopUpWindowManager : MonoBehaviour {
 
     //NotificationWindow
     public GameObject notiWindow;
-    public Text eventTitle;
-    public Text eventText;
 
     //ItemDiscriptionWindow
     public GameObject descrWindow;
