@@ -27,8 +27,8 @@ public class ActivityManager : MonoBehaviour {
         workingTime = 0;
         eventManager = new EventManager();
 
-        player.playerData.currentLocationName = "Lager";
-        player.playerData.currentActivityName = "Nichts";
+        player.setCurrentLocationName("Lager");
+        player .setCurrentActivityName("Nichts");
 
         durationBar.fillAmount = 1;
     }
@@ -68,54 +68,37 @@ public class ActivityManager : MonoBehaviour {
                         }
                     }
                 }
-
-                //Check for tool stability if a tool is equiped
-                if (player.playerData.tool != null)
-                {
-                    if (player.playerData.tool.getCurrentStability() <= 0)
-                    {
-                        player.playerData.tool.resetStability();
-                        player.inventory.subItem(player.playerData.tool);
-                        player.playerData.tool = null;
-                    }
-                }
+                player.checkToolStability();
 
                 //Am lager chillen
-                player.playerData.currentLocationName = "Lager";
-                player.playerData.currentActivityName = "Nichts";
+                player.setCurrentLocationName("Lager");
+                player.setCurrentActivityName("Nichts");
 
                 durationBar.fillAmount = 1;
-
                 player.save();
             }
         }
-        currentLocationText.text = player.playerData.currentLocationName + ": " + player.playerData.currentActivityName;
+        currentLocationText.text = player.getCurrentLocationName() + ": " + player.getCurrentActivityName();
     }
 
     public void setActivity(Activity activity)
     {
         if (!activeActivity)
         {
-            if (player.playerData.ap >= activity.activityPoints)
+            if (player.getActivityPoints() >= activity.activityPoints)
             {
                 if (player.checkEquipptedTool(activity))
                 {
                     currentActivity = activity;
                     currentLocation = currentActivity.currentLocation;
-                    player.playerData.ap -= currentActivity.activityPoints;
+                    player.setActivityPoints(-currentActivity.activityPoints);
                     workingTime = currentActivity.workingTime;
                     activeActivity = true;
 
-                    player.playerData.currentLocationName = currentLocation.locationName;
-                    player.playerData.currentActivityName = currentActivity.activityName;
+                    player.setCurrentLocationName(currentLocation.locationName);
+                    player.setCurrentActivityName(currentActivity.activityName);
 
                     totalTime = workingTime;
-
-                    if (player.playerData.ap > player.playerData.apMAX)
-                    {
-                        player.playerData.ap = player.playerData.apMAX;
-                    }
-
                 }
 
                 else

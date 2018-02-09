@@ -1261,7 +1261,7 @@ MonoBehaviour:
   - {fileID: 2011367906}
   inventory: {fileID: 1969177562}
   player: {fileID: 2098058900}
-  popUpWindow: {fileID: 2098058903}
+  popUpWindow: {fileID: 556755300}
 --- !u!4 &266732672
 Transform:
   m_ObjectHideFlags: 0
@@ -2984,6 +2984,52 @@ MonoBehaviour:
   dangerLevel: 2
   str: 10
   Max_health: 20
+--- !u!1 &556755299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 556755301}
+  - component: {fileID: 556755300}
+  m_Layer: 0
+  m_Name: PopupWindowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &556755300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556755299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6400ade2385d18c4c8a114e03432427d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 330866065}
+  crafter: {fileID: 266732671}
+  player: {fileID: 2098058900}
+  notiWindow: {fileID: 1887701694446056, guid: cc53f9822a3bb3949bdb66a92088b11d, type: 2}
+  descrWindow: {fileID: 1835408895383830, guid: 83462ffca386b6b4aba05f95b815dffd,
+    type: 2}
+--- !u!4 &556755301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 556755299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 782.73334, y: 611.8311, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586666332 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1077192728202062, guid: d575514bae4e46041999f200f49f1d85,
@@ -5095,7 +5141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2098058900}
-  popUpWindow: {fileID: 2098058903}
+  popUpWindow: {fileID: 556755300}
   durationBar: {fileID: 1727322843}
   currentLocationText: {fileID: 1326910163}
 --- !u!4 &880850126
@@ -13274,7 +13320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   player: {fileID: 2098058900}
-  popUpWindow: {fileID: 2098058903}
+  popUpWindow: {fileID: 556755300}
 --- !u!1 &2006391053
 GameObject:
   m_ObjectHideFlags: 0
@@ -14035,8 +14081,6 @@ GameObject:
   - component: {fileID: 2098058901}
   - component: {fileID: 2098058900}
   - component: {fileID: 2098058902}
-  - component: {fileID: 2098058904}
-  - component: {fileID: 2098058903}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14058,7 +14102,7 @@ MonoBehaviour:
   inventory: {fileID: 1969177562}
   inventoryHandler: {fileID: 844719781}
   playerData: {fileID: 2098058902}
-  popUpWindow: {fileID: 2098058903}
+  popUpWindow: {fileID: 556755300}
   foodDownSpeed: 500
 --- !u!4 &2098058901
 Transform:
@@ -14113,34 +14157,6 @@ MonoBehaviour:
   - {fileID: 1346202301}
   - {fileID: 1312369312}
   - {fileID: 1932601885}
---- !u!114 &2098058903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098058899}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6400ade2385d18c4c8a114e03432427d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 330866065}
-  crafter: {fileID: 266732671}
-  player: {fileID: 2098058900}
-  notiWindow: {fileID: 1887701694446056, guid: cc53f9822a3bb3949bdb66a92088b11d, type: 2}
-  descrWindow: {fileID: 1835408895383830, guid: 83462ffca386b6b4aba05f95b815dffd,
-    type: 2}
---- !u!114 &2098058904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098058899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6906b6b9ad47af147a464e87cc4281c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2118789359 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,

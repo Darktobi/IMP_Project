@@ -16,40 +16,12 @@ public class Player : MonoBehaviour {
     public PlayerDatas playerData;
     public PopUpWindowManager popUpWindow;
 
-    private float workingTime;
-    private float totalTime;
-
     public int foodDownSpeed;
 
 	void Start () {
 
         counter = 0;
         materialManager = new MaterialManager();
-    }
-	
-	void Update () {
-
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            save();
-        }
-    }
-
-    public void OnGUI()
-    {
-        counter++;
-        if (counter == foodDownSpeed)
-        {
-            if (playerData.food != 0)
-            {
-                playerData.food--;
-            } else
-            {
-                playerData.health--;                
-            }
-            counter = 0;
-        }
-
     }
 
     public float getHealth()
@@ -67,16 +39,108 @@ public class Player : MonoBehaviour {
         return playerData.str;
     }
 
-    public void changeStatus(int health, int activityPoints)
+    public string getCurrentLocationName()
     {
-        setHealth(health);
-        setActivityPoints(activityPoints);
+        return playerData.currentLocationName;
+    }
+
+    public string getCurrentActivityName()
+    {
+        return playerData.currentActivityName;
+    }
+
+    public void setCurrentLocationName(string locationName)
+    {
+        playerData.currentLocationName = locationName;
+    }
+
+    public void setCurrentActivityName(string activityName)
+    {
+        playerData.currentActivityName = activityName;
+    }
+
+    public void setHealth(int health)
+    {
+        playerData.health += health;
+
+        if (playerData.health <= 0)
+        {
+            // Vorrübergehend, bis bessere Lösung
+            Debug.Log("Spieler ist gestorben! ");
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        if (playerData.health >= playerData.healthMAX)
+        {
+            playerData.health = playerData.healthMAX;
+        }
+    }
+
+    public void setActivityPoints(int activityPoints)
+    {
+        playerData.ap += activityPoints;
+
+        if (playerData.ap < 0)
+        {
+            playerData.ap = 0;
+        }
+
+        if (playerData.ap >= playerData.apMAX)
+        {
+            playerData.ap = playerData.apMAX;
+        }
+    }
+
+
+    public void OnGUI()
+    {
+        counter++;
+        if (counter == foodDownSpeed)
+        {
+            if (playerData.food != 0)
+            {
+                playerData.food--;
+            } else
+            {
+                playerData.health--;                
+            }
+            counter = 0;
+        }
     }
 
     public void save()
     {
         playerData.Save();
         Debug.Log("Saved!");
+    }
+
+    public bool checkEquipptedTool(Activity activity)
+    {
+        if (activity.neededTool == null)
+        {
+            return true;
+        }
+
+        if (playerData.tool == activity.neededTool)
+        {
+            playerData.tool.subStability();
+            return true;
+        }
+
+        return false;
+    }
+
+    public void checkToolStability()
+    {
+        if (playerData.tool != null)
+        {
+            if (playerData.tool.getCurrentStability() <= 0)
+            {
+                playerData.tool.resetStability();
+                inventory.subItem(playerData.tool);
+                playerData.tool = null;
+            }
+        }
     }
    
     public void eat(Food food)
@@ -91,20 +155,31 @@ public class Player : MonoBehaviour {
 
             inventoryHandler.OpenFood();
         }
-
         else
         {
             string title = "Nicht möglich";
             string description = food.name + " nicht im Inventar vorhanden";
             popUpWindow.createNotificationWindow(title, description);
+        }
+    }
 
+    public void collectMaterials(Activity currentActivity, Location currentLocation)
+    {
+        List<Item> collectedMaterials = materialManager.collectMaterials(currentActivity, currentLocation);
+        foreach (Item collectedMaterial in collectedMaterials)
+        {
+            inventory.addItem(collectedMaterial);
+            string title = "Du hast etwas gefunden!";
+            string description = "Du hast eine/n \n" + collectedMaterial.name + "\ngefunden";
+
+            popUpWindow.createNotificationWindow(title, description);
         }
     }
 
     public void equip(Tool tool)
     {
         playerData.tool = tool;
-        playerData.eqSlots[6].text = "Werkz.: "+tool.name;
+        playerData.eqSlots[6].text = "Werkz.: " + tool.name;
         playerData.Save();
     }
 
@@ -126,7 +201,7 @@ public class Player : MonoBehaviour {
         {
             unequip(playerData.chest);
             playerData.chest = equipment;
-            playerData.eqSlots[2].text = "Brust: "+ equipment.name;
+            playerData.eqSlots[2].text = "Brust: " + equipment.name;
         }
         else if (equipment.type == Equipment.Types.Hands)
         {
@@ -144,76 +219,14 @@ public class Player : MonoBehaviour {
         {
             unequip(playerData.feet);
             playerData.feet = equipment;
-            playerData.eqSlots[5].text = "Füße: "+ equipment.name;
+            playerData.eqSlots[5].text = "Füße: " + equipment.name;
         }
 
         playerData.str += equipment.str;
         playerData.con += equipment.con;
         playerData.agi += equipment.agi;
         playerData.wis += equipment.wis;
-        playerData.Save();
-    }
-
-    public void collectMaterials(Activity currentActivity, Location currentLocation)
-    {
-        List<Item> collectedMaterials = materialManager.collectMaterials(currentActivity, currentLocation);
-        foreach (Item collectedMaterial in collectedMaterials)
-        {
-            inventory.addItem(collectedMaterial);
-            string title = "Du hast etwas gefunden!";
-            string description = "Du hast eine/n \n" + collectedMaterial.name + "\ngefunden";
-
-            popUpWindow.createNotificationWindow(title, description);
-
-        }
-    }
-
-    public bool checkEquipptedTool(Activity activity)
-    {
-        if (activity.neededTool == null)
-        {
-            return true;
-        }
-
-        if (playerData.tool == activity.neededTool)
-        {
-            playerData.tool.subStability();
-            return true;
-        }
-
-        return false;
-    }
-
-    private void setHealth(int health)
-    {
-        playerData.health += health;
-
-        if (playerData.health <= 0)
-        {
-            // Vorrübergehend, bis bessere Lösung
-            Debug.Log("Spieler ist gestorben! ");
-            SceneManager.LoadScene("MainMenu");
-        }
-
-        if (playerData.health >= playerData.healthMAX)
-        {
-            playerData.health = playerData.healthMAX;
-        }
-    }
-
-    private void setActivityPoints(int activityPoints)
-    {
-        playerData.ap += activityPoints;
-
-        if (playerData.ap < 0)
-        {
-            playerData.ap = 0;
-        }
-
-        if (playerData.ap >= playerData.apMAX)
-        {
-            playerData.ap = playerData.apMAX;
-        }
+        save();
     }
 
     private void unequip(Equipment equipment)
@@ -225,7 +238,6 @@ public class Player : MonoBehaviour {
             playerData.agi -= equipment.agi;
             playerData.wis -= equipment.wis;
         }
-
     }
 }
 

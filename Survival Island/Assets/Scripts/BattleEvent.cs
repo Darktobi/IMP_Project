@@ -27,7 +27,7 @@ public class BattleEvent : GameEvent {
             else
             {
                 Debug.Log("Gegner greift an!");
-                player.changeStatus(-str, 0);
+                player.setHealth(-str);
            
             }
         }

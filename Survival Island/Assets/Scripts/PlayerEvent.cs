@@ -10,7 +10,7 @@ public class PlayerEvent : GameEvent {
 
     public override void run(Player player)
     {
-        player.changeStatus(healthPoints, activityPoints);
-
+        player.setHealth(healthPoints);
+        player.setActivityPoints(activityPoints);
     }
 }
