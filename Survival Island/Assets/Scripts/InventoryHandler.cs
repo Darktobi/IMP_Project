@@ -32,7 +32,6 @@ public class InventoryHandler : MonoBehaviour {
         darkened = new Color32(191, 191, 191, 255);
 
         OpenEQ();
-        //loadLists();
     }
 
     private void OnEnable()
@@ -100,7 +99,6 @@ public class InventoryHandler : MonoBehaviour {
 
     private void loadLists()
     {
-        Debug.Log("inv loaded");
         inventory.showItems(typeof(Tool), rowPanel, itemButton, toolsPanel);
         inventory.showItems(typeof(Food), rowPanel, itemButton, foodPanel);
         inventory.showItems(typeof(Equipment), rowPanel, itemButton, eqPanel);

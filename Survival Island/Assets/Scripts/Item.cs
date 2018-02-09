@@ -9,11 +9,9 @@ public abstract class Item : MonoBehaviour {
 
     private int count;
 
-	// Use this for initialization
 	void Start () {
         count = 0;
 	}
-
 
     public void addCount()
     {

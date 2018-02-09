@@ -24,13 +24,8 @@ public class PlayerDatas : MonoBehaviour {
 
     private void Awake()
     {
-        //data = new PlayerData();
-        //new PlayerDatas();
-        
         if (PlayerPrefs.GetInt("New Game") == 1)
         {
-            Debug.Log("New Game");
-
             str = 5;
             con = 5;
             agi = 5;
@@ -51,12 +46,9 @@ public class PlayerDatas : MonoBehaviour {
         }
     }
 
-    //Load and Save
-
     private SaveLoad CreateSaveGameObject()
     {
         SaveLoad data = new SaveLoad();
-        Debug.Log("Saving...");
 
         //Ressources
         data.healthMAX = healthMAX;
@@ -89,13 +81,6 @@ public class PlayerDatas : MonoBehaviour {
         if (tool != null)
             data.currentEquipment.Add(tool.name);
 
-        foreach (string name in data.currentEquipment)
-        {
-             Debug.Log(name);
-        }
-
-        
-
         //Actions
         data.currentLocationName = currentLocationName;
         data.currentActivityName = currentActivityName;
@@ -108,8 +93,6 @@ public class PlayerDatas : MonoBehaviour {
             data.currentInventory.Add(item.name, item.getCount());
         }
 
-        
-
         return data;
     }
 
@@ -119,7 +102,6 @@ public class PlayerDatas : MonoBehaviour {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         
-
         bf.Serialize(file, data);
         file.Close();
     }
@@ -128,9 +110,6 @@ public class PlayerDatas : MonoBehaviour {
     {
         if(File.Exists(Application.persistentDataPath+ "/playerInfo.dat"))
         {
-            //SaveLoad data = new SaveLoad();
-            Debug.Log("Loading...");
-
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             SaveLoad data = (SaveLoad)bf.Deserialize(file);
@@ -154,7 +133,6 @@ public class PlayerDatas : MonoBehaviour {
             
 
             //Equipment
-            //new Equipment();
            
             Equipment[] savedEquip = GameObject.FindObjectsOfType<Equipment>();
             Tool[] savedTools = GameObject.FindObjectsOfType<Tool>();
@@ -164,7 +142,6 @@ public class PlayerDatas : MonoBehaviour {
             {
                 foreach (Equipment eq in savedEquip)
                 {
-                    //Debug.Log(eq);
                     if (eq.name == name)
                     {
                         
@@ -174,23 +151,14 @@ public class PlayerDatas : MonoBehaviour {
                         wis -= eq.wis;
                         player.equip(eq);
                     }
-
                 }
                 foreach (Tool eq in savedTools)
                 {
-                    //Debug.Log(eq);
                     if (eq.name == name)
                     {
-
-                        //str -= eq.str;
-                        //con -= eq.con;
-                        //agi -= eq.agi;
-                        //wis -= eq.wis;
                         player.equip(eq);
                     }
-
                 }
-
             }
 
 
@@ -205,27 +173,20 @@ public class PlayerDatas : MonoBehaviour {
             {
                 foreach (Item mat in savedItems)
                 {
-
                     if (mat.name == item.Key)
                     {
                         for(int i = 0; i < item.Value; i++)
                         {
                             inventory.addItem(mat);
-
-                        }
-                        
+                        } 
                     }
-
                 }
             }
 
             //Actions
             currentLocationName = data.currentLocationName;
             currentActivityName = data.currentActivityName;
-
         }
-
     }
-
 }
 

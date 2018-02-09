@@ -16,8 +16,6 @@ class SaveLoad
     public string currentLocationName;
     public string currentActivityName;
 
-    //public string[] eqSlots;
-    //public Equipment[] currentEquipment;
     public Equipment currentHands;
     public Tool currentTool;
 

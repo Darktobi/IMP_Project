@@ -8,11 +8,9 @@ public class EventManager : MonoBehaviour {
 
     public bool checkForEvent()
     {
-        
         int number = rnd.Next(1, 101);
 
         // 25% Chance, dass Event eintritt
-        // Zu Testzwecken tritt Event zurzeit immer ein
         if(number > 74)
         {
             return true;
@@ -52,8 +50,6 @@ public class EventManager : MonoBehaviour {
                 gameEvents.Add(gameEvent);
             }
         }
-
-        Debug.Log(dangerLevel);
 
         if (gameEvents.Count <= 0)
         {

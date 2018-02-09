@@ -21,14 +21,12 @@ public class Player : MonoBehaviour {
 
     public int foodDownSpeed;
 
-	// Use this for initialization
 	void Start () {
 
         counter = 0;
         materialManager = new MaterialManager();
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         if (Input.GetKeyUp(KeyCode.S))
@@ -83,7 +81,6 @@ public class Player : MonoBehaviour {
    
     public void eat(Food food)
     {
-        
         if (inventory.subItem(food))
         {
             setHealth(food.healthPoints);

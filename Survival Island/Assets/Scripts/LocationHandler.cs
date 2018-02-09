@@ -43,7 +43,6 @@ public class LocationHandler : MonoBehaviour {
     {
         btnActions.SetActive(true);
         btnLocation.color = darkened;
-
         location.getActivities();
        
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MaterialManager : MonoBehaviour {
 
-
     public List<Item> collectMaterials(Activity activity, Location location)
     {
         List<Item> collectedMaterials = new List<Item>();
@@ -13,10 +12,10 @@ public class MaterialManager : MonoBehaviour {
             if (location.collectableMaterials.Contains(activityMaterial))
             {
                 collectedMaterials.Add(activityMaterial);
-                //Debug.Log("Added: "+ activityMaterial);
             }
             
         }
+
         return collectedMaterials;
     }
 }

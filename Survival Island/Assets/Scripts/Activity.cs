@@ -14,18 +14,11 @@ public class Activity : MonoBehaviour {
 
     public bool isAvaiable;
     
-
-	// Use this for initialization
-	void Start () {
-	}
-
     public void setAvaiable()
     {
-
         isAvaiable = true;
     }
 
- 
     public void setCurrentLocation(Location currentLocation)
     {
         this.currentLocation = currentLocation;

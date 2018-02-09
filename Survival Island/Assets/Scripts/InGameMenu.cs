@@ -9,15 +9,11 @@ public class InGameMenu : MonoBehaviour {
     public GameObject soundMenu;
     public GameObject menuBtn;
 
-	// Use this for initialization
 	void Start () {
 
         gameMenu.SetActive(false);
 }
 	
-	// Update is called once per frame
-	
-
     public void OpenMenu()
     {
         gameMenu.SetActive(true);

@@ -9,12 +9,8 @@ public class StatsHandler : MonoBehaviour {
     public Text constitution;
     public Text agility;
     public Text wisdom;
-
-    //PlayerData playerData;
     public PlayerDatas playerData;
 
-	
-	// Update is called once per frame
 	void Update () {
         strength.text = playerData.str.ToString();
         constitution.text = playerData.con.ToString();

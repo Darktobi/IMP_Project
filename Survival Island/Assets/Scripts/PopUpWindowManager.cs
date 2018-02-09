@@ -10,10 +10,8 @@ public class PopUpWindowManager : MonoBehaviour {
     public Crafter crafter;
     public Player player;
 
-    //NotificationWindow
     public GameObject notiWindow;
 
-    //ItemDiscriptionWindow
     public GameObject descrWindow;
 
     public void createNotificationWindow(string title, string text)
@@ -21,8 +19,8 @@ public class PopUpWindowManager : MonoBehaviour {
         GameObject window = Instantiate(notiWindow, new Vector4(0, 0, 0), transform.rotation);
         window.transform.SetParent(canvas, false);
 
-        window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = title; //Eventtitle
-        window.transform.Find("Image/Upper_Panel/Event_Text").GetComponent<Text>().text = text; //Eventtext
+        window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = title;
+        window.transform.Find("Image/Upper_Panel/Event_Text").GetComponent<Text>().text = text; 
 
         Button okbutton = window.transform.Find("Image/Down_Panel/Button").GetComponent<Button>();
         okbutton.onClick.AddListener(() => Destroy(window));
@@ -31,7 +29,6 @@ public class PopUpWindowManager : MonoBehaviour {
 
     public void createDescriptionWindow(Button button, Item item, string text, string caseType)
     {
-
         GameObject window = Instantiate(descrWindow, new Vector4(0,0,0), transform.rotation);
         window.transform.SetParent(canvas, false);
 
@@ -56,14 +53,10 @@ public class PopUpWindowManager : MonoBehaviour {
             acceptButton.onClick.AddListener(() => player.equip(item as Tool));
         }
 
-
         acceptButton.onClick.AddListener(() => Destroy(window));
 
         Button cnclbutton = window.transform.Find("Image/Down_Panel/Cancel_Button").GetComponent<Button>();
         cnclbutton.onClick.AddListener(() => Destroy(window));
-
-        //window.transform.Find("Image/Down_Panel/Use_Button/Use_Text").GetComponent<Text>().text = "Test";
-
     }
 
     internal void createDescriptionWindow(Button btnPanel, Item item, string text, object v)

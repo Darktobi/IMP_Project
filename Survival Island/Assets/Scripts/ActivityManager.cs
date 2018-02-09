@@ -21,7 +21,6 @@ public class ActivityManager : MonoBehaviour {
     public Image durationBar;
     public Text currentLocationText;
 
-    // Use this for initialization
     void Start () {
 
         activeActivity = false;
@@ -31,18 +30,16 @@ public class ActivityManager : MonoBehaviour {
         player.playerData.currentLocationName = "Lager";
         player.playerData.currentActivityName = "Nichts";
 
-
         durationBar.fillAmount = 1;
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         if (activeActivity)
         {
             workingTime -= Time.deltaTime;
 
-            //in der Leiste darstellen
+            //show duration in UI
             durationBar.fillAmount = workingTime / totalTime;
 
             if (workingTime <= 0)
@@ -57,7 +54,6 @@ public class ActivityManager : MonoBehaviour {
                     //Check if event occured
                     if (eventManager.checkForEvent())
                     {
-                        Debug.Log("Event ist eingetreten");
                         currentEvent = eventManager.chooseEvent(currentLocation);
 
                         if (currentEvent != null)
@@ -84,11 +80,6 @@ public class ActivityManager : MonoBehaviour {
                     }
                 }
 
-
-                //ToDo: Set a basic location and basic work
-                currentLocation = null;
-                currentActivity = null;
-
                 //Am lager chillen
                 player.playerData.currentLocationName = "Lager";
                 player.playerData.currentActivityName = "Nichts";
@@ -96,12 +87,8 @@ public class ActivityManager : MonoBehaviour {
                 durationBar.fillAmount = 1;
 
                 player.save();
-
             }
-
         }
-
-        //Zuwissung der Aktuellen Tätigkeit und Ort zum Text in der UI
         currentLocationText.text = player.playerData.currentLocationName + ": " + player.playerData.currentActivityName;
     }
 
@@ -119,17 +106,14 @@ public class ActivityManager : MonoBehaviour {
                     workingTime = currentActivity.workingTime;
                     activeActivity = true;
 
-                    //Zuwissung der aktuellen Location
                     player.playerData.currentLocationName = currentLocation.locationName;
                     player.playerData.currentActivityName = currentActivity.activityName;
 
                     totalTime = workingTime;
 
                     if (player.playerData.ap > player.playerData.apMAX)
-
                     {
                         player.playerData.ap = player.playerData.apMAX;
-
                     }
 
                 }

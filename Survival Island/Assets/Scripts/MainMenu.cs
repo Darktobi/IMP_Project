@@ -10,13 +10,10 @@ public class MainMenu : MonoBehaviour {
     public GameObject mainMenu;
     public GameObject settingsMenu;
     
-
     public void Start()
     {
         mainMenu.SetActive(true);
     }
-
-    
 
     public void OpenSettings()
     {
@@ -32,18 +29,12 @@ public class MainMenu : MonoBehaviour {
 
     public void StartNewGame()
     {
-        
-
-        //Sorgt dafür, dass das Spiel als ein neues geladen wird
         PlayerPrefs.SetInt("New Game", 1);
-
-        //Debug.Log("PlayerPrefs deleted!");
         SceneManager.LoadScene("SurvivalIsland");
     }
 
     public void ContinueGame()
     {
-        //Sorgt dafür, dass das Spiel fortgeführt wird
         PlayerPrefs.SetInt("New Game", 0);
         SceneManager.LoadScene("SurvivalIsland");
     }

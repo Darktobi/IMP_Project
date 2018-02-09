@@ -35,8 +35,7 @@ public class Location : MonoBehaviour {
             {
                 activity.setCurrentLocation(this);
                 activity.gameObject.SetActive(true);
-            }
-            
+            } 
         }
     }
 

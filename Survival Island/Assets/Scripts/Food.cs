@@ -7,16 +7,6 @@ public class Food : Item {
 
     public int healthPoints;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    void Start() { }
 
 }

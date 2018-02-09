@@ -7,8 +7,6 @@ public class BattleEvent : GameEvent {
     public int str;
     public int Max_health;
 
-    
-
     public override void run(Player player)
     {
         int health = Max_health;

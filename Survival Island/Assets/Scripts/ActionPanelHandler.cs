@@ -17,7 +17,6 @@ public class ActionPanelHandler : MonoBehaviour {
     public Image inventoryBtn;
     public Image craftingBtn;
 
-    // Use this for initialization
     private void Start () {
         DefaultUI();
 

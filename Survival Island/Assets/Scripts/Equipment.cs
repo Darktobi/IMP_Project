@@ -11,13 +11,6 @@ public class Equipment : Item {
 
     public Types type;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start () {}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
