@@ -8,12 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
+    [SerializeField]
+    private PlayerDatas playerData;
+
     private int counter;
     private MaterialManager materialManager;
 
-    public Inventory inventory;
     public InventoryHandler inventoryHandler;
-    public PlayerDatas playerData;
     public PopUpWindowManager popUpWindow;
 
     public int foodDownSpeed;
@@ -29,14 +30,49 @@ public class Player : MonoBehaviour {
         return playerData.health;
     }
 
-    public float getActivityPoints()
+    public float getHealthMax()
+    {
+        return playerData.healthMAX;
+    }
+
+    public float getAp()
     {
         return playerData.ap;
+    }
+
+    public float getApMax()
+    {
+        return playerData.apMAX;
+    }
+
+    public float getFood()
+    {
+        return playerData.food;
+    }
+
+    public float getFoodMax()
+    {
+        return playerData.foodMAX;
     }
 
     public int getStr()
     {
         return playerData.str;
+    }
+
+    public int getCon()
+    {
+        return playerData.con;
+    }
+
+    public int getAgi()
+    {
+        return playerData.agi;
+    }
+
+    public int getWis()
+    {
+        return playerData.wis;
     }
 
     public string getCurrentLocationName()
@@ -76,7 +112,7 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void setActivityPoints(int activityPoints)
+    public void setAp(int activityPoints)
     {
         playerData.ap += activityPoints;
 
@@ -137,7 +173,7 @@ public class Player : MonoBehaviour {
             if (playerData.tool.getCurrentStability() <= 0)
             {
                 playerData.tool.resetStability();
-                inventory.subItem(playerData.tool);
+                playerData.inventory.subItem(playerData.tool);
                 playerData.tool = null;
             }
         }
@@ -145,7 +181,7 @@ public class Player : MonoBehaviour {
    
     public void eat(Food food)
     {
-        if (inventory.subItem(food))
+        if (playerData.inventory.subItem(food))
         {
             setHealth(food.healthPoints);
             playerData.food = playerData.foodMAX;
@@ -168,12 +204,17 @@ public class Player : MonoBehaviour {
         List<Item> collectedMaterials = materialManager.collectMaterials(currentActivity, currentLocation);
         foreach (Item collectedMaterial in collectedMaterials)
         {
-            inventory.addItem(collectedMaterial);
+            playerData.inventory.addItem(collectedMaterial);
             string title = "Du hast etwas gefunden!";
             string description = "Du hast eine/n \n" + collectedMaterial.name + "\ngefunden";
 
             popUpWindow.createNotificationWindow(title, description);
         }
+    }
+
+    public void addItem(Item item)
+    {
+        playerData.inventory.addItem(item);
     }
 
     public void equip(Tool tool)

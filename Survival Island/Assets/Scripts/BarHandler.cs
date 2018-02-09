@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BarHandler : MonoBehaviour {
 
-    public PlayerDatas playerData;
+    public Player player;
 
     public Image apBar;
     public Image foodBar;
@@ -23,15 +23,15 @@ public class BarHandler : MonoBehaviour {
     private void Update ()
     {
         SetRightValues();
-        foodText.text = playerData.food + "/" + playerData.foodMAX + " FP";
-        apText.text = playerData.ap + "/" + playerData.apMAX + " AP";
-        healthText.text = playerData.health + "/" + playerData.healthMAX + " HP";
+        foodText.text = player.getFood() + "/" + player.getFoodMax() + " FP";
+        apText.text = player.getAp() + "/" + player.getApMax() + " AP";
+        healthText.text = player.getHealth() + "/" + player.getHealthMax() + " HP";
     }
 
     private void SetRightValues()
     {
-        healthBar.fillAmount = playerData.health / playerData.healthMAX;
-        apBar.fillAmount = playerData.ap / playerData.apMAX;
-        foodBar.fillAmount = playerData.food / playerData.foodMAX;
+        healthBar.fillAmount = player.getHealth() / player.getHealthMax();
+        apBar.fillAmount = player.getAp() / player.getApMax();
+        foodBar.fillAmount = player.getFood() / player.getFoodMax();
     }
 }

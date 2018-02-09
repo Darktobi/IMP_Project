@@ -10,6 +10,6 @@ public class ItemEvent : GameEvent {
     {
         System.Random rnd = new System.Random();
         int number = rnd.Next(0, items.Count);
-        player.inventory.addItem(items[number]);
+        player.addItem(items[number]);
     }
 }

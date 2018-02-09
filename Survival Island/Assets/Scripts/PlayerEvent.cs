@@ -11,6 +11,6 @@ public class PlayerEvent : GameEvent {
     public override void run(Player player)
     {
         player.setHealth(healthPoints);
-        player.setActivityPoints(activityPoints);
+        player.setAp(activityPoints);
     }
 }

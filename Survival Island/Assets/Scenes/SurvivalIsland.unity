@@ -5206,7 +5206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db24a112eb61b69428dddcccdb4f915a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 2098058902}
+  player: {fileID: 2098058900}
   apBar: {fileID: 1678151922}
   foodBar: {fileID: 649522187}
   healthBar: {fileID: 853127164}
@@ -14524,7 +14524,7 @@ MonoBehaviour:
   constitution: {fileID: 1698135962}
   agility: {fileID: 168934624}
   wisdom: {fileID: 615112451}
-  playerData: {fileID: 2098058902}
+  player: {fileID: 2098058900}
 --- !u!114 &2147289000
 MonoBehaviour:
   m_ObjectHideFlags: 0

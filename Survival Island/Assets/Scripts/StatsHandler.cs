@@ -9,12 +9,12 @@ public class StatsHandler : MonoBehaviour {
     public Text constitution;
     public Text agility;
     public Text wisdom;
-    public PlayerDatas playerData;
+    public Player player;
 
 	void Update () {
-        strength.text = playerData.str.ToString();
-        constitution.text = playerData.con.ToString();
-        agility.text = playerData.agi.ToString();
-        wisdom.text = playerData.wis.ToString();
+        strength.text = player.getStr().ToString();
+        constitution.text = player.getCon().ToString();
+        agility.text = player.getAgi().ToString();
+        wisdom.text = player.getWis().ToString();
     }
 }

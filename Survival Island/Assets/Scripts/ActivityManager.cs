@@ -85,13 +85,13 @@ public class ActivityManager : MonoBehaviour {
     {
         if (!activeActivity)
         {
-            if (player.getActivityPoints() >= activity.activityPoints)
+            if (player.getAp() >= activity.activityPoints)
             {
                 if (player.checkEquipptedTool(activity))
                 {
                     currentActivity = activity;
                     currentLocation = currentActivity.currentLocation;
-                    player.setActivityPoints(-currentActivity.activityPoints);
+                    player.setAp(-currentActivity.activityPoints);
                     workingTime = currentActivity.workingTime;
                     activeActivity = true;
 
