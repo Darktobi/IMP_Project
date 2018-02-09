@@ -227,7 +227,7 @@ public class Player : MonoBehaviour {
     public void equip(Tool tool)
     {
         playerData.tool = tool;
-        playerData.eqSlots[6].text = "Werkz.: " + tool.name;
+        playerData.eqSlots[6].text = "Werkz.: " + tool.getItenName();
         playerData.Save();
     }
 
