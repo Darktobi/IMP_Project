@@ -87,10 +87,10 @@ public class PlayerDatas : MonoBehaviour {
 
         //Inventory
         data.currentInventory = new Dictionary<string, int>();
-
+  
         foreach (Item item in inventory.items)
         {
-            data.currentInventory.Add(item.name, item.getCount());
+            data.currentInventory.Add(item.getItenName(), item.getCount());
         }
 
         return data;
@@ -145,10 +145,10 @@ public class PlayerDatas : MonoBehaviour {
                     if (eq.name == name)
                     {
                         
-                        str -= eq.str;
-                        con -= eq.con;
-                        agi -= eq.agi;
-                        wis -= eq.wis;
+                        str -= eq.getStr();
+                        con -= eq.getCon();
+                        agi -= eq.getAgi();
+                        wis -= eq.getWis();
                         player.equip(eq);
                     }
                 }
@@ -173,7 +173,7 @@ public class PlayerDatas : MonoBehaviour {
             {
                 foreach (Item mat in savedItems)
                 {
-                    if (mat.name == item.Key)
+                    if (mat.getItenName() == item.Key)
                     {
                         for(int i = 0; i < item.Value; i++)
                         {

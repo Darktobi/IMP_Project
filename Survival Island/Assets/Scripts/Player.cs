@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private PlayerDatas playerData;
+    [SerializeField]
+    private int foodDownSpeed;
 
     private int counter;
     private MaterialManager materialManager;
@@ -17,7 +19,7 @@ public class Player : MonoBehaviour {
     public InventoryHandler inventoryHandler;
     public PopUpWindowManager popUpWindow;
 
-    public int foodDownSpeed;
+    
 
 	void Start () {
 
@@ -152,12 +154,12 @@ public class Player : MonoBehaviour {
 
     public bool checkEquipptedTool(Activity activity)
     {
-        if (activity.neededTool == null)
+        if (activity.getNeededTool() == null)
         {
             return true;
         }
 
-        if (playerData.tool == activity.neededTool)
+        if (playerData.tool == activity.getNeededTool())
         {
             playerData.tool.subStability();
             return true;
@@ -183,10 +185,10 @@ public class Player : MonoBehaviour {
     {
         if (playerData.inventory.subItem(food))
         {
-            setHealth(food.healthPoints);
+            setHealth(food.getHealthPoints());
             playerData.food = playerData.foodMAX;
             string title = "Heilung";
-            string description = "Du wurdest um \n" + food.healthPoints + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
+            string description = "Du wurdest um \n" + food.getHealthPoints() + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
             popUpWindow.createNotificationWindow(title, description);
 
             inventoryHandler.OpenFood();
@@ -206,7 +208,7 @@ public class Player : MonoBehaviour {
         {
             playerData.inventory.addItem(collectedMaterial);
             string title = "Du hast etwas gefunden!";
-            string description = "Du hast eine/n \n" + collectedMaterial.name + "\ngefunden";
+            string description = "Du hast eine/n \n" + collectedMaterial.getItenName() + "\ngefunden";
 
             popUpWindow.createNotificationWindow(title, description);
         }
@@ -215,6 +217,11 @@ public class Player : MonoBehaviour {
     public void addItem(Item item)
     {
         playerData.inventory.addItem(item);
+    }
+
+    public bool subItem(Item item)
+    {
+        return playerData.inventory.subItem(item);
     }
 
     public void equip(Tool tool)
@@ -230,43 +237,43 @@ public class Player : MonoBehaviour {
         {
             unequip(playerData.weapon);
             playerData.weapon = equipment;
-            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.name;
+            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItenName();
         }
         else if (equipment.type == Equipment.Types.Head)
         {
             unequip(playerData.head);
             playerData.head = equipment;
-            playerData.eqSlots[1].text = "Kopf: " + equipment.name;
+            playerData.eqSlots[1].text = "Kopf: " + equipment.getItenName();
         }
         else if (equipment.type == Equipment.Types.Breast)
         {
             unequip(playerData.chest);
             playerData.chest = equipment;
-            playerData.eqSlots[2].text = "Brust: " + equipment.name;
+            playerData.eqSlots[2].text = "Brust: " + equipment.getItenName();
         }
         else if (equipment.type == Equipment.Types.Hands)
         {
             unequip(playerData.hands);
             playerData.hands = equipment;
-            playerData.eqSlots[3].text = "Hände: " + equipment.name;
+            playerData.eqSlots[3].text = "Hände: " + equipment.getItenName();
         }
         else if (equipment.type == Equipment.Types.Legs)
         {
             unequip(playerData.legs);
             playerData.legs = equipment;
-            playerData.eqSlots[4].text = "Beine: " + equipment.name;
+            playerData.eqSlots[4].text = "Beine: " + equipment.getItenName();
         }
         else if (equipment.type == Equipment.Types.Feet)
         {
             unequip(playerData.feet);
             playerData.feet = equipment;
-            playerData.eqSlots[5].text = "Füße: " + equipment.name;
+            playerData.eqSlots[5].text = "Füße: " + equipment.getItenName();
         }
 
-        playerData.str += equipment.str;
-        playerData.con += equipment.con;
-        playerData.agi += equipment.agi;
-        playerData.wis += equipment.wis;
+        playerData.str += equipment.getStr();
+        playerData.con += equipment.getCon();
+        playerData.agi += equipment.getAgi();
+        playerData.wis += equipment.getWis();
         save();
     }
 
@@ -274,10 +281,10 @@ public class Player : MonoBehaviour {
     {
         if(equipment != null)
         {
-            playerData.str -= equipment.str;
-            playerData.con -= equipment.con;
-            playerData.agi -= equipment.agi;
-            playerData.wis -= equipment.wis;
+            playerData.str -= equipment.getStr();
+            playerData.con -= equipment.getCon();
+            playerData.agi -= equipment.getAgi();
+            playerData.wis -= equipment.getWis();
         }
     }
 }

@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Location : MonoBehaviour {
 
-    public List<Activity> activities;
-    public List<Item> collectableMaterials;
+    [SerializeField]
+    private List<Activity> activities;
+    [SerializeField]
+    private string locationName;
 
-    public List<GameEvent> possibleEvents;
     private bool isActive;
 
-    public string locationName; 
+    public List<Item> collectableMaterials;
+    public List<GameEvent> possibleEvents;
+
+    public string getLocationName()
+    {
+        return locationName;
+    }
 
     public bool checkActive()
     {

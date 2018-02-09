@@ -5,8 +5,10 @@ using System.Threading;
 
 public class PlayerEvent : GameEvent {
 
-    public int healthPoints;
-    public int activityPoints;
+    [SerializeField]
+    private int healthPoints;
+    [SerializeField]
+    private int activityPoints;
 
     public override void run(Player player)
     {

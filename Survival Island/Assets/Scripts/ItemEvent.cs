@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemEvent : GameEvent {
 
-    public List<Item> items;
+    [SerializeField]
+    private List<Item> items;
 
     public override void run(Player player)
     {
@@ -12,4 +13,5 @@ public class ItemEvent : GameEvent {
         int number = rnd.Next(0, items.Count);
         player.addItem(items[number]);
     }
+
 }

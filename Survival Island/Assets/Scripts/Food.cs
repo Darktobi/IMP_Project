@@ -5,8 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public class Food : Item {
 
-    public int healthPoints;
+    [SerializeField]
+    private int healthPoints;
 
     void Start() { }
 
+    public int getHealthPoints()
+    {
+        return healthPoints;
+    }
 }

@@ -32,7 +32,7 @@ public class PopUpWindowManager : MonoBehaviour {
         GameObject window = Instantiate(descrWindow, new Vector4(0,0,0), transform.rotation);
         window.transform.SetParent(canvas, false);
 
-        window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = item.name;
+        window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = item.getItenName();
         window.transform.Find("Image/Upper_Panel/Description_Text").GetComponent<Text>().text = text;
 
         Button acceptButton = window.transform.Find("Image/Down_Panel/Use_Button").GetComponent<Button>();

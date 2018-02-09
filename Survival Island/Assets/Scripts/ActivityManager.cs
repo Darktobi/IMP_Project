@@ -49,7 +49,7 @@ public class ActivityManager : MonoBehaviour {
 
                 player.collectMaterials(currentActivity, currentLocation);
 
-                if (currentLocation.locationName != "Lager")
+                if (currentLocation.getLocationName() != "Lager")
                 {
                     //Check if event occured
                     if (eventManager.checkForEvent())
@@ -58,11 +58,11 @@ public class ActivityManager : MonoBehaviour {
 
                         if (currentEvent != null)
                         {
-                            Debug.Log(currentEvent.title);
-                            Debug.Log(currentEvent.description);
+                            Debug.Log(currentEvent.getTitle());
+                            Debug.Log(currentEvent.getDescription());
 
                             //Eventwindow
-                            popUpWindow.createNotificationWindow(currentEvent.title, currentEvent.description);
+                            popUpWindow.createNotificationWindow(currentEvent.getTitle(), currentEvent.getDescription());
 
                             currentEvent.run(player);
                         }
@@ -85,18 +85,18 @@ public class ActivityManager : MonoBehaviour {
     {
         if (!activeActivity)
         {
-            if (player.getAp() >= activity.activityPoints)
+            if (player.getAp() >= activity.getAp())
             {
                 if (player.checkEquipptedTool(activity))
                 {
                     currentActivity = activity;
                     currentLocation = currentActivity.currentLocation;
-                    player.setAp(-currentActivity.activityPoints);
-                    workingTime = currentActivity.workingTime;
+                    player.setAp(-currentActivity.getAp());
+                    workingTime = currentActivity.getWorkingTime();
                     activeActivity = true;
 
-                    player.setCurrentLocationName(currentLocation.locationName);
-                    player.setCurrentActivityName(currentActivity.activityName);
+                    player.setCurrentLocationName(currentLocation.getLocationName());
+                    player.setCurrentActivityName(currentActivity.getActivityName());
 
                     totalTime = workingTime;
                 }
@@ -104,7 +104,7 @@ public class ActivityManager : MonoBehaviour {
                 else
                 {
                     string title = "Achtung!";
-                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.neededTool.name;
+                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.getNeededTool().name;
                     popUpWindow.createNotificationWindow(title, description);
                 }
             }

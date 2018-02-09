@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour {
 
-    public string name;
+    [SerializeField]
+    private string itemName;
+
     public List<Item> neededMaterials;
 
     private int count;
@@ -12,6 +14,16 @@ public abstract class Item : MonoBehaviour {
 	void Start () {
         count = 0;
 	}
+
+    public string getItenName()
+    {
+        return itemName;
+    }
+
+    public List<Item> getNeededMaterials()
+    {
+        return neededMaterials;
+    }
 
     public void addCount()
     {

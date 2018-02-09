@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class Crafter : MonoBehaviour {
 
-    public List<Item> craftableItems;
-    public Inventory inventory;
-    public Player player;
+    [SerializeField]
+    private Player player;
+
+    public List<Item> craftableItems;    
     public PopUpWindowManager popUpWindow;
     
     public void showItems(System.Type type, Button button, Transform parentPanel)
@@ -29,7 +30,7 @@ public class Crafter : MonoBehaviour {
 
         foreach(Item neededMaterial in item.neededMaterials)
         {
-            if (inventory.subItem(neededMaterial))
+            if (player.subItem(neededMaterial))
             {
                 subtractedMaterials.Add(neededMaterial);
             }
@@ -49,7 +50,7 @@ public class Crafter : MonoBehaviour {
 
         if (canCraft)
         {
-            inventory.addItem(item);
+            player.addItem(item);
             player.save();
         }
         
@@ -59,7 +60,7 @@ public class Crafter : MonoBehaviour {
     {
         foreach(Item mat in materials)
         {
-            inventory.addItem(mat);
+            player.addItem(mat);
         }
     }
 
@@ -68,11 +69,11 @@ public class Crafter : MonoBehaviour {
         Button btnPanel = Instantiate(button2);
 
         //Description Text
-        string text = "Willst du \n\n"+item.name+" \n\nHerstellen?\nEs werden\n"+ item.neededMaterials.ToString() + "\nbenötigt.";
+        string text = "Willst du \n\n"+item.getItenName()+" \n\nHerstellen?\nEs werden\n"+ item.neededMaterials.ToString() + "\nbenötigt.";
         string type = "Crafting";
          
         btnPanel.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnPanel, item, text, type));
-        btnPanel.GetComponentInChildren<Text>().text = item.name;
+        btnPanel.GetComponentInChildren<Text>().text = item.getItenName();
         btnPanel.transform.SetParent(parentPanel.GetComponent<Transform>());
 
        

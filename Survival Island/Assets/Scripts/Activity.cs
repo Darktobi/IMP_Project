@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class Activity : MonoBehaviour {
 
-    public int activityPoints;
-    public float workingTime;
-    public string activityName;
-    public List<Item> collectableMaterials;
-
-    public Tool neededTool;
-    public Location currentLocation;
+    [SerializeField]
+    private int ap;
+    [SerializeField]
+    private float workingTime;
+    [SerializeField]
+    private string activityName;
+    [SerializeField]
+    private Tool neededTool;
 
     public bool isAvaiable;
+    public List<Item> collectableMaterials;
+    public Location currentLocation { get; private set; }
     
-    public void setAvaiable()
+    
+    public int getAp()
     {
-        isAvaiable = true;
+        return ap;
+    }
+
+    public float getWorkingTime()
+    {
+        return workingTime;
+    }
+
+    public string getActivityName()
+    {
+        return activityName;
+    }
+
+    public Tool getNeededTool()
+    {
+        return neededTool;
     }
 
     public void setCurrentLocation(Location currentLocation)

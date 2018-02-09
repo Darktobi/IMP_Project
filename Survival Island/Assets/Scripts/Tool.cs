@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Tool : Item {
 
-    public int MaxStability;
+    [SerializeField]
+    private int MaxStability;
+
     private int currentStability;
 
 	void Start () {

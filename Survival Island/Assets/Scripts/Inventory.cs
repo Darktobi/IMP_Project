@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour {
 
     public List<Item> items;
-    public Player player;
     public PopUpWindowManager popUpWindow;
 
     public void showItems(System.Type type, Transform rowPanel, Button button, Transform parentPanel)
@@ -59,26 +58,26 @@ public class Inventory : MonoBehaviour {
 
         if(item.GetType() == typeof(Equipment))
         {
-            string text = "Möchtest du \n\n" + item.name + "\n\nAusrüsten?";
+            string text = "Möchtest du \n\n" + item.getItenName() + "\n\nAusrüsten?";
             string type = "EQ";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
         else if(item.GetType() == typeof(Food))
         {
-            string text = "Möchtest du \n\n" + item.name + "\n\nessen?";
+            string text = "Möchtest du \n\n" + item.getItenName() + "\n\nessen?";
             string type = "Food";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
         else if(item.GetType() == typeof(Tool))
         {
-            string text = "Möchtest du \n\n" + item.name + "\n\nAusrüsten?";
+            string text = "Möchtest du \n\n" + item.getItenName() + "\n\nAusrüsten?";
             string type = "Tool";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
-        btnItem.GetComponentInChildren<Text>().text = item.name +" x"+ item.getCount();
+        btnItem.GetComponentInChildren<Text>().text = item.getItenName() +" x"+ item.getCount();
     }
 
     public void clearPage(Transform parentPanel)
