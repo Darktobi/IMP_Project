@@ -177,6 +177,7 @@ public class Player : MonoBehaviour {
                 playerData.tool.resetStability();
                 playerData.inventory.subItem(playerData.tool);
                 playerData.tool = null;
+                playerData.eqSlots[6].text = "Werkz.: ";
             }
         }
     }
@@ -190,7 +191,6 @@ public class Player : MonoBehaviour {
             string title = "Heilung";
             string description = "Du wurdest um \n" + food.getHealthPoints() + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
             popUpWindow.createNotificationWindow(title, description);
-
             inventoryHandler.OpenFood();
         }
         else

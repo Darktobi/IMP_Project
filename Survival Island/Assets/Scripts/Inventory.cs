@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
+    [SerializeField]
+    private Player player;
+
     public List<Item> items;
     public PopUpWindowManager popUpWindow;
 
@@ -31,6 +34,7 @@ public class Inventory : MonoBehaviour {
             items.Add(item);
             item.addCount();
         }
+        player.save();
     }
 
     public bool subItem(Item item)
@@ -43,6 +47,7 @@ public class Inventory : MonoBehaviour {
             {
                 items.Remove(item);
             }
+            player.save();
             return true;
         }
         return false;  

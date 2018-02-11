@@ -90,7 +90,7 @@ public class PlayerDatas : MonoBehaviour {
   
         foreach (Item item in inventory.items)
         {
-            data.currentInventory.Add(item.getItenName(), item.getCount());
+            data.currentInventory.Add(item.name, item.getCount());
         }
 
         return data;
@@ -132,8 +132,27 @@ public class PlayerDatas : MonoBehaviour {
             wis = data.wis;
             
 
+            //Inventory
+            new Inventory();
+
+            Item[] savedItems = GameObject.FindObjectsOfType<Item>();
+
+            foreach (KeyValuePair<string, int> item in data.currentInventory)
+            {
+                foreach (Item mat in savedItems)
+                {
+                    if (mat.name == item.Key)
+                    {
+                        for(int i = 0; i < item.Value; i++)
+                        {
+                            inventory.addItem(mat);
+                        } 
+                    }
+                }
+            }
+
             //Equipment
-           
+
             Equipment[] savedEquip = GameObject.FindObjectsOfType<Equipment>();
             Tool[] savedTools = GameObject.FindObjectsOfType<Tool>();
             new Player();
@@ -144,7 +163,7 @@ public class PlayerDatas : MonoBehaviour {
                 {
                     if (eq.name == name)
                     {
-                        
+
                         str -= eq.getStr();
                         con -= eq.getCon();
                         agi -= eq.getAgi();
@@ -161,27 +180,6 @@ public class PlayerDatas : MonoBehaviour {
                 }
             }
 
-
-            
-
-            //Inventory
-            new Inventory();
-
-            Item[] savedItems = GameObject.FindObjectsOfType<Item>();
-
-            foreach (KeyValuePair<string, int> item in data.currentInventory)
-            {
-                foreach (Item mat in savedItems)
-                {
-                    if (mat.getItenName() == item.Key)
-                    {
-                        for(int i = 0; i < item.Value; i++)
-                        {
-                            inventory.addItem(mat);
-                        } 
-                    }
-                }
-            }
 
             //Actions
             currentLocationName = data.currentLocationName;

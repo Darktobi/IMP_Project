@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ActivityManager : MonoBehaviour {
 
+    [SerializeField]
+    private Player player;
+
     private bool activeActivity;
 
     private Location currentLocation;
@@ -16,7 +19,6 @@ public class ActivityManager : MonoBehaviour {
     private float workingTime;
     private float totalTime;
 
-    public Player player;
     public PopUpWindowManager popUpWindow;
     public Image durationBar;
     public Text currentLocationText;
