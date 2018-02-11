@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class InGameMenu : MonoBehaviour {
 
     public GameObject gameMenu;
+    public GameObject gameMenuMain;
     public GameObject soundMenu;
     public GameObject menuBtn;
 
@@ -17,6 +18,7 @@ public class InGameMenu : MonoBehaviour {
     public void OpenMenu()
     {
         gameMenu.SetActive(true);
+        gameMenuMain.SetActive(true);
         menuBtn.SetActive(false);
         soundMenu.SetActive(false);
     }
@@ -35,7 +37,7 @@ public class InGameMenu : MonoBehaviour {
     public void OpenSettings()
     {
         soundMenu.SetActive(true);
-        gameMenu.SetActive(false);
+        gameMenuMain.SetActive(false);
 
     }
 

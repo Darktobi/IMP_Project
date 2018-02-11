@@ -67,6 +67,7 @@ public class Crafter : MonoBehaviour {
     private void addRow(Button button2, Transform parentPanel, Item item)
     {
         Button btnPanel = Instantiate(button2);
+        //btnPanel.transform.position = new Vector2(10, 10);
 
         //Description Text
         string text = "Willst du \n\n"+item.getItenName()+" \n\nHerstellen?\nEs werden\n"+ item.neededMaterials.ToString() + "\nbenötigt.";
@@ -75,6 +76,7 @@ public class Crafter : MonoBehaviour {
         btnPanel.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnPanel, item, text, type));
         btnPanel.GetComponentInChildren<Text>().text = item.getItenName();
         btnPanel.transform.SetParent(parentPanel.GetComponent<Transform>());
+        btnPanel.transform.localScale = new Vector3(1, 1, 1);
 
        
     }

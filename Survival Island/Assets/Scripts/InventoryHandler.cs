@@ -24,7 +24,7 @@ public class InventoryHandler : MonoBehaviour {
     public Transform foodPanel;
     public Transform toolsPanel;
     public Transform matsPanel;
-    public Transform rowPanel;
+    //public Transform rowPanel;
 
     public void Start()
     {
@@ -47,7 +47,7 @@ public class InventoryHandler : MonoBehaviour {
         CloseAll();
         eqList.SetActive(true);
         inventory.clearPage(eqPanel);
-        inventory.showItems(typeof(Equipment), rowPanel, itemButton, eqPanel);
+        inventory.showItems(typeof(Equipment), /*rowPanel,*/ itemButton, eqPanel);
     }
 
     public void OpenFood()
@@ -58,7 +58,7 @@ public class InventoryHandler : MonoBehaviour {
         CloseAll();
         foodList.SetActive(true);
         inventory.clearPage(foodPanel);
-        inventory.showItems(typeof(Food), rowPanel, itemButton, foodPanel);
+        inventory.showItems(typeof(Food), /*rowPanel,*/ itemButton, foodPanel);
     }
 
     public void OpenTools()
@@ -68,7 +68,7 @@ public class InventoryHandler : MonoBehaviour {
         CloseAll();
         toolsList.SetActive(true);
         inventory.clearPage(toolsPanel);
-        inventory.showItems(typeof(Tool), rowPanel, itemButton, toolsPanel);
+        inventory.showItems(typeof(Tool), /*rowPanel,*/ itemButton, toolsPanel);
     }
 
     public void OpenMaterials()
@@ -78,7 +78,7 @@ public class InventoryHandler : MonoBehaviour {
         CloseAll();
         matsList.SetActive(true);
         inventory.clearPage(matsPanel);
-        inventory.showItems(typeof(Mat), rowPanel, itemButton, matsPanel);
+        inventory.showItems(typeof(Mat), /*rowPanel,*/ itemButton, matsPanel);
     }
 
     private void DarkenAll()
@@ -99,10 +99,10 @@ public class InventoryHandler : MonoBehaviour {
 
     private void loadLists()
     {
-        inventory.showItems(typeof(Tool), rowPanel, itemButton, toolsPanel);
-        inventory.showItems(typeof(Food), rowPanel, itemButton, foodPanel);
-        inventory.showItems(typeof(Equipment), rowPanel, itemButton, eqPanel);
-        inventory.showItems(typeof(Mat), rowPanel, itemButton, matsPanel);
+        inventory.showItems(typeof(Tool), /*rowPanel,*/ itemButton, toolsPanel);
+        inventory.showItems(typeof(Food), /*rowPanel,*/ itemButton, foodPanel);
+        inventory.showItems(typeof(Equipment), /*rowPanel,*/ itemButton, eqPanel);
+        inventory.showItems(typeof(Mat), /*rowPanel,*/ itemButton, matsPanel);
     }
 
 

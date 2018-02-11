@@ -8,13 +8,13 @@ public class Inventory : MonoBehaviour {
     public List<Item> items;
     public PopUpWindowManager popUpWindow;
 
-    public void showItems(System.Type type, Transform rowPanel, Button button, Transform parentPanel)
+    public void showItems(System.Type type, /*Transform rowPanel,*/ Button button, Transform parentPanel)
     {
         foreach(Item item in items)
         {
             if (item.GetType().Equals(type))
             {
-                addSlot(button, rowPanel, parentPanel, item);
+                addSlot(button, /*rowPanel,*/ parentPanel, item);
             }
         }
     }
@@ -48,13 +48,13 @@ public class Inventory : MonoBehaviour {
         return false;  
     }
 
-    private void addSlot(Button button2, Transform rowPanel, Transform parentPanel, Item item)
+    private void addSlot(Button button2, /*Transform rowPanel,*/ Transform parentPanel, Item item)
     {
-        var btnPanel = Instantiate(rowPanel);
-        btnPanel.transform.SetParent(parentPanel);
+        //var btnPanel = Instantiate(rowPanel);
+        //btnPanel.transform.SetParent(parentPanel);
 
         var btnItem = Instantiate(button2);
-        btnItem.transform.SetParent(btnPanel);
+        btnItem.transform.SetParent(parentPanel);
 
         if(item.GetType() == typeof(Equipment))
         {
@@ -78,6 +78,7 @@ public class Inventory : MonoBehaviour {
         }
 
         btnItem.GetComponentInChildren<Text>().text = item.getItenName() +" x"+ item.getCount();
+        btnItem.transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void clearPage(Transform parentPanel)

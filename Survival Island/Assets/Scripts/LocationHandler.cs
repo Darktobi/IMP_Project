@@ -7,6 +7,9 @@ public class LocationHandler : MonoBehaviour {
 
     public Image btnLocation;
     public GameObject btnActions;
+    public GameObject locationList;
+    public GameObject actionList;
+
     public List<Location> locations;
 
     private Color32 white;
@@ -23,6 +26,7 @@ public class LocationHandler : MonoBehaviour {
     public void OpenLocation()
     {
         btnActions.SetActive(false);
+        actionList.SetActive(false);
         btnLocation.color = white;
 
         foreach(Location location in locations)
@@ -30,10 +34,12 @@ public class LocationHandler : MonoBehaviour {
             if(location.checkActive())
             {
                 location.gameObject.SetActive(true);
+                locationList.SetActive(true);
             }
             else
             {
                 location.gameObject.SetActive(false);
+                locationList.SetActive(false);
             }
         }
        
@@ -42,6 +48,7 @@ public class LocationHandler : MonoBehaviour {
     public void OpenActions(Location location)
     {
         btnActions.SetActive(true);
+        actionList.SetActive(true);
         btnLocation.color = darkened;
         location.getActivities();
        
