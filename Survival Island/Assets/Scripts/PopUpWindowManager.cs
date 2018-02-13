@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PopUpWindowManager : MonoBehaviour {
@@ -19,11 +20,20 @@ public class PopUpWindowManager : MonoBehaviour {
         GameObject window = Instantiate(notiWindow, new Vector4(0, 0, 0), transform.rotation);
         window.transform.SetParent(canvas, false);
 
+        
+
         window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = title;
         window.transform.Find("Image/Upper_Panel/Event_Text").GetComponent<Text>().text = text; 
 
         Button okbutton = window.transform.Find("Image/Down_Panel/Button").GetComponent<Button>();
         okbutton.onClick.AddListener(() => Destroy(window));
+
+        if (title == "Game Over")
+        {
+            window.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            okbutton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        }
+
 
     }
 
@@ -32,7 +42,7 @@ public class PopUpWindowManager : MonoBehaviour {
         GameObject window = Instantiate(descrWindow, new Vector4(0,0,0), transform.rotation);
         window.transform.SetParent(canvas, false);
 
-        window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = item.getItenName();
+        window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = item.getItemName();
         window.transform.Find("Image/Upper_Panel/Description_Text").GetComponent<Text>().text = text;
 
         Button acceptButton = window.transform.Find("Image/Down_Panel/Use_Button").GetComponent<Button>();

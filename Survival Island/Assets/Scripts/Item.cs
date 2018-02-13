@@ -15,7 +15,7 @@ public abstract class Item : MonoBehaviour {
         count = 0;
 	}
 
-    public string getItenName()
+    public string getItemName()
     {
         return itemName;
     }

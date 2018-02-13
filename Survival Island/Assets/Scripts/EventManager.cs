@@ -10,7 +10,7 @@ public class EventManager : MonoBehaviour {
     {
         int number = rnd.Next(1, 101);
 
-        // 25% Chance, dass Event eintritt
+        // 25% Chance, dass Event eintritt 
         if(number > 74)
         {
             return true;
@@ -28,8 +28,8 @@ public class EventManager : MonoBehaviour {
 
         // Bestimmen welches Gefahrenlevel gewählt wird
         int number = rnd.Next(1, 101);
-
-        if(number < 56)
+       
+        if (number < 56)
         {
             dangerLevel = GameEvent.DangerLevel.None;
         }

@@ -1969,6 +1969,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 199761424}
   settingsMenu: {fileID: 702235793}
+  canvas: {fileID: 1159084505}
+  popUpWindow: {fileID: 1887701694446056, guid: cc53f9822a3bb3949bdb66a92088b11d,
+    type: 2}
 --- !u!114 &1159084507
 MonoBehaviour:
   m_ObjectHideFlags: 0

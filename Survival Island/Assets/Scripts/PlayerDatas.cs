@@ -17,6 +17,7 @@ public class PlayerDatas : MonoBehaviour {
     public Player player;
     public string currentLocationName;
     public string currentActivityName;
+    private bool dontSave = false;
 
     //EQ-Slots in UI in Character Display
     public Text[] eqSlots;
@@ -26,6 +27,8 @@ public class PlayerDatas : MonoBehaviour {
     {
         if (PlayerPrefs.GetInt("New Game") == 1)
         {
+            Debug.Log("Starting a new Game...");
+
             str = 5;
             con = 5;
             agi = 5;
@@ -98,18 +101,24 @@ public class PlayerDatas : MonoBehaviour {
 
     public void Save()
     {
-        SaveLoad data = CreateSaveGameObject();
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+        if(dontSave == false)
+        {
+            Debug.Log("Saving...");
+            SaveLoad data = CreateSaveGameObject();
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         
-        bf.Serialize(file, data);
-        file.Close();
+            bf.Serialize(file, data);
+            file.Close();
+        }
     }
 
     public void Load()
     {
         if(File.Exists(Application.persistentDataPath+ "/playerInfo.dat"))
         {
+            Debug.Log("Loading Saved Gamedatas...");
+
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             SaveLoad data = (SaveLoad)bf.Deserialize(file);
@@ -185,6 +194,14 @@ public class PlayerDatas : MonoBehaviour {
             currentLocationName = data.currentLocationName;
             currentActivityName = data.currentActivityName;
         }
+    }
+
+    //Deleting the savegame file
+    public void deleteFile()
+    {
+        Debug.Log("Deleted Savegame");
+        dontSave = true;
+        File.Delete(Application.persistentDataPath + "/playerInfo.dat");
     }
 }
 

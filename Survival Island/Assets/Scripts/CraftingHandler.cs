@@ -22,7 +22,7 @@ public class CraftingHandler : MonoBehaviour {
     public Transform foodPanel;
     public Transform toolsPanel;
 
-    public void Start()
+    private void Start()
     {
         white = new Color32(255, 255, 255, 255);
         darkened = new Color32(191, 191, 191, 255);

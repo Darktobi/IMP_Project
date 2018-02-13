@@ -11,13 +11,13 @@ public class Inventory : MonoBehaviour {
     public List<Item> items;
     public PopUpWindowManager popUpWindow;
 
-    public void showItems(System.Type type, /*Transform rowPanel,*/ Button button, Transform parentPanel)
+    public void showItems(System.Type type, Button button, Transform parentPanel)
     {
         foreach(Item item in items)
         {
             if (item.GetType().Equals(type))
             {
-                addSlot(button, /*rowPanel,*/ parentPanel, item);
+                addSlot(button,  parentPanel, item);
             }
         }
     }
@@ -53,36 +53,51 @@ public class Inventory : MonoBehaviour {
         return false;  
     }
 
-    private void addSlot(Button button2, /*Transform rowPanel,*/ Transform parentPanel, Item item)
+    private void addSlot(Button button2,  Transform parentPanel, Item item)
     {
-        //var btnPanel = Instantiate(rowPanel);
-        //btnPanel.transform.SetParent(parentPanel);
 
         var btnItem = Instantiate(button2);
         btnItem.transform.SetParent(parentPanel);
 
         if(item.GetType() == typeof(Equipment))
         {
-            string text = "Möchtest du \n\n" + item.getItenName() + "\n\nAusrüsten?";
+            string text = "Möchtest du\n\n" + item.getItemName() ;
+            if(item.GetComponent<Equipment>().getStr() != 0)
+            {
+                text += "\nSTR+"+item.GetComponent<Equipment>().getStr();
+            }
+            if (item.GetComponent<Equipment>().getCon() != 0)
+            {
+                text += "\nKON+"+item.GetComponent<Equipment>().getCon();
+            }
+            if (item.GetComponent<Equipment>().getAgi() != 0)
+            {
+                text += "\nGES+"+item.GetComponent<Equipment>().getAgi();
+            }
+            if (item.GetComponent<Equipment>().getWis() != 0)
+            {
+                text += "\nWEI+"+item.GetComponent<Equipment>().getWis();
+            }
+            text += "\n\nAusrüsten?";
             string type = "EQ";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
         else if(item.GetType() == typeof(Food))
         {
-            string text = "Möchtest du \n\n" + item.getItenName() + "\n\nessen?";
+            string text = "Möchtest du \n\n" + item.getItemName() + "\nHP+" + item.GetComponent<Food>().getHealthPoints() + "\n\nessen?";
             string type = "Food";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
         else if(item.GetType() == typeof(Tool))
         {
-            string text = "Möchtest du \n\n" + item.getItenName() + "\n\nAusrüsten?";
+            string text = "Möchtest du \n\n" + item.getItemName() + "\nHaltbarkeit: " + item.GetComponent<Tool>().getCurrentStability() + "\n\nAusrüsten?";
             string type = "Tool";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
 
-        btnItem.GetComponentInChildren<Text>().text = item.getItenName() +" x"+ item.getCount();
+        btnItem.GetComponentInChildren<Text>().text = item.getItemName() +" x"+ item.getCount();
         btnItem.transform.localScale = new Vector3(1, 1, 1);
     }
 

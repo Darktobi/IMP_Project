@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour {
 
+    public Player player;
     public GameObject gameMenu;
     public GameObject gameMenuMain;
     public GameObject soundMenu;
     public GameObject menuBtn;
 
-	void Start () {
+	private void Start () {
 
         gameMenu.SetActive(false);
 }
@@ -31,6 +32,7 @@ public class InGameMenu : MonoBehaviour {
 
     public void LoadMainMenu()
     {
+        player.save();
         SceneManager.LoadScene("MainMenu");
     }
 

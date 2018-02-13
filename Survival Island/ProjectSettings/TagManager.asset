@@ -38,9 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: OnUI
-    uniqueID: 2002764289
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2002764289
+    locked: 0
+  - name: Midground
+    uniqueID: 3304755265
+    locked: 0
+  - name: Foreground
+    uniqueID: 3890286827
     locked: 0

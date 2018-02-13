@@ -23,14 +23,14 @@ public class ActivityManager : MonoBehaviour {
     public Image durationBar;
     public Text currentLocationText;
 
-    void Start () {
+    private void Start () {
 
         activeActivity = false;
         workingTime = 0;
         eventManager = new EventManager();
 
         player.setCurrentLocationName("Lager");
-        player .setCurrentActivityName("Nichts");
+        player.setCurrentActivityName("Nichts");
 
         durationBar.fillAmount = 1;
     }
@@ -60,19 +60,24 @@ public class ActivityManager : MonoBehaviour {
 
                         if (currentEvent != null)
                         {
-                            Debug.Log(currentEvent.getTitle());
-                            Debug.Log(currentEvent.getDescription());
-
                             //Eventwindow
-                            popUpWindow.createNotificationWindow(currentEvent.getTitle(), currentEvent.getDescription());
-
+                            Debug.Log(currentEvent);
+                            //currentEvent.g
                             currentEvent.run(player);
+                            popUpWindow.createNotificationWindow(currentEvent.getTitle(), createEventText(currentEvent));
+
+                            
                         }
                     }
+                } else
+                {
+                    //Anzeigen, dass man sich ausgeruht hat.
+                    player.setAp(+10);
+                    popUpWindow.createNotificationWindow("Ausgeruht!", "Du fuhlst dich ausgeruht.\nDeine Aktionspunkte wurde aufgefüllt!");
                 }
                 player.checkToolStability();
 
-                //Am lager chillen
+                //Am Lager verweilen
                 player.setCurrentLocationName("Lager");
                 player.setCurrentActivityName("Nichts");
 
@@ -106,14 +111,14 @@ public class ActivityManager : MonoBehaviour {
                 else
                 {
                     string title = "Achtung!";
-                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.getNeededTool().getItenName();
+                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.getNeededTool().getItemName();
                     popUpWindow.createNotificationWindow(title, description);
                 }
             }
             else
             {
                 string title = "Achtung";
-                string description = "Leider nicht genug Aktivitätspunkte zur Verfügung";
+                string description = "Leider nicht genug Aktionspunkte zur Verfügung";
                 popUpWindow.createNotificationWindow(title, description);
 
             }
@@ -126,5 +131,56 @@ public class ActivityManager : MonoBehaviour {
             popUpWindow.createNotificationWindow(title, description);
 
         }
+    }
+
+    private string createEventText(GameEvent theEvent)
+    {
+        string eventDescription = currentEvent.getDescription() ;
+        string textEnd = "";
+
+        if (currentEvent.GetType() == typeof(PlayerEvent))
+        {
+            eventDescription += "\nDu hast\n";
+            Debug.Log("Eventtype Playerevent");
+            if (currentEvent.GetComponent<PlayerEvent>().healthPoints != 0)
+            {
+                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().healthPoints + " HP";
+                if (currentEvent.GetComponent<PlayerEvent>().healthPoints < 0)
+                    textEnd = "\n\nverloren";
+                else
+                {
+                    textEnd = "\n\ngewonnen";
+                }
+            }
+            if (currentEvent.GetComponent<PlayerEvent>().activityPoints != 0)
+            {
+                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().activityPoints + " AP";
+                if (currentEvent.GetComponent<PlayerEvent>().activityPoints < 0)
+                    textEnd = "\n\nverloren";
+                else
+                {
+                    textEnd = "\n\ngewonnen";
+                }
+            }
+            eventDescription += textEnd;
+
+        }
+        else if (currentEvent.GetType() == typeof(BattleEvent))
+        {
+            eventDescription += "\nDu hast\n\n-" + currentEvent.GetComponent<BattleEvent>().getTotalDamage() + " HP";
+            textEnd += "\n\nan Schaden erlitten";
+
+            eventDescription += textEnd;
+        }
+        else if (currentEvent.GetType() == typeof(ItemEvent))
+        {
+
+            eventDescription += "\n\n"+currentEvent.GetComponent<ItemEvent>().getGivenItem().getItemName() +"\n";
+            textEnd = "\n wurde deinem Inventar hinzugefügt!";
+
+            eventDescription += textEnd;
+        }
+
+        return eventDescription;
     }
 }

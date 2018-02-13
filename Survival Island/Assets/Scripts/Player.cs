@@ -105,7 +105,9 @@ public class Player : MonoBehaviour {
         {
             // Vorrübergehend, bis bessere Lösung
             Debug.Log("Spieler ist gestorben! ");
-            SceneManager.LoadScene("MainMenu");
+            playerData.deleteFile();
+
+            popUpWindow.createNotificationWindow("Game Over", "Dein Charakter hat es leider nicht geschafft zu überleben,\nsondern ist gestorben!\n\nVersuche es doch noch einmal!");
         }
 
         if (playerData.health >= playerData.healthMAX)
@@ -149,7 +151,7 @@ public class Player : MonoBehaviour {
     public void save()
     {
         playerData.Save();
-        Debug.Log("Saved!");
+        //Debug.Log("Saved!");
     }
 
     public bool checkEquipptedTool(Activity activity)
@@ -208,7 +210,7 @@ public class Player : MonoBehaviour {
         {
             playerData.inventory.addItem(collectedMaterial);
             string title = "Du hast etwas gefunden!";
-            string description = "Du hast eine/n \n" + collectedMaterial.getItenName() + "\ngefunden";
+            string description = "Du hast eine/n \n\n" + collectedMaterial.getItemName() + "\n\ngefunden!";
 
             popUpWindow.createNotificationWindow(title, description);
         }
@@ -227,7 +229,7 @@ public class Player : MonoBehaviour {
     public void equip(Tool tool)
     {
         playerData.tool = tool;
-        playerData.eqSlots[6].text = "Werkz.: " + tool.getItenName();
+        playerData.eqSlots[6].text = "Werkz.: " + tool.getItemName();
         playerData.Save();
     }
 
@@ -237,37 +239,37 @@ public class Player : MonoBehaviour {
         {
             unequip(playerData.weapon);
             playerData.weapon = equipment;
-            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItenName();
+            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItemName();
         }
         else if (equipment.type == Equipment.Types.Head)
         {
             unequip(playerData.head);
             playerData.head = equipment;
-            playerData.eqSlots[1].text = "Kopf: " + equipment.getItenName();
+            playerData.eqSlots[1].text = "Kopf: " + equipment.getItemName();
         }
         else if (equipment.type == Equipment.Types.Breast)
         {
             unequip(playerData.chest);
             playerData.chest = equipment;
-            playerData.eqSlots[2].text = "Brust: " + equipment.getItenName();
+            playerData.eqSlots[2].text = "Brust: " + equipment.getItemName();
         }
         else if (equipment.type == Equipment.Types.Hands)
         {
             unequip(playerData.hands);
             playerData.hands = equipment;
-            playerData.eqSlots[3].text = "Hände: " + equipment.getItenName();
+            playerData.eqSlots[3].text = "Hände: " + equipment.getItemName();
         }
         else if (equipment.type == Equipment.Types.Legs)
         {
             unequip(playerData.legs);
             playerData.legs = equipment;
-            playerData.eqSlots[4].text = "Beine: " + equipment.getItenName();
+            playerData.eqSlots[4].text = "Beine: " + equipment.getItemName();
         }
         else if (equipment.type == Equipment.Types.Feet)
         {
             unequip(playerData.feet);
             playerData.feet = equipment;
-            playerData.eqSlots[5].text = "Füße: " + equipment.getItenName();
+            playerData.eqSlots[5].text = "Füße: " + equipment.getItemName();
         }
 
         playerData.str += equipment.getStr();

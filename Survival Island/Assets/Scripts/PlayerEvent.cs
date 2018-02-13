@@ -6,9 +6,9 @@ using System.Threading;
 public class PlayerEvent : GameEvent {
 
     [SerializeField]
-    private int healthPoints;
+    public int healthPoints;
     [SerializeField]
-    private int activityPoints;
+    public int activityPoints;
 
     public override void run(Player player)
     {

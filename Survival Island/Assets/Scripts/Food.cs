@@ -8,7 +8,7 @@ public class Food : Item {
     [SerializeField]
     private int healthPoints;
 
-    void Start() { }
+    private void Start() { }
 
     public int getHealthPoints()
     {
