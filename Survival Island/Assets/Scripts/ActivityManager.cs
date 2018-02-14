@@ -142,20 +142,31 @@ public class ActivityManager : MonoBehaviour {
         {
             eventDescription += "\nDu hast\n";
             Debug.Log("Eventtype Playerevent");
-            if (currentEvent.GetComponent<PlayerEvent>().healthPoints != 0)
+            if (currentEvent.GetComponent<PlayerEvent>().getHealtPoints() != 0)
             {
-                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().healthPoints + " HP";
-                if (currentEvent.GetComponent<PlayerEvent>().healthPoints < 0)
+                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getHealtPoints() + " HP";
+                if (currentEvent.GetComponent<PlayerEvent>().getHealtPoints() < 0)
                     textEnd = "\n\nverloren";
                 else
                 {
                     textEnd = "\n\ngewonnen";
                 }
             }
-            if (currentEvent.GetComponent<PlayerEvent>().activityPoints != 0)
+            if (currentEvent.GetComponent<PlayerEvent>().getActivityPoints() != 0)
             {
-                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().activityPoints + " AP";
-                if (currentEvent.GetComponent<PlayerEvent>().activityPoints < 0)
+                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getActivityPoints() + " AP";
+                if (currentEvent.GetComponent<PlayerEvent>().getActivityPoints() < 0)
+                    textEnd = "\n\nverloren";
+                else
+                {
+                    textEnd = "\n\ngewonnen";
+                }
+            }
+
+            if (currentEvent.GetComponent<PlayerEvent>().getFoodPoints() != 0)
+            {
+                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getFoodPoints() + " FP";
+                if (currentEvent.GetComponent<PlayerEvent>().getFoodPoints() < 0)
                     textEnd = "\n\nverloren";
                 else
                 {

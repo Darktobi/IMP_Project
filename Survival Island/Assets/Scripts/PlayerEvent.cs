@@ -6,13 +6,31 @@ using System.Threading;
 public class PlayerEvent : GameEvent {
 
     [SerializeField]
-    public int healthPoints;
+    private int healthPoints;
     [SerializeField]
-    public int activityPoints;
+    private int activityPoints;
+    [SerializeField]
+    private int foodPoints;
 
     public override void run(Player player)
     {
         player.setHealth(healthPoints);
         player.setAp(activityPoints);
+        player.setFood(foodPoints);
+    }
+
+    public int getHealtPoints()
+    {
+        return healthPoints;
+    }
+
+    public int getActivityPoints()
+    {
+        return activityPoints;
+    }
+
+    public int getFoodPoints()
+    {
+        return foodPoints;
     }
 }
