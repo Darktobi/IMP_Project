@@ -118,7 +118,7 @@ public class ActivityManager : MonoBehaviour {
             else
             {
                 string title = "Achtung";
-                string description = "Leider nicht genug Aktionspunkte zur Verfügung";
+                string description = "Leider nicht genug Aktionspunkte zur Verfügung!";
                 popUpWindow.createNotificationWindow(title, description);
 
             }

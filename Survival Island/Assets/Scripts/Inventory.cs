@@ -85,7 +85,7 @@ public class Inventory : MonoBehaviour {
 
         else if(item.GetType() == typeof(Food))
         {
-            string text = "Möchtest du \n\n" + item.getItemName() + "\nHP+" + item.GetComponent<Food>().getHealthPoints() + "\n\nessen?";
+            string text = "Möchtest du \n\n" + item.getItemName() + "\nHP+" + item.GetComponent<Food>().getHealthPoints() + "\nFP+" + item.GetComponent<Food>().getFoodPoints() +  "\n\nessen?";
             string type = "Food";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }

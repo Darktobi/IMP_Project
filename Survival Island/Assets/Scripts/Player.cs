@@ -19,8 +19,6 @@ public class Player : MonoBehaviour {
     public InventoryHandler inventoryHandler;
     public PopUpWindowManager popUpWindow;
 
-    
-
 	void Start () {
 
         counter = 0;
@@ -110,7 +108,7 @@ public class Player : MonoBehaviour {
             popUpWindow.createNotificationWindow("Game Over", "Dein Charakter hat es leider nicht geschafft zu überleben,\nsondern ist gestorben!\n\nVersuche es doch noch einmal!");
         }
 
-        if (playerData.health >= playerData.healthMAX)
+        if (playerData.health > playerData.healthMAX)
         {
             playerData.health = playerData.healthMAX;
         }
@@ -125,9 +123,24 @@ public class Player : MonoBehaviour {
             playerData.ap = 0;
         }
 
-        if (playerData.ap >= playerData.apMAX)
+        if (playerData.ap > playerData.apMAX)
         {
             playerData.ap = playerData.apMAX;
+        }
+    }
+
+    public void setFood(int foodPoints)
+    {
+        playerData.food += foodPoints;
+
+        if(playerData.food < 0)
+        {
+            playerData.food = 0;
+        }
+
+        if(playerData.food > playerData.foodMAX)
+        {
+            playerData.food = playerData.foodMAX;
         }
     }
 
@@ -176,10 +189,14 @@ public class Player : MonoBehaviour {
         {
             if (playerData.tool.getCurrentStability() <= 0)
             {
+                string title = "Werkzeug zerbrochen";
+                string description = playerData.tool.getItemName() + " hat keine Haltbarkeit mehr und kann nicht weiter genutzt werden!";
+                popUpWindow.createNotificationWindow(title, description);
+
                 playerData.tool.resetStability();
                 playerData.inventory.subItem(playerData.tool);
-                playerData.tool = null;
                 playerData.eqSlots[6].text = "Werkz.: ";
+                playerData.tool = null;
             }
         }
     }
@@ -189,9 +206,9 @@ public class Player : MonoBehaviour {
         if (playerData.inventory.subItem(food))
         {
             setHealth(food.getHealthPoints());
-            playerData.food = playerData.foodMAX;
+            setFood(food.getFoodPoints());
             string title = "Heilung";
-            string description = "Du wurdest um \n" + food.getHealthPoints() + " \ngeheilt.\nDu hast jetzt \n" + playerData.health + " Gesundheit.";
+            string description = "Du wurdest um \n" + food.getHealthPoints() + "HP \ngeheilt.\nDein Hunger wurde um \n" + food.getFoodPoints() + "FP \ngestillt.";
             popUpWindow.createNotificationWindow(title, description);
             inventoryHandler.OpenFood();
         }

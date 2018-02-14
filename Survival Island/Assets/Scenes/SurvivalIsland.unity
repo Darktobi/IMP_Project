@@ -5237,6 +5237,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 2094774461}
   healthPoints: 10
+  foodPoints: 25
 --- !u!1 &771197496
 GameObject:
   m_ObjectHideFlags: 0
@@ -16373,6 +16374,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 0}
   healthPoints: 5
+  foodPoints: 15
 --- !u!1 &2095877695
 GameObject:
   m_ObjectHideFlags: 0

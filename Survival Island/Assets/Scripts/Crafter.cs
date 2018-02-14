@@ -8,6 +8,8 @@ public class Crafter : MonoBehaviour {
     [SerializeField]
     private Player player;
 
+    private int neededAp = 1;
+
     public List<Item> craftableItems;    
     public PopUpWindowManager popUpWindow;
     
@@ -24,34 +26,46 @@ public class Crafter : MonoBehaviour {
 
     public void craft(Item item)
     {
-        bool canCraft = true;
-
-        List<Item> subtractedMaterials = new List<Item>();
-
-        foreach(Item neededMaterial in item.neededMaterials)
+        if (player.getAp() >= neededAp)
         {
-            if (player.subItem(neededMaterial))
+            bool canCraft = true;
+
+            List<Item> subtractedMaterials = new List<Item>();
+
+            foreach (Item neededMaterial in item.neededMaterials)
             {
-                subtractedMaterials.Add(neededMaterial);
+                if (player.subItem(neededMaterial))
+                {
+                    subtractedMaterials.Add(neededMaterial);
+                }
+
+                else
+                {
+                    string title = "Nicht möglich!";
+                    string description = "Leider nicht genügend Materialien vorhanden!";
+                    popUpWindow.createNotificationWindow(title, description);
+
+                    canCraft = false;
+                    addSubtractedMaterials(subtractedMaterials);
+                    break;
+                }
+
             }
 
-            else
+            if (canCraft)
             {
-                string title = "Nicht möglich!";
-                string description = "Leider nicht genügend Materialien vorhanden!";
-                popUpWindow.createNotificationWindow(title, description);
-
-                canCraft = false;
-                addSubtractedMaterials(subtractedMaterials);
-                break;
+                player.setAp(-neededAp);
+                player.addItem(item);
             }
-            
         }
 
-        if (canCraft)
+        else
         {
-            player.addItem(item);
+            string title = "Nicht möglich!";
+            string description = "Leider nicht genug Aktionspunkte zur Verfügung!";
+            popUpWindow.createNotificationWindow(title, description);
         }
+        
         
     }
 
@@ -92,7 +106,7 @@ public class Crafter : MonoBehaviour {
         string type = "Crafting";
          
         btnPanel.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnPanel, item, text, type));
-        btnPanel.GetComponentInChildren<Text>().text = item.getItemName();
+        btnPanel.GetComponentInChildren<Text>().text = item.getItemName() + "( " + neededAp + "AP)";
         btnPanel.transform.SetParent(parentPanel.GetComponent<Transform>());
         btnPanel.transform.localScale = new Vector3(1, 1, 1);
 
