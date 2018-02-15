@@ -11,7 +11,8 @@ public abstract class Item : MonoBehaviour {
 
     private int count;
 
-	void Start () {
+	private void Start () {
+
         count = 0;
 	}
 

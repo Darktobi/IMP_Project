@@ -16,9 +16,7 @@ public class Crafter : MonoBehaviour {
 
     private void Awake()
     {
-        
         craftableItems = FindObjectsOfType<Item>().ToList();
-        Debug.Log("Items Loaded");
     }
 
     public void showItems(System.Type type, Button button, Transform parentPanel)
@@ -114,7 +112,7 @@ public class Crafter : MonoBehaviour {
         string type = "Crafting";
          
         btnPanel.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnPanel, item, text, type));
-        btnPanel.GetComponentInChildren<Text>().text = item.getItemName() + "( " + neededAp + "AP)";
+        btnPanel.GetComponentInChildren<Text>().text = item.getItemName() + " ( " + neededAp + "AP)";
         btnPanel.transform.SetParent(parentPanel.GetComponent<Transform>());
         btnPanel.transform.localScale = new Vector3(1, 1, 1);
 
