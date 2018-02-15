@@ -144,7 +144,7 @@ public class PlayerDatas : MonoBehaviour {
             //Inventory
             new Inventory();
 
-            Item[] savedItems = GameObject.FindObjectsOfType<Item>();
+            Item[] savedItems = FindObjectsOfType<Item>();
 
             foreach (KeyValuePair<string, int> item in data.currentInventory)
             {

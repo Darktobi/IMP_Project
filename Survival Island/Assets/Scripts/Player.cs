@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public InventoryHandler inventoryHandler;
     public PopUpWindowManager popUpWindow;
 
-	void Start () {
+	private void Start () {
 
         counter = 0;
         materialManager = new MaterialManager();
@@ -264,7 +264,7 @@ public class Player : MonoBehaviour {
             playerData.head = equipment;
             playerData.eqSlots[1].text = "Kopf: " + equipment.getItemName();
         }
-        else if (equipment.type == Equipment.Types.Breast)
+        else if (equipment.type == Equipment.Types.Chest)
         {
             unequip(playerData.chest);
             playerData.chest = equipment;

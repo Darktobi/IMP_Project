@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,17 @@ public class Crafter : MonoBehaviour {
     private Player player;
 
     private int neededAp = 1;
-
-    public List<Item> craftableItems;    
+    [SerializeField]
+    private List<Item> craftableItems;    
     public PopUpWindowManager popUpWindow;
-    
+
+    private void Awake()
+    {
+        
+        craftableItems = FindObjectsOfType<Item>().ToList();
+        Debug.Log("Items Loaded");
+    }
+
     public void showItems(System.Type type, Button button, Transform parentPanel)
     {
         foreach (Item item in craftableItems)

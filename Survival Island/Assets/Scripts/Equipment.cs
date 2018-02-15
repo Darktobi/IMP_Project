@@ -8,7 +8,7 @@ public class Equipment : Item {
     [SerializeField]
     private int str, con, agi, wis;
 
-    public enum Types{ Weapon, Head, Breast, Hands, Legs, Feet };
+    public enum Types{ Weapon, Head, Chest, Hands, Legs, Feet };
     public Types type;
 
 	void Start () {}
