@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 54363548}
   - component: {fileID: 54363549}
   m_Layer: 0
-  m_Name: Cloth
+  m_Name: ClothChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 109439903}
   - component: {fileID: 109439904}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: IronFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1297,7 +1297,7 @@ GameObject:
   - component: {fileID: 151233633}
   - component: {fileID: 151233634}
   m_Layer: 0
-  m_Name: Silver
+  m_Name: SilverHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2046,7 +2046,7 @@ GameObject:
   - component: {fileID: 203459777}
   - component: {fileID: 203459778}
   m_Layer: 0
-  m_Name: Leather
+  m_Name: LeatherFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2310,7 +2310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gebratenes Tigerfleisch
+  itemName: Gebratener Tintenfisch
   neededMaterials:
   - {fileID: 1682661097}
   healthPoints: 10
@@ -2812,7 +2812,7 @@ GameObject:
   - component: {fileID: 277058444}
   - component: {fileID: 277058445}
   m_Layer: 0
-  m_Name: Coconut
+  m_Name: CoconutFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3047,7 +3047,7 @@ GameObject:
   - component: {fileID: 287820811}
   - component: {fileID: 287820812}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: IronLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3242,7 +3242,7 @@ GameObject:
   - component: {fileID: 307911472}
   - component: {fileID: 307911473}
   m_Layer: 0
-  m_Name: Silver
+  m_Name: SilverLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4583,7 +4583,7 @@ GameObject:
   - component: {fileID: 455398442}
   - component: {fileID: 455398443}
   m_Layer: 0
-  m_Name: Coconut
+  m_Name: CoconutHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5282,7 +5282,7 @@ GameObject:
   - component: {fileID: 516525239}
   - component: {fileID: 516525240}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: GoldLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5338,7 +5338,7 @@ GameObject:
   - component: {fileID: 516657742}
   - component: {fileID: 516657743}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: IronHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6086,7 +6086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Offene Kokusnuss
+  itemName: Kleine Suppe
   neededMaterials:
   - {fileID: 1529721099}
   - {fileID: 199331645}
@@ -6504,7 +6504,7 @@ GameObject:
   - component: {fileID: 642806301}
   - component: {fileID: 642806302}
   m_Layer: 0
-  m_Name: Copper
+  m_Name: CopperFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6659,7 +6659,7 @@ GameObject:
   - component: {fileID: 650826902}
   - component: {fileID: 650826903}
   m_Layer: 0
-  m_Name: Cloth
+  m_Name: ClothHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6714,7 +6714,7 @@ GameObject:
   - component: {fileID: 653650909}
   - component: {fileID: 653650910}
   m_Layer: 0
-  m_Name: Copper
+  m_Name: CopperChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7184,7 +7184,7 @@ GameObject:
   - component: {fileID: 720064584}
   - component: {fileID: 720064585}
   m_Layer: 0
-  m_Name: Silver
+  m_Name: SilverHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9266,7 +9266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Offene Kokusnuss
+  itemName: "Gro\xDFe Suppe"
   neededMaterials:
   - {fileID: 1529721099}
   - {fileID: 199331645}
@@ -9522,7 +9522,7 @@ GameObject:
   - component: {fileID: 895931158}
   - component: {fileID: 895931159}
   m_Layer: 0
-  m_Name: Leaves
+  m_Name: LeavesFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10263,7 +10263,7 @@ GameObject:
   - component: {fileID: 958301134}
   - component: {fileID: 958301135}
   m_Layer: 0
-  m_Name: Silver
+  m_Name: SilverChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10359,7 +10359,7 @@ GameObject:
   - component: {fileID: 972248625}
   - component: {fileID: 972248626}
   m_Layer: 0
-  m_Name: Cloth
+  m_Name: ClothFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11133,7 +11133,7 @@ GameObject:
   - component: {fileID: 1047769960}
   - component: {fileID: 1047769961}
   m_Layer: 0
-  m_Name: Leather
+  m_Name: LeatherLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12935,7 +12935,7 @@ GameObject:
   - component: {fileID: 1178981653}
   - component: {fileID: 1178981654}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: GoldChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13491,7 +13491,7 @@ GameObject:
   - component: {fileID: 1226368092}
   - component: {fileID: 1226368093}
   m_Layer: 0
-  m_Name: Leaves
+  m_Name: LeavesHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13812,7 +13812,7 @@ GameObject:
   - component: {fileID: 1265555363}
   - component: {fileID: 1265555364}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: IronHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14074,7 +14074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Offene Kokusnuss
+  itemName: "Mittlere Meeresfr\xFCchtesuppe"
   neededMaterials:
   - {fileID: 1529721099}
   - {fileID: 199331645}
@@ -14485,7 +14485,7 @@ GameObject:
   - component: {fileID: 1324377956}
   - component: {fileID: 1324377957}
   m_Layer: 0
-  m_Name: Leather
+  m_Name: LeatherChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15082,7 +15082,7 @@ GameObject:
   - component: {fileID: 1366621043}
   - component: {fileID: 1366621044}
   m_Layer: 0
-  m_Name: Copper
+  m_Name: CopperHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15211,7 +15211,7 @@ GameObject:
   - component: {fileID: 1373159654}
   - component: {fileID: 1373159655}
   m_Layer: 0
-  m_Name: Coconut
+  m_Name: CoconutLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15463,7 +15463,7 @@ GameObject:
   - component: {fileID: 1379931612}
   - component: {fileID: 1379931613}
   m_Layer: 0
-  m_Name: Copper
+  m_Name: CopperHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16395,7 +16395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gebratenes Tigerfleisch
+  itemName: Gebratene Krabbe
   neededMaterials:
   - {fileID: 518712718}
   healthPoints: 10
@@ -16443,7 +16443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc578caaa640f64c87f509f3deee606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Pilz
+  itemName: Schlange
   neededMaterials: []
 --- !u!1 &1447851337
 GameObject:
@@ -16456,7 +16456,7 @@ GameObject:
   - component: {fileID: 1447851338}
   - component: {fileID: 1447851339}
   m_Layer: 0
-  m_Name: Silver
+  m_Name: SilverFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16511,7 +16511,7 @@ GameObject:
   - component: {fileID: 1456721761}
   - component: {fileID: 1456721762}
   m_Layer: 0
-  m_Name: Leather
+  m_Name: LeatherHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16611,7 +16611,7 @@ GameObject:
   - component: {fileID: 1462400933}
   - component: {fileID: 1462400934}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: GoldHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17172,7 +17172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Offene Kokusnuss
+  itemName: "Kleine Meeresfr\xFCchtesuppe"
   neededMaterials:
   - {fileID: 1529721099}
   - {fileID: 199331645}
@@ -19907,7 +19907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Offene Kokusnuss
+  itemName: Mittlere Suppe
   neededMaterials:
   - {fileID: 1529721099}
   - {fileID: 199331645}
@@ -20092,7 +20092,7 @@ GameObject:
   - component: {fileID: 1714631420}
   - component: {fileID: 1714631421}
   m_Layer: 0
-  m_Name: Leather
+  m_Name: LeatherHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21164,7 +21164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Gebratenes Tigerfleisch
+  itemName: Gebratener Hai
   neededMaterials:
   - {fileID: 1820265011}
   healthPoints: 25
@@ -21180,7 +21180,7 @@ GameObject:
   - component: {fileID: 1821195901}
   - component: {fileID: 1821195902}
   m_Layer: 0
-  m_Name: Copper
+  m_Name: CopperLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22712,7 +22712,7 @@ GameObject:
   - component: {fileID: 1913109242}
   - component: {fileID: 1913109243}
   m_Layer: 0
-  m_Name: Cloth
+  m_Name: ClothHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22931,7 +22931,7 @@ GameObject:
   - component: {fileID: 1926955047}
   - component: {fileID: 1926955048}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: GoldFeet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23488,7 +23488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0461598a71805154f904b95e52be9dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Offene Kokusnuss
+  itemName: "Gro\xDFe Meeresfr\xFCchtesuppe"
   neededMaterials:
   - {fileID: 1529721099}
   - {fileID: 199331645}
@@ -23513,7 +23513,7 @@ GameObject:
   - component: {fileID: 1968346847}
   - component: {fileID: 1968346848}
   m_Layer: 0
-  m_Name: Leaves
+  m_Name: LeavesChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23613,7 +23613,7 @@ GameObject:
   - component: {fileID: 1988175462}
   - component: {fileID: 1988175463}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: IronChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23980,7 +23980,7 @@ GameObject:
   - component: {fileID: 2011697941}
   - component: {fileID: 2011697942}
   m_Layer: 0
-  m_Name: Gold
+  m_Name: GoldHands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25069,7 +25069,7 @@ GameObject:
   - component: {fileID: 2096114072}
   - component: {fileID: 2096114073}
   m_Layer: 0
-  m_Name: Coconut
+  m_Name: CoconutChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25348,7 +25348,7 @@ GameObject:
   - component: {fileID: 2125464742}
   - component: {fileID: 2125464743}
   m_Layer: 0
-  m_Name: Cloth
+  m_Name: ClothLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

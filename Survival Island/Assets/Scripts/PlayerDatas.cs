@@ -162,8 +162,8 @@ public class PlayerDatas : MonoBehaviour {
 
             //Equipment
 
-            Equipment[] savedEquip = GameObject.FindObjectsOfType<Equipment>();
-            Tool[] savedTools = GameObject.FindObjectsOfType<Tool>();
+            Equipment[] savedEquip = FindObjectsOfType<Equipment>();
+            Tool[] savedTools = FindObjectsOfType<Tool>();
             new Player();
 
             foreach (string name in data.currentEquipment)
