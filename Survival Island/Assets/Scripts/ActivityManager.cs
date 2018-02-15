@@ -49,10 +49,10 @@ public class ActivityManager : MonoBehaviour {
                 activeActivity = false;
                 workingTime = 0;
 
-                player.collectMaterials(currentActivity, currentLocation);
-
                 if (currentLocation.getLocationName() != "Lager")
                 {
+                    player.collectMaterials(currentActivity, currentLocation);
+
                     //Check if event occured
                     if (eventManager.checkForEvent())
                     {
@@ -141,7 +141,6 @@ public class ActivityManager : MonoBehaviour {
         if (currentEvent.GetType() == typeof(PlayerEvent))
         {
             eventDescription += "\nDu hast\n";
-            Debug.Log("Eventtype Playerevent");
             if (currentEvent.GetComponent<PlayerEvent>().getHealtPoints() != 0)
             {
                 eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getHealtPoints() + " HP";

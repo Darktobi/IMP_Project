@@ -222,15 +222,51 @@ public class Player : MonoBehaviour {
 
     public void collectMaterials(Activity currentActivity, Location currentLocation)
     {
-        List<Item> collectedMaterials = materialManager.collectMaterials(currentActivity, currentLocation);
-        foreach (Item collectedMaterial in collectedMaterials)
-        {
-            playerData.inventory.addItem(collectedMaterial);
-            string title = "Du hast etwas gefunden!";
-            string description = "Du hast eine/n \n\n" + collectedMaterial.getItemName() + "\n\ngefunden!";
+        List<Item> collectedMaterials = materialManager.collectMaterials(currentActivity, currentLocation, playerData.wis / 2);
+        string title;
+        string description;
 
-            popUpWindow.createNotificationWindow(title, description);
+        if(collectedMaterials.Count >= 1)
+        {
+            title = "Du hast etwas gefunden!";
+            description = "Du hast folgende Items gefunden:\n\n";
+
+            //Add all items and sum them for notification window
+            int specificItemCount = 1;
+            Item currentItem = null;
+
+            foreach (Item collectedMaterial in collectedMaterials)
+            {
+                playerData.inventory.addItem(collectedMaterial);
+
+                // First Item in List
+                if(currentItem == null)
+                {
+                    currentItem = collectedMaterial;
+                }
+
+                else if (currentItem == collectedMaterial)
+                {
+                    specificItemCount++;;
+                }
+                else
+                {
+                    description += currentItem.getItemName() + " x" + specificItemCount + "\n";
+                    currentItem = collectedMaterial;
+                    specificItemCount = 1;
+                }
+                
+            }
+            // After ending Loop add last Item with number to notification window
+            description += currentItem.getItemName() + " x" + specificItemCount + "\n";
         }
+        else
+        {
+            title = "Du hast leider nix gefunden";
+            description = "";
+        }
+
+        popUpWindow.createNotificationWindow(title, description);
     }
 
     public void addItem(Item item)

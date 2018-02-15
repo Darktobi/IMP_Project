@@ -8936,7 +8936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fc4b6d4edbb29478ba242f91de68e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ap: 2
+  ap: 3
   workingTime: 1
   activityName: Erz abbauen
   neededTool: {fileID: 0}
@@ -9762,7 +9762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fc4b6d4edbb29478ba242f91de68e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ap: 2
+  ap: 3
   workingTime: 1
   activityName: Graben
   neededTool: {fileID: 0}
@@ -19113,7 +19113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fc4b6d4edbb29478ba242f91de68e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ap: 2
+  ap: 4
   workingTime: 1
   activityName: Tauchen
   neededTool: {fileID: 0}
@@ -22015,7 +22015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fc4b6d4edbb29478ba242f91de68e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ap: 2
+  ap: 4
   workingTime: 1
   activityName: Jagen
   neededTool: {fileID: 0}
