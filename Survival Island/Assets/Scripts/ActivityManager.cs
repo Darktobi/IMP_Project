@@ -60,19 +60,14 @@ public class ActivityManager : MonoBehaviour {
 
                         if (currentEvent != null)
                         {
-                            //Eventwindow
-                            Debug.Log(currentEvent);
-                            //currentEvent.g
                             currentEvent.run(player);
-                            popUpWindow.createNotificationWindow(currentEvent.getTitle(), createEventText(currentEvent));
-
-                            
+                            popUpWindow.createNotificationWindow(currentEvent.getTitle(), createEventText(currentEvent));                          
                         }
                     }
                 } else
                 {
                     //Anzeigen, dass man sich ausgeruht hat.
-                    player.setAp(+10);
+                    player.setAp((int)player.getApMax());
                     popUpWindow.createNotificationWindow("Ausgeruht!", "Du fuhlst dich ausgeruht.\nDeine Aktionspunkte wurde aufgefüllt!");
                 }
                 player.checkToolStability();

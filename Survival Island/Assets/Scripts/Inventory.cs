@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,8 +35,8 @@ public class Inventory : MonoBehaviour {
         {
             items.Add(item);
             item.addCount();
+            sortList();
         }
-        player.save();
     }
 
     public bool subItem(Item item)
@@ -47,11 +48,16 @@ public class Inventory : MonoBehaviour {
             if (item.getCount() == 0)
             {
                 items.Remove(item);
+                sortList();
             }
-            player.save();
             return true;
         }
         return false;  
+    }
+
+    private void sortList()
+    {
+        items = items.OrderBy(i => i.getItemName()).ToList();
     }
 
     private void addSlot(Button button2,  Transform parentPanel, Item item)

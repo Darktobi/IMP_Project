@@ -605,6 +605,102 @@ Transform:
   m_Father: {fileID: 9702447}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &62483221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1619008306206542, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 62483222}
+  - component: {fileID: 62483223}
+  m_Layer: 0
+  m_Name: HuntingKnife
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &62483222
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4267116788688024, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62483221}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664151502}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &62483223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114816732800534438, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62483221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fadfe4e8b8de0c4eb5fa164cb50d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Jagdmesser
+  neededMaterials:
+  - {fileID: 1061377935}
+  - {fileID: 2037439977}
+  MaxStability: 5
+--- !u!1 &67390935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1619008306206542, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 67390936}
+  - component: {fileID: 67390937}
+  m_Layer: 0
+  m_Name: Shovel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67390936
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4267116788688024, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67390935}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664151502}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67390937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114816732800534438, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67390935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fadfe4e8b8de0c4eb5fa164cb50d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Schaufel
+  neededMaterials:
+  - {fileID: 1061377935}
+  - {fileID: 822927515}
+  MaxStability: 5
 --- !u!1 &70854237
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +732,7 @@ RectTransform:
   m_Children:
   - {fileID: 2027476130}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2490,7 +2586,7 @@ RectTransform:
   m_Children:
   - {fileID: 198541070}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2509,9 +2605,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 2
-  workingTime: 1
+  workingTime: 15
   activityName: Insekten fangen
-  neededTool: {fileID: 0}
+  neededTool: {fileID: 1059506318}
   isAvaiable: 1
   collectableMaterials:
   - {fileID: 505595107}
@@ -4491,7 +4587,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fischen (3AP)
+  m_Text: Angeln (3AP)
 --- !u!222 &435530998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4841,8 +4937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94fc4b6d4edbb29478ba242f91de68e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ap: -10
-  workingTime: 1
+  ap: 0
+  workingTime: 30
   activityName: Schlafen
   neededTool: {fileID: 0}
   isAvaiable: 1
@@ -6168,6 +6264,55 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615112449}
+--- !u!1 &615231745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1619008306206542, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 615231746}
+  - component: {fileID: 615231747}
+  m_Layer: 0
+  m_Name: Pickaxe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &615231746
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4267116788688024, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615231745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664151502}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &615231747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114816732800534438, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 615231745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fadfe4e8b8de0c4eb5fa164cb50d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Spitzhacke
+  neededMaterials:
+  - {fileID: 1061377935}
+  - {fileID: 2037439977}
+  - {fileID: 2037439977}
+  MaxStability: 5
 --- !u!1 &632890925
 GameObject:
   m_ObjectHideFlags: 0
@@ -8925,7 +9070,7 @@ RectTransform:
   m_Children:
   - {fileID: 838505545}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8944,9 +9089,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 3
-  workingTime: 1
+  workingTime: 20
   activityName: Erz abbauen
-  neededTool: {fileID: 0}
+  neededTool: {fileID: 615231747}
   isAvaiable: 1
   collectableMaterials:
   - {fileID: 1777314098}
@@ -9738,7 +9883,7 @@ RectTransform:
   m_Children:
   - {fileID: 896818900}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -9757,9 +9902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 3
-  workingTime: 1
+  workingTime: 12
   activityName: Graben
-  neededTool: {fileID: 0}
+  neededTool: {fileID: 67390937}
   isAvaiable: 1
   collectableMaterials:
   - {fileID: 505595107}
@@ -11164,6 +11309,57 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224057858957955374, guid: 43b92f912f11aac43af0621cb3d4a007,
     type: 2}
   m_PrefabInternal: {fileID: 1144856802}
+--- !u!1 &1059506316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1619008306206542, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1059506317}
+  - component: {fileID: 1059506318}
+  m_Layer: 0
+  m_Name: LandingNet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059506317
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4267116788688024, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1059506316}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664151502}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059506318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114816732800534438, guid: 97e0636827fe1bc4dbd53da8e3d76781,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1059506316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fadfe4e8b8de0c4eb5fa164cb50d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Kescher
+  neededMaterials:
+  - {fileID: 1061377935}
+  - {fileID: 2038111185}
+  - {fileID: 2038111185}
+  - {fileID: 2038111185}
+  - {fileID: 2038111185}
+  MaxStability: 5
 --- !u!1 &1061082669
 GameObject:
   m_ObjectHideFlags: 0
@@ -12745,7 +12941,7 @@ RectTransform:
   m_Children:
   - {fileID: 435530996}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -12764,9 +12960,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 3
-  workingTime: 1
-  activityName: Fischen
-  neededTool: {fileID: 0}
+  workingTime: 15
+  activityName: Angeln
+  neededTool: {fileID: 771225993}
   isAvaiable: 1
   collectableMaterials:
   - {fileID: 1061082671}
@@ -16119,6 +16315,7 @@ MonoBehaviour:
   - {fileID: 822927515}
   - {fileID: 1061377935}
   - {fileID: 1460575998}
+  - {fileID: 2037439977}
   possibleEvents:
   - {fileID: 1187115821}
   - {fileID: 471255744}
@@ -18437,7 +18634,7 @@ RectTransform:
   m_Children:
   - {fileID: 514232134}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -18458,7 +18655,7 @@ MonoBehaviour:
   ap: 3
   workingTime: 20
   activityName: Holz hacken
-  neededTool: {fileID: 0}
+  neededTool: {fileID: 1994908956}
   isAvaiable: 1
   collectableMaterials:
   - {fileID: 1545720059}
@@ -19068,6 +19265,10 @@ Transform:
   - {fileID: 1232091379}
   - {fileID: 1543056129}
   - {fileID: 1551047678}
+  - {fileID: 62483222}
+  - {fileID: 615231746}
+  - {fileID: 67390936}
+  - {fileID: 1059506317}
   m_Father: {fileID: 1094517373}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19121,7 +19322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 4
-  workingTime: 1
+  workingTime: 20
   activityName: Tauchen
   neededTool: {fileID: 0}
   isAvaiable: 1
@@ -20476,7 +20677,7 @@ RectTransform:
   m_Children:
   - {fileID: 1370041311}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -20591,7 +20792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 2
-  workingTime: 1
+  workingTime: 10
   activityName: Sammeln
   neededTool: {fileID: 0}
   isAvaiable: 1
@@ -22011,7 +22212,7 @@ RectTransform:
   m_Children:
   - {fileID: 383022167}
   m_Father: {fileID: 1063886276}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -22030,9 +22231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ap: 4
-  workingTime: 1
+  workingTime: 20
   activityName: Jagen
-  neededTool: {fileID: 0}
+  neededTool: {fileID: 62483223}
   isAvaiable: 1
   collectableMaterials:
   - {fileID: 1445910433}
@@ -22645,7 +22846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1911833108
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22929,6 +23130,7 @@ MonoBehaviour:
   - {fileID: 1365830886}
   - {fileID: 1529721099}
   - {fileID: 1770563771}
+  - {fileID: 2037439977}
   possibleEvents:
   - {fileID: 544929037}
   - {fileID: 1589311797}
@@ -23768,7 +23970,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 1061377935}
   - {fileID: 2037439977}
-  MaxStability: 2
+  MaxStability: 5
 --- !u!1 &1997306394
 GameObject:
   m_ObjectHideFlags: 0

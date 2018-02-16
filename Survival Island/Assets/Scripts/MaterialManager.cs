@@ -33,9 +33,9 @@ public class MaterialManager : MonoBehaviour {
         }
 
         //Return a sorted List for better work in Player class
-        List<Item> sortedItemList = choosenMaterials.OrderBy(i => i.getItemName()).ToList();
+        choosenMaterials = choosenMaterials.OrderBy(i => i.getItemName()).ToList();
 
-        return sortedItemList;
+        return choosenMaterials;
     }
 
 }

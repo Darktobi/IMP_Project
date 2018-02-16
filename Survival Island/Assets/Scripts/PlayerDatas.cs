@@ -40,7 +40,6 @@ public class PlayerDatas : MonoBehaviour {
             ap = 8;
             healthMAX = 50;
             health = 50;
-
         }
         else
         {
@@ -103,7 +102,6 @@ public class PlayerDatas : MonoBehaviour {
     {
         if(dontSave == false)
         {
-            Debug.Log("Saving...");
             SaveLoad data = CreateSaveGameObject();
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
@@ -193,6 +191,9 @@ public class PlayerDatas : MonoBehaviour {
             //Actions
             currentLocationName = data.currentLocationName;
             currentActivityName = data.currentActivityName;
+
+            // Save once after everything is added
+            Save();
         }
     }
 

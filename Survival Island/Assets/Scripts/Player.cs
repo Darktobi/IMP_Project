@@ -194,7 +194,6 @@ public class Player : MonoBehaviour {
                 popUpWindow.createNotificationWindow(title, description);
 
                 playerData.tool.resetStability();
-                playerData.inventory.subItem(playerData.tool);
                 playerData.eqSlots[6].text = "Werkz.: ";
                 playerData.tool = null;
             }
@@ -211,6 +210,7 @@ public class Player : MonoBehaviour {
             string description = "Du wurdest um \n" + food.getHealthPoints() + "HP \ngeheilt.\nDein Hunger wurde um \n" + food.getFoodPoints() + "FP \ngestillt.";
             popUpWindow.createNotificationWindow(title, description);
             inventoryHandler.OpenFood();
+            save();
         }
         else
         {
@@ -281,65 +281,88 @@ public class Player : MonoBehaviour {
 
     public void equip(Tool tool)
     {
-        playerData.tool = tool;
-        playerData.eqSlots[6].text = "Werkz.: " + tool.getItemName();
-        playerData.Save();
+        if (playerData.inventory.subItem(tool))
+        {
+            unequip(playerData.tool);
+            playerData.tool = tool;
+            playerData.eqSlots[6].text = "Werkz.: " + tool.getItemName();
+            playerData.Save();
+
+            inventoryHandler.OpenTools();
+        }
+
     }
 
     public void equip(Equipment equipment)
     {
-        if (equipment.type == Equipment.Types.Weapon)
+        if (playerData.inventory.subItem(equipment))
         {
-            unequip(playerData.weapon);
-            playerData.weapon = equipment;
-            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItemName();
-        }
-        else if (equipment.type == Equipment.Types.Head)
-        {
-            unequip(playerData.head);
-            playerData.head = equipment;
-            playerData.eqSlots[1].text = "Kopf: " + equipment.getItemName();
-        }
-        else if (equipment.type == Equipment.Types.Chest)
-        {
-            unequip(playerData.chest);
-            playerData.chest = equipment;
-            playerData.eqSlots[2].text = "Brust: " + equipment.getItemName();
-        }
-        else if (equipment.type == Equipment.Types.Hands)
-        {
-            unequip(playerData.hands);
-            playerData.hands = equipment;
-            playerData.eqSlots[3].text = "Hände: " + equipment.getItemName();
-        }
-        else if (equipment.type == Equipment.Types.Legs)
-        {
-            unequip(playerData.legs);
-            playerData.legs = equipment;
-            playerData.eqSlots[4].text = "Beine: " + equipment.getItemName();
-        }
-        else if (equipment.type == Equipment.Types.Feet)
-        {
-            unequip(playerData.feet);
-            playerData.feet = equipment;
-            playerData.eqSlots[5].text = "Füße: " + equipment.getItemName();
+            if (equipment.type == Equipment.Types.Weapon)
+            {
+                unequip(playerData.weapon);
+                playerData.weapon = equipment;
+                playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItemName();
+            }
+            else if (equipment.type == Equipment.Types.Head)
+            {
+                unequip(playerData.head);
+                playerData.head = equipment;
+                playerData.eqSlots[1].text = "Kopf: " + equipment.getItemName();
+            }
+            else if (equipment.type == Equipment.Types.Chest)
+            {
+                unequip(playerData.chest);
+                playerData.chest = equipment;
+                playerData.eqSlots[2].text = "Brust: " + equipment.getItemName();
+            }
+            else if (equipment.type == Equipment.Types.Hands)
+            {
+                unequip(playerData.hands);
+                playerData.hands = equipment;
+                playerData.eqSlots[3].text = "Hände: " + equipment.getItemName();
+            }
+            else if (equipment.type == Equipment.Types.Legs)
+            {
+                unequip(playerData.legs);
+                playerData.legs = equipment;
+                playerData.eqSlots[4].text = "Beine: " + equipment.getItemName();
+            }
+            else if (equipment.type == Equipment.Types.Feet)
+            {
+                unequip(playerData.feet);
+                playerData.feet = equipment;
+                playerData.eqSlots[5].text = "Füße: " + equipment.getItemName();
+            }
+
+            inventoryHandler.OpenEQ();
+
+            playerData.str += equipment.getStr();
+            playerData.con += equipment.getCon();
+            playerData.agi += equipment.getAgi();
+            playerData.wis += equipment.getWis();
+            save();
+
         }
 
-        playerData.str += equipment.getStr();
-        playerData.con += equipment.getCon();
-        playerData.agi += equipment.getAgi();
-        playerData.wis += equipment.getWis();
-        save();
     }
 
     private void unequip(Equipment equipment)
     {
         if(equipment != null)
         {
+            playerData.inventory.addItem(equipment);
             playerData.str -= equipment.getStr();
             playerData.con -= equipment.getCon();
             playerData.agi -= equipment.getAgi();
             playerData.wis -= equipment.getWis();
+        }
+    }
+
+    private void unequip(Tool tool)
+    {
+        if(tool != null)
+        {
+            playerData.inventory.addItem(tool);
         }
     }
 }

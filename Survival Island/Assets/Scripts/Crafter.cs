@@ -17,6 +17,7 @@ public class Crafter : MonoBehaviour {
     private void Awake()
     {
         craftableItems = FindObjectsOfType<Item>().ToList();
+        craftableItems = craftableItems.OrderBy(i => i.getItemName()).ToList();
     }
 
     public void showItems(System.Type type, Button button, Transform parentPanel)
@@ -63,6 +64,7 @@ public class Crafter : MonoBehaviour {
             {
                 player.setAp(-neededAp);
                 player.addItem(item);
+                player.save();
             }
         }
 
