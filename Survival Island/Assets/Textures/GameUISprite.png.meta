@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 8cd2955ed52aaef4aa5ee1712d7ca0b6
-timeCreated: 1510408144
+timeCreated: 1518783175
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: UserSymbol
-    21300002: WindowsLayout
+    21300002: ButtonLayout
     21300004: PauseSymbol
     21300006: Bar
   serializedVersion: 4
@@ -60,25 +60,25 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +101,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WindowsLayout
+      name: ButtonLayout
       rect:
         serializedVersion: 2
         x: 3

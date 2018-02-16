@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 222463542230965772}
   - component: {fileID: 114764414787862930}
   - component: {fileID: 114108419303732038}
-  - component: {fileID: 114326434324413022}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -70,7 +69,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -121,25 +120,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Ausr\xFCstung"
---- !u!114 &114326434324413022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048773718290096}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: 80
-  m_LayoutPriority: 8
 --- !u!114 &114764414787862930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,7 +139,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c4a2fcef86cc06e4f9df86acb5679f2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b24c1886454afeb47824e584dd4c1357, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

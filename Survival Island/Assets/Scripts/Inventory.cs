@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour {
         {
             if (item.GetType().Equals(type))
             {
+                button.name = item.name;
                 addSlot(button,  parentPanel, item);
             }
         }

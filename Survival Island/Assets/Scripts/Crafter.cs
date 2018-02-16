@@ -25,6 +25,7 @@ public class Crafter : MonoBehaviour {
         {
             if (item.GetType().Equals(type))
             {
+                button.name = item.name;
                 addRow(button, parentPanel, item);
             }
         }
