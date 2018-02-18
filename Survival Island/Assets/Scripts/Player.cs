@@ -95,6 +95,11 @@ public class Player : MonoBehaviour {
         playerData.currentActivityName = activityName;
     }
 
+    public void setHealthMax()
+    {
+        playerData.healthMAX = playerData.con * 10;
+    }
+
     public void setHealth(int health)
     {
         playerData.health += health;
@@ -164,7 +169,6 @@ public class Player : MonoBehaviour {
     public void save()
     {
         playerData.Save();
-        //Debug.Log("Saved!");
     }
 
     public bool checkEquipptedTool(Activity activity)
@@ -288,6 +292,7 @@ public class Player : MonoBehaviour {
             playerData.eqSlots[6].text = "Werkz.: " + tool.getItemName();
             playerData.Save();
 
+            playerData.inventory.subItem(tool);
             inventoryHandler.OpenTools();
         }
 
@@ -295,8 +300,11 @@ public class Player : MonoBehaviour {
 
     public void equip(Equipment equipment)
     {
-        if (playerData.inventory.subItem(equipment))
-        {
+
+        //Muss noch gelöst werden!
+
+        //if (playerData.inventory.subItem(equipment))
+        //{
             if (equipment.type == Equipment.Types.Weapon)
             {
                 unequip(playerData.weapon);
@@ -334,15 +342,17 @@ public class Player : MonoBehaviour {
                 playerData.eqSlots[5].text = "Füße: " + equipment.getItemName();
             }
 
+        playerData.inventory.subItem(equipment);
             inventoryHandler.OpenEQ();
 
             playerData.str += equipment.getStr();
             playerData.con += equipment.getCon();
             playerData.agi += equipment.getAgi();
             playerData.wis += equipment.getWis();
+            setHealthMax();
             save();
 
-        }
+        //}
 
     }
 
@@ -355,6 +365,9 @@ public class Player : MonoBehaviour {
             playerData.con -= equipment.getCon();
             playerData.agi -= equipment.getAgi();
             playerData.wis -= equipment.getWis();
+
+            setHealthMax();
+
         }
     }
 
@@ -364,6 +377,14 @@ public class Player : MonoBehaviour {
         {
             playerData.inventory.addItem(tool);
         }
+    }
+
+    public void WonGame()
+    {
+        string title = "Spiel Gewonnen!";
+        string description = "Du hast ein Boot hergestellt. Damit ist dein Spieler in der Lage, die Insel zu verlassen!\n\nHerzlichen Glückwunsch, \ndu hast das Spiel erfolgreich durchgespielt!";
+        popUpWindow.createNotificationWindow(title, description);
+
     }
 }
 

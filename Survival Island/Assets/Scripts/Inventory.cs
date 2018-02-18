@@ -18,7 +18,6 @@ public class Inventory : MonoBehaviour {
         {
             if (item.GetType().Equals(type))
             {
-                button.name = item.name;
                 addSlot(button,  parentPanel, item);
             }
         }
@@ -66,7 +65,19 @@ public class Inventory : MonoBehaviour {
         var btnItem = Instantiate(button2);
         btnItem.transform.SetParent(parentPanel);
 
-        if(item.GetType() == typeof(Equipment))
+        btnItem.name = item.name;
+        if (item.GetComponent<Image>().sprite != null)
+        {
+            btnItem.transform.GetChild(1).GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
+            btnItem.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+
+        }
+
+        else
+            btnItem.transform.GetChild(1).GetComponent<Image>().enabled = false;
+
+
+        if (item.GetType() == typeof(Equipment))
         {
             string text = "Möchtest du\n\n" + item.getItemName() ;
             if(item.GetComponent<Equipment>().getStr() != 0)

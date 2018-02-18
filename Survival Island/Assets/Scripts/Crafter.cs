@@ -26,7 +26,6 @@ public class Crafter : MonoBehaviour {
         {
             if (item.GetType().Equals(type))
             {
-                button.name = item.name;
                 addRow(button, parentPanel, item);
             }
         }
@@ -64,7 +63,15 @@ public class Crafter : MonoBehaviour {
             {
                 player.setAp(-neededAp);
                 player.addItem(item);
-                player.save();
+                if(item.name == "Boat")
+                {
+                    player.WonGame();
+
+                }
+                else
+                {
+                    player.save();
+                }
             }
         }
 
@@ -89,6 +96,15 @@ public class Crafter : MonoBehaviour {
     private void addRow(Button button2, Transform parentPanel, Item item)
     {
         Button btnPanel = Instantiate(button2);
+        btnPanel.name = item.name;
+        if (item.GetComponent<Image>().sprite != null)
+        {
+            btnPanel.transform.GetChild(1).GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
+            btnPanel.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
+        }
+        else
+            btnPanel.transform.GetChild(1).GetComponent<Image>().enabled = false;
+
 
         //Description Text
         string text = "Willst du Das Item wirklich Herstellen?\nEs werden";

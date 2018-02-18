@@ -33,6 +33,11 @@ public class PopUpWindowManager : MonoBehaviour {
             window.GetComponent<SpriteRenderer>().sortingOrder = 1;
             okbutton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
         }
+        if(title == "Spiel Gewonnen!")
+        {
+            window.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            okbutton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
+        }
 
 
     }
@@ -69,8 +74,4 @@ public class PopUpWindowManager : MonoBehaviour {
         cnclbutton.onClick.AddListener(() => Destroy(window));
     }
 
-    internal void createDescriptionWindow(Button btnPanel, Item item, string text, object v)
-    {
-        throw new NotImplementedException();
-    }
 }

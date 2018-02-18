@@ -38,8 +38,8 @@ public class PlayerDatas : MonoBehaviour {
             food = 100;
             apMAX = 8;
             ap = 8;
-            healthMAX = 50;
-            health = 50;
+            healthMAX = con*10;
+            health = healthMAX;
         }
         else
         {
@@ -51,6 +51,8 @@ public class PlayerDatas : MonoBehaviour {
     private SaveLoad CreateSaveGameObject()
     {
         SaveLoad data = new SaveLoad();
+
+        Debug.Log("Saving Gamedatas...");
 
         //Ressources
         data.healthMAX = healthMAX;
@@ -159,7 +161,6 @@ public class PlayerDatas : MonoBehaviour {
             }
 
             //Equipment
-
             Equipment[] savedEquip = FindObjectsOfType<Equipment>();
             Tool[] savedTools = FindObjectsOfType<Tool>();
             new Player();
@@ -193,7 +194,7 @@ public class PlayerDatas : MonoBehaviour {
             currentActivityName = data.currentActivityName;
 
             // Save once after everything is added
-            Save();
+            //Save();
         }
     }
 
