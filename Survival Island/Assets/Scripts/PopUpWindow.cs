@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PopUpWindowManager : MonoBehaviour {
+public class PopUpWindow : MonoBehaviour {
+
+    [SerializeField]
+    private Crafter crafter;
+    [SerializeField]
+    private Player player;
 
     public Transform canvas;
-    public Crafter crafter;
-    public Player player;
-
     public GameObject notiWindow;
-
     public GameObject descrWindow;
 
     public void createNotificationWindow(string title, string text)
@@ -20,26 +18,17 @@ public class PopUpWindowManager : MonoBehaviour {
         GameObject window = Instantiate(notiWindow, new Vector4(0, 0, 0), transform.rotation);
         window.transform.SetParent(canvas, false);
 
-        
-
         window.transform.Find("Image/Title_Panel/Title_Text").GetComponent<Text>().text = title;
         window.transform.Find("Image/Upper_Panel/Event_Text").GetComponent<Text>().text = text; 
 
         Button okbutton = window.transform.Find("Image/Down_Panel/Button").GetComponent<Button>();
         okbutton.onClick.AddListener(() => Destroy(window));
 
-        if (title == "Game Over")
+        if (title == "Game Over" || title == "Spiel Gewonnen!")
         {
             window.GetComponent<SpriteRenderer>().sortingOrder = 1;
             okbutton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
         }
-        if(title == "Spiel Gewonnen!")
-        {
-            window.GetComponent<SpriteRenderer>().sortingOrder = 1;
-            okbutton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
-        }
-
-
     }
 
     public void createDescriptionWindow(Button button, Item item, string text, string caseType)

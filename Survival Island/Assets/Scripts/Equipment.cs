@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Equipment : Item {
@@ -11,7 +9,7 @@ public class Equipment : Item {
     public enum Types{ Weapon, Head, Chest, Hands, Legs, Feet };
     public Types type;
 
-	void Start () {}
+	private void Start () {}
 	
     public int getStr()
     {

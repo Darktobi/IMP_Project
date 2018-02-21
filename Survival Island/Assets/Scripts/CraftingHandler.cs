@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CraftingHandler : MonoBehaviour {
 
-    public Image btnEQ;
-    public Image btnFood;
-    public Image btnTools;
     private Color32 white;
     private Color32 darkened;
 
+    public Image btnEQ;
+    public Image btnFood;
+    public Image btnTools;
     public GameObject foodList;
     public GameObject eqList;
     public GameObject toolsList;
-
-    public Crafter crafter;
-
     public Button itemButton;
     public Transform eqPanel;
     public Transform foodPanel;
     public Transform toolsPanel;
+
+    public Crafter crafter;
 
     private void Start()
     {
@@ -31,12 +28,11 @@ public class CraftingHandler : MonoBehaviour {
         btnFood.color = darkened;
         btnTools.color = darkened;
 
-        OpenEQ();
+        openEQ();
         loadLists();
-
     }
 
-    public void OpenEQ()
+    public void openEQ()
     {
         btnFood.color = darkened;
         btnTools.color = darkened;
@@ -47,7 +43,7 @@ public class CraftingHandler : MonoBehaviour {
         foodList.SetActive(false);
     }
 
-    public void OpenFood()
+    public void openFood()
     {
         btnEQ.color = darkened;
         btnTools.color = darkened;
@@ -58,7 +54,7 @@ public class CraftingHandler : MonoBehaviour {
         toolsList.SetActive(false);
     }
 
-    public void OpenTools()
+    public void openTools()
     {
         btnEQ.color = darkened;
         btnFood.color = darkened;

@@ -1,29 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LocationHandler : MonoBehaviour {
+
+    [SerializeField]
+    private List<Location> locations;
+
+    private Color32 white;
+    private Color32 darkened;
 
     public Image btnLocation;
     public GameObject btnActions;
     public GameObject locationList;
     public GameObject actionList;
 
-    public List<Location> locations;
-
-    private Color32 white;
-    private Color32 darkened;
-
     private void Start()
     {
         white = new Color32(255, 255, 255, 255);
         darkened = new Color32(191, 191, 191, 255);
         btnLocation.color = white;
-        
     }
 
-    public void OpenLocation()
+    public void openLocation()
     {
         btnActions.SetActive(false);
         actionList.SetActive(false);
@@ -42,17 +41,13 @@ public class LocationHandler : MonoBehaviour {
                 locationList.SetActive(false);
             }
         }
-       
     }
 
-    public void OpenActions(Location location)
+    public void openActions(Location location)
     {
         btnActions.SetActive(true);
         actionList.SetActive(true);
         btnLocation.color = darkened;
         location.getActivities();
-       
     }
-
-    
 }

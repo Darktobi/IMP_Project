@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
@@ -13,24 +10,24 @@ public class MainMenu : MonoBehaviour {
     public Transform canvas;
     public GameObject popUpWindow;
     
-    public void Start()
+    private void Start()
     {
         mainMenu.SetActive(true);
     }
 
-    public void OpenSettings()
+    public void openSettings()
     {
         mainMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
 
-    public void OpenMainMenu()
+    public void openMainMenu()
     {
         mainMenu.SetActive(true);
         settingsMenu.SetActive(false);
     }
 
-    public void InitiateNewGame()
+    public void initiateNewGame()
     {
         GameObject window = Instantiate(popUpWindow);
         window.transform.SetParent(canvas, false);
@@ -39,18 +36,18 @@ public class MainMenu : MonoBehaviour {
         window.transform.Find("Image/Upper_Panel/Event_Text").GetComponent<Text>().text = "Du warst mit Freunden auf einem Kreuzfahrtschiff unterwegs, als ein schwerer Sturm aufgezogen ist.\nNachdem du vom Deck gespühlt wurdest, bist du am Strand einer Insel aufgewacht,\n\nDeine aufgabe ist es zu überleben, bis vielleicht hilfe an kommt, oder du von der Insel flüchten kannst!";
 
         Button okbutton = window.transform.Find("Image/Down_Panel/Button").GetComponent<Button>();
-        okbutton.onClick.AddListener(() => StartNewGame());
+        okbutton.onClick.AddListener(() => startNewGame());
 
     }
 
-    private void StartNewGame()
+    private void startNewGame()
     {
         PlayerPrefs.SetInt("New Game", 1);
         File.Delete(Application.persistentDataPath + "/playerInfo.dat");
         SceneManager.LoadScene("SurvivalIsland");
     }
 
-    public void ContinueGame()
+    public void continueGame()
     {
         if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
@@ -72,7 +69,7 @@ public class MainMenu : MonoBehaviour {
         }
     }
 
-    public void QuitGame()
+    public void quitGame()
     {
         Application.Quit();
 

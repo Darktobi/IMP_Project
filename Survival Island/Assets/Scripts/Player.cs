@@ -1,26 +1,21 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-
 
 public class Player : MonoBehaviour {
 
     [SerializeField]
     private PlayerDatas playerData;
     [SerializeField]
-    private int foodDownSpeed;
+    private int foodDecrease;
 
     private int counter;
     private MaterialManager materialManager;
 
     public InventoryHandler inventoryHandler;
-    public PopUpWindowManager popUpWindow;
+    public PopUpWindow popUpWindow;
 
-	private void Start () {
-
+	private void Start ()
+    {
         counter = 0;
         materialManager = new MaterialManager();
     }
@@ -150,10 +145,10 @@ public class Player : MonoBehaviour {
     }
 
 
-    public void OnGUI()
+    private void OnGUI()
     {
         counter++;
-        if (counter == foodDownSpeed)
+        if (counter == foodDecrease)
         {
             if (playerData.food != 0)
             {
@@ -168,7 +163,7 @@ public class Player : MonoBehaviour {
 
     public void save()
     {
-        playerData.Save();
+        playerData.save();
     }
 
     public bool checkEquipptedTool(Activity activity)
@@ -213,7 +208,7 @@ public class Player : MonoBehaviour {
             string title = "Heilung";
             string description = "Du wurdest um \n" + food.getHealthPoints() + "HP \ngeheilt.\nDein Hunger wurde um \n" + food.getFoodPoints() + "FP \ngestillt.";
             popUpWindow.createNotificationWindow(title, description);
-            inventoryHandler.OpenFood();
+            inventoryHandler.openFood();
             save();
         }
         else
@@ -261,7 +256,8 @@ public class Player : MonoBehaviour {
                 }
                 
             }
-            // After ending Loop add last Item with number to notification window
+
+            //After ending loop, add the last item with number to notification window
             description += currentItem.getItemName() + " x" + specificItemCount + "\n";
         }
         else
@@ -285,75 +281,65 @@ public class Player : MonoBehaviour {
 
     public void equip(Tool tool)
     {
-        if (playerData.inventory.subItem(tool))
-        {
-            unequip(playerData.tool);
-            playerData.tool = tool;
-            playerData.eqSlots[6].text = "Werkz.: " + tool.getItemName();
-            playerData.Save();
+        unequip(playerData.tool);
+        playerData.tool = tool;
+        playerData.eqSlots[6].text = "Werkz.: " + tool.getItemName();
 
-            playerData.inventory.subItem(tool);
-            inventoryHandler.OpenTools();
-        }
+        playerData.inventory.subItem(tool);
+        inventoryHandler.openTools();
 
+        save();
     }
 
     public void equip(Equipment equipment)
     {
-
-        //Muss noch gelöst werden!
-
-        //if (playerData.inventory.subItem(equipment))
-        //{
-            if (equipment.type == Equipment.Types.Weapon)
-            {
-                unequip(playerData.weapon);
-                playerData.weapon = equipment;
-                playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItemName();
-            }
-            else if (equipment.type == Equipment.Types.Head)
-            {
-                unequip(playerData.head);
-                playerData.head = equipment;
-                playerData.eqSlots[1].text = "Kopf: " + equipment.getItemName();
-            }
-            else if (equipment.type == Equipment.Types.Chest)
-            {
-                unequip(playerData.chest);
-                playerData.chest = equipment;
-                playerData.eqSlots[2].text = "Brust: " + equipment.getItemName();
-            }
-            else if (equipment.type == Equipment.Types.Hands)
-            {
-                unequip(playerData.hands);
-                playerData.hands = equipment;
-                playerData.eqSlots[3].text = "Hände: " + equipment.getItemName();
-            }
-            else if (equipment.type == Equipment.Types.Legs)
-            {
-                unequip(playerData.legs);
-                playerData.legs = equipment;
-                playerData.eqSlots[4].text = "Beine: " + equipment.getItemName();
-            }
-            else if (equipment.type == Equipment.Types.Feet)
-            {
-                unequip(playerData.feet);
-                playerData.feet = equipment;
-                playerData.eqSlots[5].text = "Füße: " + equipment.getItemName();
-            }
+        //Equiping equipment and displaying it in UI
+        if (equipment.type == Equipment.Types.Weapon)
+        {
+            unequip(playerData.weapon);
+            playerData.weapon = equipment;
+            playerData.eqSlots[0].text = "Waffe: " + playerData.weapon.getItemName();
+        }
+        else if (equipment.type == Equipment.Types.Head)
+        {
+            unequip(playerData.head);
+            playerData.head = equipment;
+            playerData.eqSlots[1].text = "Kopf: " + equipment.getItemName();
+        }
+        else if (equipment.type == Equipment.Types.Chest)
+        {
+            unequip(playerData.chest);
+            playerData.chest = equipment;
+            playerData.eqSlots[2].text = "Brust: " + equipment.getItemName();
+        }
+        else if (equipment.type == Equipment.Types.Hands)
+        {
+            unequip(playerData.hands);
+            playerData.hands = equipment;
+            playerData.eqSlots[3].text = "Hände: " + equipment.getItemName();
+        }
+        else if (equipment.type == Equipment.Types.Legs)
+        {
+            unequip(playerData.legs);
+            playerData.legs = equipment;
+            playerData.eqSlots[4].text = "Beine: " + equipment.getItemName();
+        }
+        else if (equipment.type == Equipment.Types.Feet)
+        {
+            unequip(playerData.feet);
+            playerData.feet = equipment;
+            playerData.eqSlots[5].text = "Füße: " + equipment.getItemName();
+        }
 
         playerData.inventory.subItem(equipment);
-            inventoryHandler.OpenEQ();
+        inventoryHandler.openEQ();
 
-            playerData.str += equipment.getStr();
-            playerData.con += equipment.getCon();
-            playerData.agi += equipment.getAgi();
-            playerData.wis += equipment.getWis();
-            setHealthMax();
-            save();
-
-        //}
-
+        playerData.str += equipment.getStr();
+        playerData.con += equipment.getCon();
+        playerData.agi += equipment.getAgi();
+        playerData.wis += equipment.getWis();
+        setHealthMax();
+        save();
     }
 
     private void unequip(Equipment equipment)
@@ -367,7 +353,6 @@ public class Player : MonoBehaviour {
             playerData.wis -= equipment.getWis();
 
             setHealthMax();
-
         }
     }
 
@@ -379,12 +364,11 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void WonGame()
+    public void wonGame()
     {
         string title = "Spiel Gewonnen!";
         string description = "Du hast ein Boot hergestellt. Damit ist dein Spieler in der Lage, die Insel zu verlassen!\n\nHerzlichen Glückwunsch, \ndu hast das Spiel erfolgreich durchgespielt!";
         popUpWindow.createNotificationWindow(title, description);
-
     }
 }
 

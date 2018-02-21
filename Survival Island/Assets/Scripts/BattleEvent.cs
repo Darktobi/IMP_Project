@@ -1,37 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BattleEvent : GameEvent {
 
-    public int str;
-    public int Max_health;
+    [SerializeField]
+    private int str;
+    [SerializeField]
+    private int maxHealth;
+
+    private int currentHealth; 
     private int totalDamage;
 
     public override void run(Player player)
     {
-        int health = Max_health;
-        //totalDamage = 0;
+        //Enemyhealth
+        currentHealth = maxHealth;
+
+        totalDamage = 0;
         
         int playerStr = player.getStr();
         bool battleIsRunning = true;
 
         while (battleIsRunning)
         {
-            Debug.Log("Spieler greift an!");
-            health -= playerStr;
+            //Player attacking enemy
+            currentHealth -= playerStr;
 
-            if(health <= 0)
+            if(currentHealth <= 0)
             {
                 battleIsRunning = false;
-                Debug.Log("Spieler hat gewonnen ");
             }
+            //Player receiving damage
             else
             {
-                Debug.Log("Gegner greift an!");
                 player.setHealth(-str);
                 totalDamage += str;
             }
+            //Player has no HP left and lost battle/game
             if(player.getHealth() < 0)
             {
                 battleIsRunning = false;
@@ -40,6 +44,7 @@ public class BattleEvent : GameEvent {
 
     }
 
+    //The damage the player received in the battle
     public int getTotalDamage()
     {
         return totalDamage;

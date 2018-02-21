@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Item : MonoBehaviour {
 
     [SerializeField]
     private string itemName;
-
-    public List<Item> neededMaterials;
+    [SerializeField]
+    private List<Item> neededMaterials;
 
     private int count;
 
-	private void Start () {
-
+	private void Start ()
+    {
         count = 0;
 	}
 

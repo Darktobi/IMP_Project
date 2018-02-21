@@ -1,26 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Activity : MonoBehaviour {
 
     [SerializeField]
-    private int ap;
+    private int neededAP;
     [SerializeField]
     private float workingTime;
     [SerializeField]
     private string activityName;
     [SerializeField]
     private Tool neededTool;
+    [SerializeField]
+    private List<Item> collectableMaterials;
 
     public bool isAvaiable;
-    public List<Item> collectableMaterials;
-    public Location currentLocation { get; private set; }
+    public Location currentLocation;
     
-    
-    public int getAp()
+    public int getNeededAP()
     {
-        return ap;
+        return neededAP;
     }
 
     public float getWorkingTime()
@@ -38,9 +37,9 @@ public class Activity : MonoBehaviour {
         return neededTool;
     }
 
-    public void setCurrentLocation(Location currentLocation)
+    public List<Item> getCollectableMaterials()
     {
-        this.currentLocation = currentLocation;
+        return collectableMaterials;
     }
 	
 

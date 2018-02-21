@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryHandler : MonoBehaviour {
+
+    [SerializeField]
+    private Inventory inventory;
 
     public Image btnEQ;
     public Image btnFood;
@@ -17,9 +18,8 @@ public class InventoryHandler : MonoBehaviour {
     public GameObject toolsList;
     public GameObject matsList;
 
-    public Inventory inventory;
-
     public Button itemButton;
+
     public Transform eqPanel;
     public Transform foodPanel;
     public Transform toolsPanel;
@@ -30,57 +30,57 @@ public class InventoryHandler : MonoBehaviour {
         white = new Color32(255, 255, 255, 255);
         darkened = new Color32(191, 191, 191, 255);
 
-        OpenEQ();
+        openEQ();
     }
 
     private void OnEnable()
     {
-        OpenEQ();
+        openEQ();
     }
 
-    public void OpenEQ()
+    public void openEQ()
     {
-        DarkenAll();
+        darkenAll();
         btnEQ.color = white;
 
-        CloseAll();
+        closeAll();
         eqList.SetActive(true);
         inventory.clearPage(eqPanel);
         inventory.showItems(typeof(Equipment), itemButton, eqPanel);
     }
 
-    public void OpenFood()
+    public void openFood()
     {
-        DarkenAll();
+        darkenAll();
         btnFood.color = white;
 
-        CloseAll();
+        closeAll();
         foodList.SetActive(true);
         inventory.clearPage(foodPanel);
         inventory.showItems(typeof(Food), itemButton, foodPanel);
     }
 
-    public void OpenTools()
+    public void openTools()
     {
-        DarkenAll();
+        darkenAll();
         btnTools.color = white;
-        CloseAll();
+        closeAll();
         toolsList.SetActive(true);
         inventory.clearPage(toolsPanel);
         inventory.showItems(typeof(Tool), itemButton, toolsPanel);
     }
 
-    public void OpenMaterials()
+    public void openMaterials()
     {
-        DarkenAll();
+        darkenAll();
         btnMats.color = white;
-        CloseAll();
+        closeAll();
         matsList.SetActive(true);
         inventory.clearPage(matsPanel);
         inventory.showItems(typeof(Mat), itemButton, matsPanel);
     }
 
-    private void DarkenAll()
+    private void darkenAll()
     {
         btnEQ.color = darkened;
         btnFood.color = darkened;
@@ -88,7 +88,7 @@ public class InventoryHandler : MonoBehaviour {
         btnMats.color = darkened;
     }
 
-    private void CloseAll()
+    private void closeAll()
     {
         eqList.SetActive(false);
         toolsList.SetActive(false);

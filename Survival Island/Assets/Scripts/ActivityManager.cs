@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ActivityManager : MonoBehaviour {
@@ -19,12 +17,12 @@ public class ActivityManager : MonoBehaviour {
     private float workingTime;
     private float totalTime;
 
-    public PopUpWindowManager popUpWindow;
+    public PopUpWindow popUpWindow;
     public Image durationBar;
     public Text currentLocationText;
 
-    private void Start () {
-
+    private void Start ()
+    {
         activeActivity = false;
         workingTime = 0;
         eventManager = new EventManager();
@@ -32,16 +30,18 @@ public class ActivityManager : MonoBehaviour {
         player.setCurrentLocationName("Lager");
         player.setCurrentActivityName("Nichts");
 
+        currentLocationText.text = player.getCurrentLocationName() + ": " + player.getCurrentActivityName();
+
         durationBar.fillAmount = 1;
     }
 	
-	void Update () {
-
+	private void Update ()
+    {
         if (activeActivity)
         {
             workingTime -= Time.deltaTime;
 
-            //show duration in UI
+            //Show duration of activity in UI
             durationBar.fillAmount = workingTime / totalTime;
 
             if (workingTime <= 0)
@@ -64,36 +64,43 @@ public class ActivityManager : MonoBehaviour {
                             popUpWindow.createNotificationWindow(currentEvent.getTitle(), createEventText(currentEvent));                          
                         }
                     }
+
+                    player.checkToolStability();
+
                 } else
                 {
-                    //Anzeigen, dass man sich ausgeruht hat.
+                    //Sleeping and recovering AP
                     player.setAp((int)player.getApMax());
                     popUpWindow.createNotificationWindow("Ausgeruht!", "Du fuhlst dich ausgeruht.\nDeine Aktionspunkte wurde aufgefüllt!");
                 }
-                player.checkToolStability();
 
-                //Am Lager verweilen
+                //No current activity
                 player.setCurrentLocationName("Lager");
                 player.setCurrentActivityName("Nichts");
+
+                //Displaying in UI
+                currentLocationText.text = player.getCurrentLocationName() + ": " + player.getCurrentActivityName();
 
                 durationBar.fillAmount = 1;
                 player.save();
             }
         }
-        currentLocationText.text = player.getCurrentLocationName() + ": " + player.getCurrentActivityName();
+
     }
 
     public void setActivity(Activity activity)
     {
+        //If player is not doing any other activity
         if (!activeActivity)
         {
-            if (player.getAp() >= activity.getAp())
+            if (player.getAp() >= activity.getNeededAP())
             {
+                //Check if tool, which is neccessarry for activity, is equiped
                 if (player.checkEquipptedTool(activity))
                 {
                     currentActivity = activity;
                     currentLocation = currentActivity.currentLocation;
-                    player.setAp(-currentActivity.getAp());
+                    player.setAp(-currentActivity.getNeededAP());
                     workingTime = currentActivity.getWorkingTime();
                     activeActivity = true;
 
@@ -101,8 +108,10 @@ public class ActivityManager : MonoBehaviour {
                     player.setCurrentActivityName(currentActivity.getActivityName());
 
                     totalTime = workingTime;
-                }
 
+                    //Displaying in UI
+                    currentLocationText.text = player.getCurrentLocationName() + ": " + player.getCurrentActivityName();
+                }
                 else
                 {
                     string title = "Achtung!";
@@ -112,19 +121,17 @@ public class ActivityManager : MonoBehaviour {
             }
             else
             {
-                string title = "Achtung";
+                string title = "Achtung!";
                 string description = "Leider nicht genug Aktionspunkte zur Verfügung!";
                 popUpWindow.createNotificationWindow(title, description);
 
             }
-
         }
         else
         {
-            string title = "Achtung";
+            string title = "Achtung!";
             string description = "Es wird noch eine andere Tätigkeit ausgeführt!";
             popUpWindow.createNotificationWindow(title, description);
-
         }
     }
 
@@ -136,6 +143,8 @@ public class ActivityManager : MonoBehaviour {
         if (currentEvent.GetType() == typeof(PlayerEvent))
         {
             eventDescription += "\nDu hast\n";
+
+            //Effects on HP
             if (currentEvent.GetComponent<PlayerEvent>().getHealtPoints() != 0)
             {
                 eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getHealtPoints() + " HP";
@@ -146,6 +155,7 @@ public class ActivityManager : MonoBehaviour {
                     textEnd = "\n\ngewonnen";
                 }
             }
+            //Effects on AP
             if (currentEvent.GetComponent<PlayerEvent>().getActivityPoints() != 0)
             {
                 eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getActivityPoints() + " AP";
@@ -156,7 +166,7 @@ public class ActivityManager : MonoBehaviour {
                     textEnd = "\n\ngewonnen";
                 }
             }
-
+            //Effects on FP
             if (currentEvent.GetComponent<PlayerEvent>().getFoodPoints() != 0)
             {
                 eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getFoodPoints() + " FP";

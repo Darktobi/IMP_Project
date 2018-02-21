@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ActionPanelHandler : MonoBehaviour {
@@ -17,8 +15,9 @@ public class ActionPanelHandler : MonoBehaviour {
     public Image inventoryBtn;
     public Image craftingBtn;
 
-    private void Start () {
-        DefaultUI();
+    private void Start ()
+    {
+        characterSheet();
 
         white = new Color32(255, 255, 255, 255);
         darkened = new Color32(191, 191, 191, 255);
@@ -28,7 +27,7 @@ public class ActionPanelHandler : MonoBehaviour {
         craftingBtn.color = white;
     }
 
-    public void DefaultUI()
+    public void characterSheet()
     {
         characterInfoPanel.SetActive(true);
         locationsPanel.SetActive(false);
@@ -40,7 +39,7 @@ public class ActionPanelHandler : MonoBehaviour {
         craftingBtn.color = white;
     }
 
-    public void OpenInventory()
+    public void openInventory()
     {
         characterInfoPanel.SetActive(false);
         locationsPanel.SetActive(false);
@@ -52,7 +51,7 @@ public class ActionPanelHandler : MonoBehaviour {
         inventoryBtn.color = white;
     }
 
-    public void OpenLocations()
+    public void openLocations()
     {
         characterInfoPanel.SetActive(false);
         locationsPanel.SetActive(true);
@@ -64,7 +63,7 @@ public class ActionPanelHandler : MonoBehaviour {
         locationsBtn.color = white;
     }
 
-    public void OpenCrafting()
+    public void openCrafting()
     {
         characterInfoPanel.SetActive(false);
         locationsPanel.SetActive(false);

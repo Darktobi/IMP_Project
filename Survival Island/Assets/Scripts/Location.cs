@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Location : MonoBehaviour {
@@ -9,10 +8,12 @@ public class Location : MonoBehaviour {
     [SerializeField]
     private string locationName;
 
-    private bool isActive;
+    [SerializeField]
+    private List<Item> collectableMaterials;
+    [SerializeField]
+    private List<GameEvent> possibleEvents;
 
-    public List<Item> collectableMaterials;
-    public List<GameEvent> possibleEvents;
+    private bool isActive;
 
     public string getLocationName()
     {
@@ -40,10 +41,20 @@ public class Location : MonoBehaviour {
         {
             if (activity.isAvaiable)
             {
-                activity.setCurrentLocation(this);
+                activity.currentLocation = this;
                 activity.gameObject.SetActive(true);
             } 
         }
+    }
+
+    public List<Item> getCollectableMaterials()
+    {
+        return collectableMaterials;
+    }
+
+    public List<GameEvent> getPossibleEvents()
+    {
+        return possibleEvents;
     }
 
     private bool checkForActivities()

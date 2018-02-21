@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +7,12 @@ public class Inventory : MonoBehaviour {
 
     [SerializeField]
     private Player player;
+    [SerializeField]
+    private List<Item> items;
 
-    public List<Item> items;
-    public PopUpWindowManager popUpWindow;
+    public PopUpWindow popUpWindow;
 
+    //Creating buttons to display in UI
     public void showItems(System.Type type, Button button, Transform parentPanel)
     {
         foreach(Item item in items)
@@ -29,7 +30,6 @@ public class Inventory : MonoBehaviour {
         {
             item.addCount();
         }
-
         else
         {
             items.Add(item);
@@ -54,6 +54,11 @@ public class Inventory : MonoBehaviour {
         return false;  
     }
 
+    public List<Item> getItems()
+    {
+        return items;
+    }
+
     private void sortList()
     {
         items = items.OrderBy(i => i.getItemName()).ToList();
@@ -61,22 +66,23 @@ public class Inventory : MonoBehaviour {
 
     private void addSlot(Button button2,  Transform parentPanel, Item item)
     {
-
         var btnItem = Instantiate(button2);
         btnItem.transform.SetParent(parentPanel);
 
         btnItem.name = item.name;
+
+        //Adding icons to buttons
         if (item.GetComponent<Image>().sprite != null)
         {
             btnItem.transform.GetChild(1).GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
             btnItem.transform.GetChild(1).GetComponent<Image>().preserveAspect = true;
-
+        }
+        else
+        {
+            btnItem.transform.GetChild(1).GetComponent<Image>().enabled = false;
         }
 
-        else
-            btnItem.transform.GetChild(1).GetComponent<Image>().enabled = false;
-
-
+        //Creating text for pop-up windows
         if (item.GetType() == typeof(Equipment))
         {
             string text = "Möchtest du\n\n" + item.getItemName() ;
@@ -100,14 +106,12 @@ public class Inventory : MonoBehaviour {
             string type = "EQ";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
-
         else if(item.GetType() == typeof(Food))
         {
             string text = "Möchtest du \n\n" + item.getItemName() + "\nHP+" + item.GetComponent<Food>().getHealthPoints() + "\nFP+" + item.GetComponent<Food>().getFoodPoints() +  "\n\nessen?";
             string type = "Food";
             btnItem.onClick.AddListener(() => popUpWindow.createDescriptionWindow(btnItem, item, text, type));
         }
-
         else if(item.GetType() == typeof(Tool))
         {
             string text = "Möchtest du \n\n" + item.getItemName() + "\nHaltbarkeit: " + item.GetComponent<Tool>().getCurrentStability() + "\n\nAusrüsten?";
@@ -119,6 +123,7 @@ public class Inventory : MonoBehaviour {
         btnItem.transform.localScale = new Vector3(1, 1, 1);
     }
 
+    //clearing the UI-panel
     public void clearPage(Transform parentPanel)
     {
         foreach (Transform child in parentPanel) {

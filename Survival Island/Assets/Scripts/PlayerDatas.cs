@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using System.Linq;
 
 public class PlayerDatas : MonoBehaviour {
 
@@ -21,7 +18,6 @@ public class PlayerDatas : MonoBehaviour {
 
     //EQ-Slots in UI in Character Display
     public Text[] eqSlots;
-
 
     private void Awake()
     {
@@ -43,12 +39,12 @@ public class PlayerDatas : MonoBehaviour {
         }
         else
         {
-            Load();
-            
+            load();
         }
     }
 
-    private SaveLoad CreateSaveGameObject()
+    //Which variables will be saved
+    private SaveLoad createSaveGameObject()
     {
         SaveLoad data = new SaveLoad();
 
@@ -92,7 +88,7 @@ public class PlayerDatas : MonoBehaviour {
         //Inventory
         data.currentInventory = new Dictionary<string, int>();
   
-        foreach (Item item in inventory.items)
+        foreach (Item item in inventory.getItems())
         {
             data.currentInventory.Add(item.name, item.getCount());
         }
@@ -100,11 +96,11 @@ public class PlayerDatas : MonoBehaviour {
         return data;
     }
 
-    public void Save()
+    public void save()
     {
         if(dontSave == false)
         {
-            SaveLoad data = CreateSaveGameObject();
+            SaveLoad data = createSaveGameObject();
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
         
@@ -113,7 +109,7 @@ public class PlayerDatas : MonoBehaviour {
         }
     }
 
-    public void Load()
+    public void load()
     {
         if(File.Exists(Application.persistentDataPath+ "/playerInfo.dat"))
         {
@@ -140,7 +136,6 @@ public class PlayerDatas : MonoBehaviour {
             agi = data.agi;
             wis = data.wis;
             
-
             //Inventory
             new Inventory();
 
@@ -163,7 +158,6 @@ public class PlayerDatas : MonoBehaviour {
             //Equipment
             Equipment[] savedEquip = FindObjectsOfType<Equipment>();
             Tool[] savedTools = FindObjectsOfType<Tool>();
-            new Player();
 
             foreach (string name in data.currentEquipment)
             {
@@ -171,7 +165,6 @@ public class PlayerDatas : MonoBehaviour {
                 {
                     if (eq.name == name)
                     {
-
                         str -= eq.getStr();
                         con -= eq.getCon();
                         agi -= eq.getAgi();
@@ -188,13 +181,9 @@ public class PlayerDatas : MonoBehaviour {
                 }
             }
 
-
             //Actions
             currentLocationName = data.currentLocationName;
             currentActivityName = data.currentActivityName;
-
-            // Save once after everything is added
-            //Save();
         }
     }
 

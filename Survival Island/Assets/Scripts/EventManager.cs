@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour {
 
-    System.Random rnd = new System.Random();
+    private System.Random rnd = new System.Random();
 
     public bool checkForEvent()
     {
         int number = rnd.Next(1, 101);
 
-        // 25% Chance, dass Event eintritt 
+        // 25% chance for event
         if(number > 74)
         {
             return true;
@@ -26,7 +25,7 @@ public class EventManager : MonoBehaviour {
         List<GameEvent> gameEvents = new List<GameEvent>();
         GameEvent.DangerLevel dangerLevel;
 
-        // Bestimmen welches Gefahrenlevel gewählt wird
+        //Number for danger-level
         int number = rnd.Next(1, 101);
        
         if (number < 56)
@@ -43,7 +42,7 @@ public class EventManager : MonoBehaviour {
         }
 
 
-        foreach (GameEvent gameEvent in location.possibleEvents)
+        foreach (GameEvent gameEvent in location.getPossibleEvents())
         {
             if (gameEvent.dangerLevel == dangerLevel)
             {
@@ -55,7 +54,8 @@ public class EventManager : MonoBehaviour {
         {
             return null;
         }
-        //Zufälliges Event der gewählten Gefahrenstufe auswählen
+
+        //Random event of choosen danger-level
         number = rnd.Next(0, gameEvents.Count);
         return gameEvents[number];
     }

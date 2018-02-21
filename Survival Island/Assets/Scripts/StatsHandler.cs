@@ -1,17 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StatsHandler : MonoBehaviour {
+
+    [SerializeField]
+    private Player player;
 
     public Text strength;
     public Text constitution;
     public Text agility;
     public Text wisdom;
-    public Player player;
 
-	void Update () {
+	private void Update () {
         strength.text = player.getStr().ToString();
         constitution.text = player.getCon().ToString();
         agility.text = player.getAgi().ToString();

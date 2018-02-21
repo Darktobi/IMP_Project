@@ -1,25 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
 public class MaterialManager : MonoBehaviour {
 
+    //Materials you can get from a specific activity on a specific location
     public List<Item> collectMaterials(Activity activity, Location location, int maxNumberOfItems)
     {
         List<Item> collectedMaterials = new List<Item>();
-        foreach (Item activityMaterial in activity.collectableMaterials)
+        foreach (Item activityMaterial in activity.getCollectableMaterials())
         {
-            if (location.collectableMaterials.Contains(activityMaterial))
+            if (location.getCollectableMaterials().Contains(activityMaterial))
             {
                 collectedMaterials.Add(activityMaterial);
             }
-            
         }
 
         return chooseCollectedMaterials(collectedMaterials, maxNumberOfItems);
     }
 
+    //Random materials you get out of all possible materials
     private List<Item> chooseCollectedMaterials(List<Item> itemList, int maxNumberOfItems)
     {
         System.Random rnd = new System.Random();
