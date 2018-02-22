@@ -25,7 +25,7 @@ public class Crafter : MonoBehaviour {
     {
         foreach (Item item in craftableItems)
         {
-            if (item.GetType().Equals(type))
+            if (item.GetType().Equals(type) && !item.isNotCraftable)
             {
                 addRow(button, parentPanel, item);
             }

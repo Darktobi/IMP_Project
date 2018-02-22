@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenuHandler : MonoBehaviour {
 
     public GameObject mainMenu;
     public GameObject settingsMenu;

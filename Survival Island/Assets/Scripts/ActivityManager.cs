@@ -115,7 +115,7 @@ public class ActivityManager : MonoBehaviour {
                 else
                 {
                     string title = "Achtung!";
-                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.getNeededTool().getItemName();
+                    string description = "Nicht das benötigte Werkzeug ausgerüstet. Du brauchst ein/e \n\n" + activity.getNeededTool();
                     popUpWindow.createNotificationWindow(title, description);
                 }
             }

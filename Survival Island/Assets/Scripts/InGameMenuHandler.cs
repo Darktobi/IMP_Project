@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InGameMenu : MonoBehaviour {
+public class InGameMenuHandler : MonoBehaviour {
 
     [SerializeField]
     private Player player;

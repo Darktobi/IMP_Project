@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Makrele
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &29105310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +465,6 @@ Transform:
   - {fileID: 1265555363}
   - {fileID: 720064584}
   - {fileID: 1462400933}
-  - {fileID: 1014447085}
   m_Father: {fileID: 962383473}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -599,6 +599,7 @@ MonoBehaviour:
   - {fileID: 1881622067}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 7
   agi: 0
@@ -671,6 +672,7 @@ MonoBehaviour:
   itemName: Gebratene Schlange
   neededMaterials:
   - {fileID: 1445910433}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &57911278
@@ -777,6 +779,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 1061377935}
   - {fileID: 2037439977}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &62483224
 MonoBehaviour:
@@ -864,6 +867,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 1061377935}
   - {fileID: 822927515}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &67390938
 MonoBehaviour:
@@ -950,7 +954,7 @@ MonoBehaviour:
   neededAP: 2
   workingTime: 1
   activityName: Erkunden
-  neededTool: {fileID: 0}
+  neededTool: 
   collectableMaterials:
   - {fileID: 1529721099}
   - {fileID: 1365830886}
@@ -1273,6 +1277,7 @@ MonoBehaviour:
   itemName: Gebratener Lachs
   neededMaterials:
   - {fileID: 1223890575}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &99887359
@@ -1400,6 +1405,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 10
   agi: -2
@@ -1607,6 +1613,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 1881622067}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 7
   con: 0
   agi: 0
@@ -1699,6 +1706,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 755491744}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 5
   con: 0
   agi: -1
@@ -1793,6 +1801,7 @@ MonoBehaviour:
   - {fileID: 1823721567}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 12
   con: 0
   agi: -2
@@ -1885,6 +1894,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 2037439977}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 4
   con: 0
   agi: 2
@@ -2560,6 +2570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Pilz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &199331646
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2659,6 +2670,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 7
   agi: 4
@@ -2926,6 +2938,7 @@ MonoBehaviour:
   itemName: Gebratener Tintenfisch
   neededMaterials:
   - {fileID: 1682661097}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &222726089
@@ -3018,6 +3031,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 755491744}
   - {fileID: 755491744}
+  isNotCraftable: 0
   MaxStability: 20
 --- !u!114 &256357805
 MonoBehaviour:
@@ -3196,7 +3210,7 @@ MonoBehaviour:
   neededAP: 2
   workingTime: 15
   activityName: Insekten fangen
-  neededTool: {fileID: 1059506318}
+  neededTool: Kescher
   collectableMaterials:
   - {fileID: 505595107}
   isAvaiable: 1
@@ -3540,6 +3554,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 385686235}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 0
   con: 2
   agi: 0
@@ -3713,6 +3728,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 1061377935}
   - {fileID: 822927515}
+  isNotCraftable: 0
   MaxStability: 2
 --- !u!114 &280018528
 MonoBehaviour:
@@ -3801,6 +3817,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 1777314098}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 6
   con: 0
   agi: 3
@@ -3896,6 +3913,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 12
   agi: -3
@@ -4078,6 +4096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Apfel
   neededMaterials: []
+  isNotCraftable: 1
   healthPoints: 5
   foodPoints: 30
 --- !u!114 &304828486
@@ -4170,6 +4189,7 @@ MonoBehaviour:
   - {fileID: 1823721567}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 14
   agi: -3
@@ -4428,6 +4448,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 385686235}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 6
   con: 0
   agi: 4
@@ -4993,6 +5014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Holz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &385686236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5156,6 +5178,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 1482888914}
+  isNotCraftable: 0
   str: 10
   con: 0
   agi: 5
@@ -5665,6 +5688,7 @@ MonoBehaviour:
   - {fileID: 2060415109}
   - {fileID: 2060415109}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 0
   con: 2
   agi: 0
@@ -5921,7 +5945,7 @@ MonoBehaviour:
   neededAP: 0
   workingTime: 30
   activityName: Schlafen
-  neededTool: {fileID: 0}
+  neededTool: 
   collectableMaterials: []
   isAvaiable: 1
   currentLocation: {fileID: 0}
@@ -6263,6 +6287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Insekten
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &505595108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6445,6 +6470,7 @@ MonoBehaviour:
   - {fileID: 1482888914}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 17
   agi: -3
@@ -6539,6 +6565,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 10
   con: 0
   agi: -2
@@ -6610,6 +6637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Krebs
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!224 &518712719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6913,6 +6941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "Bl\xE4tter"
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &550663816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7038,6 +7067,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 1881622067}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 10
   con: 0
   agi: 0
@@ -7291,6 +7321,7 @@ MonoBehaviour:
   - {fileID: 1545720059}
   - {fileID: 823116957}
   - {fileID: 1823721567}
+  isNotCraftable: 0
   MaxStability: 20
 --- !u!114 &599542467
 MonoBehaviour:
@@ -7449,6 +7480,7 @@ MonoBehaviour:
   - {fileID: 199331645}
   - {fileID: 1228312897}
   - {fileID: 1988205390}
+  isNotCraftable: 0
   healthPoints: 25
   foodPoints: 50
 --- !u!114 &613031753
@@ -7612,6 +7644,7 @@ MonoBehaviour:
   - {fileID: 1061377935}
   - {fileID: 2037439977}
   - {fileID: 2037439977}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &615231748
 MonoBehaviour:
@@ -7698,6 +7731,7 @@ MonoBehaviour:
   itemName: Gebratenes Tigerfleisch
   neededMaterials:
   - {fileID: 632890927}
+  isNotCraftable: 0
   healthPoints: 25
   foodPoints: 75
 --- !u!114 &632890928
@@ -8141,6 +8175,7 @@ MonoBehaviour:
   - {fileID: 823116957}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   MaxStability: 100
 --- !u!1001 &637899079
 Prefab:
@@ -8421,6 +8456,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 823116957}
   - {fileID: 1084439145}
+  isNotCraftable: 0
   str: 0
   con: 8
   agi: -2
@@ -8615,6 +8651,7 @@ MonoBehaviour:
   - {fileID: 1881622067}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 5
   agi: 0
@@ -8714,6 +8751,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 1881622067}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 10
   agi: -2
@@ -9218,6 +9256,7 @@ MonoBehaviour:
   - {fileID: 1823721567}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 12
   agi: -1
@@ -9311,6 +9350,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 823116957}
   - {fileID: 1881622067}
+  isNotCraftable: 0
   str: 8
   con: 0
   agi: 4
@@ -9700,6 +9740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Eisenerz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &755491745
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9930,6 +9971,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 2038111185}
   - {fileID: 505595107}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &771225994
 MonoBehaviour:
@@ -10092,6 +10134,7 @@ MonoBehaviour:
   - {fileID: 1061377935}
   - {fileID: 2038111185}
   - {fileID: 1061377935}
+  isNotCraftable: 0
   str: 3
   con: 0
   agi: 2
@@ -10344,6 +10387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stein
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!224 &822927516
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10428,6 +10472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Garn
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &823116958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10764,6 +10809,7 @@ MonoBehaviour:
   - {fileID: 1482888914}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 16
   con: 0
   agi: 0
@@ -11211,7 +11257,7 @@ MonoBehaviour:
   neededAP: 3
   workingTime: 20
   activityName: Erz abbauen
-  neededTool: {fileID: 615231747}
+  neededTool: Spitzhacke
   collectableMaterials:
   - {fileID: 1777314098}
   - {fileID: 755491744}
@@ -11539,6 +11585,7 @@ MonoBehaviour:
   - {fileID: 632890927}
   - {fileID: 1988205390}
   - {fileID: 1770563771}
+  isNotCraftable: 0
   healthPoints: 100
   foodPoints: 100
 --- !u!114 &873147231
@@ -11862,6 +11909,7 @@ MonoBehaviour:
   - {fileID: 550663815}
   - {fileID: 550663815}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 0
   con: 1
   agi: 0
@@ -11974,91 +12022,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 896818899}
---- !u!1 &899555089
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1003832988619774, guid: 97e0636827fe1bc4dbd53da8e3d76781,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 899555090}
-  - component: {fileID: 899555093}
-  - component: {fileID: 899555092}
-  - component: {fileID: 899555091}
-  m_Layer: 0
-  m_Name: SimpleAxe (Test)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &899555090
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 899555089}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1664151502}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &899555091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 899555089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: 141caca243badfc4c86f28e738835517, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &899555092
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 899555089}
---- !u!114 &899555093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114826574274966316, guid: 97e0636827fe1bc4dbd53da8e3d76781,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 899555089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fadfe4e8b8de0c4eb5fa164cb50d998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Einfache Axt (Test)
-  neededMaterials: []
-  MaxStability: 5
 --- !u!1 &907256092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12185,7 +12148,7 @@ MonoBehaviour:
   neededAP: 3
   workingTime: 12
   activityName: Graben
-  neededTool: {fileID: 67390937}
+  neededTool: Schaufel
   collectableMaterials:
   - {fileID: 505595107}
   - {fileID: 1770563771}
@@ -12734,6 +12697,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 1881622067}
+  isNotCraftable: 0
   str: 0
   con: 16
   agi: -2
@@ -12864,6 +12828,7 @@ MonoBehaviour:
   - {fileID: 1881622067}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 5
   agi: 0
@@ -12959,6 +12924,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 1777314098}
   - {fileID: 1777314098}
+  isNotCraftable: 0
   MaxStability: 10
 --- !u!114 &976325937
 MonoBehaviour:
@@ -13215,6 +13181,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 1061377935}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   MaxStability: 2
 --- !u!114 &1013211523
 MonoBehaviour:
@@ -13284,95 +13251,6 @@ Transform:
   m_Father: {fileID: 962383473}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1014447084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1132493497193016, guid: 97e0636827fe1bc4dbd53da8e3d76781,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1014447085}
-  - component: {fileID: 1014447088}
-  - component: {fileID: 1014447087}
-  - component: {fileID: 1014447086}
-  m_Layer: 0
-  m_Name: LeavesHead (Test)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1014447085
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1014447084}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 33065688}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1014447086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1014447084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300046, guid: 141caca243badfc4c86f28e738835517, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1014447087
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1014447084}
---- !u!114 &1014447088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114595704775613218, guid: 97e0636827fe1bc4dbd53da8e3d76781,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1014447084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcf52508dcf92e4da531f20029cc110, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: "Bl\xE4tterhaube(Test)"
-  neededMaterials: []
-  str: 0
-  con: 1
-  agi: 0
-  wis: 1
-  type: 1
 --- !u!1 &1017192748
 GameObject:
   m_ObjectHideFlags: 0
@@ -13590,6 +13468,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 755491744}
   - {fileID: 755491744}
+  isNotCraftable: 0
   MaxStability: 20
 --- !u!114 &1026446826
 MonoBehaviour:
@@ -13866,6 +13745,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 9
   agi: 4
@@ -13970,6 +13850,7 @@ MonoBehaviour:
   - {fileID: 2038111185}
   - {fileID: 2038111185}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &1059506319
 MonoBehaviour:
@@ -14055,6 +13936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Kugelfisch
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1061082672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14148,6 +14030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stock
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1061377936
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14449,6 +14332,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 1777314098}
   - {fileID: 1777314098}
+  isNotCraftable: 0
   MaxStability: 10
 --- !u!114 &1074350283
 MonoBehaviour:
@@ -14543,6 +14427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Leder
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1084439146
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14781,6 +14666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Beeren
   neededMaterials: []
+  isNotCraftable: 1
   healthPoints: 5
   foodPoints: 25
 --- !u!1 &1096942442
@@ -14838,6 +14724,7 @@ MonoBehaviour:
   - {fileID: 1823721567}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 10
   con: 0
   agi: 5
@@ -15091,6 +14978,7 @@ MonoBehaviour:
   - {fileID: 1545720059}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 10
   con: 0
   agi: -2
@@ -15924,7 +15812,7 @@ MonoBehaviour:
   neededAP: 3
   workingTime: 15
   activityName: Angeln
-  neededTool: {fileID: 771225993}
+  neededTool: Angel
   collectableMaterials:
   - {fileID: 1061082671}
   - {fileID: 29105309}
@@ -16165,6 +16053,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 1881622067}
+  isNotCraftable: 0
   str: 0
   con: 20
   agi: -2
@@ -16445,6 +16334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Hai
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1187289407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16744,6 +16634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Lachs
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1223890576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16832,6 +16723,7 @@ MonoBehaviour:
   - {fileID: 550663815}
   - {fileID: 550663815}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 0
   con: 1
   agi: 0
@@ -16904,6 +16796,7 @@ MonoBehaviour:
   itemName: Gebratene Ratte
   neededMaterials:
   - {fileID: 1940689310}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &1228312898
@@ -17009,6 +16902,7 @@ MonoBehaviour:
   itemName: Eisennadel
   neededMaterials:
   - {fileID: 755491744}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &1232091381
 MonoBehaviour:
@@ -17094,6 +16988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Krokodile
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1253921137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17207,7 +17102,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1911833109}
-        m_MethodName: OpenMenu
+        m_MethodName: openMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17310,6 +17205,7 @@ MonoBehaviour:
   - {fileID: 755491744}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 10
   agi: -1
@@ -17402,6 +17298,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 755491744}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 6
   con: 0
   agi: -2
@@ -17619,6 +17516,7 @@ MonoBehaviour:
   - {fileID: 1585941398}
   - {fileID: 1585941398}
   - {fileID: 518712718}
+  isNotCraftable: 0
   healthPoints: 50
   foodPoints: 75
 --- !u!114 &1289044750
@@ -18106,6 +18004,7 @@ MonoBehaviour:
   - {fileID: 823116957}
   - {fileID: 755491744}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 10
   agi: 4
@@ -18685,6 +18584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bananen
   neededMaterials: []
+  isNotCraftable: 1
   healthPoints: 5
   foodPoints: 30
 --- !u!114 &1365830887
@@ -18776,6 +18676,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 823116957}
   - {fileID: 1084439145}
+  isNotCraftable: 0
   str: 8
   con: 0
   agi: -2
@@ -18945,6 +18846,7 @@ MonoBehaviour:
   - {fileID: 2060415109}
   - {fileID: 2038111185}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 0
   con: 3
   agi: 0
@@ -19235,6 +19137,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 823116957}
   - {fileID: 1084439145}
+  isNotCraftable: 0
   str: 0
   con: 8
   agi: -1
@@ -20171,6 +20074,7 @@ MonoBehaviour:
   itemName: Gebratener Krebs
   neededMaterials:
   - {fileID: 518712718}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &1443567178
@@ -20266,6 +20170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Schlange
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1445910434
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20346,6 +20251,7 @@ MonoBehaviour:
   - {fileID: 1823721567}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 12
   agi: -2
@@ -20440,6 +20346,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 7
   agi: 4
@@ -20538,6 +20445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Algen
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1460575999
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20618,6 +20526,7 @@ MonoBehaviour:
   - {fileID: 1482888914}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 15
   agi: -1
@@ -20710,6 +20619,7 @@ MonoBehaviour:
   - {fileID: 1061377935}
   - {fileID: 2037439977}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 3
   con: 0
   agi: 2
@@ -20855,6 +20765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Golderz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1482888915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21264,6 +21175,7 @@ MonoBehaviour:
   - {fileID: 1585941398}
   - {fileID: 1585941398}
   - {fileID: 1585941398}
+  isNotCraftable: 0
   healthPoints: 20
   foodPoints: 50
 --- !u!114 &1492121125
@@ -21541,6 +21453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wasser
   neededMaterials: []
+  isNotCraftable: 1
   healthPoints: 10
   foodPoints: 20
 --- !u!114 &1529721100
@@ -21630,6 +21543,7 @@ MonoBehaviour:
   - {fileID: 822927515}
   - {fileID: 385686235}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 2
   con: 0
   agi: 2
@@ -21765,6 +21679,7 @@ MonoBehaviour:
   itemName: Silbernadel
   neededMaterials:
   - {fileID: 1823721567}
+  isNotCraftable: 0
   MaxStability: 20
 --- !u!114 &1543056131
 MonoBehaviour:
@@ -21859,6 +21774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Flexibles Holz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1545720060
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21938,6 +21854,7 @@ MonoBehaviour:
   - {fileID: 1545720059}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 12
   con: 0
   agi: 6
@@ -22150,6 +22067,7 @@ MonoBehaviour:
   itemName: Goldnadel
   neededMaterials:
   - {fileID: 1482888914}
+  isNotCraftable: 0
   MaxStability: 50
 --- !u!114 &1551047680
 MonoBehaviour:
@@ -22383,6 +22301,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 550663815}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 3
   con: 0
   agi: 0
@@ -22473,6 +22392,7 @@ MonoBehaviour:
   itemName: Kupfernadel
   neededMaterials:
   - {fileID: 1777314098}
+  isNotCraftable: 0
   MaxStability: 1
 --- !u!114 &1564655304
 MonoBehaviour:
@@ -22868,7 +22788,7 @@ MonoBehaviour:
   neededAP: 3
   workingTime: 20
   activityName: Holz hacken
-  neededTool: {fileID: 1994908956}
+  neededTool: Axt
   collectableMaterials:
   - {fileID: 1545720059}
   - {fileID: 385686235}
@@ -23021,6 +22941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Muschel
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1585941399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23153,6 +23074,7 @@ MonoBehaviour:
   itemName: Gebratener Vogel
   neededMaterials:
   - {fileID: 2065784784}
+  isNotCraftable: 0
   healthPoints: 10
   foodPoints: 25
 --- !u!114 &1612203703
@@ -23352,6 +23274,7 @@ MonoBehaviour:
   - {fileID: 2037439977}
   - {fileID: 385686235}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 3
   con: 0
   agi: 2
@@ -23557,6 +23480,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 385686235}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 6
   con: 0
   agi: 3
@@ -23640,7 +23564,6 @@ Transform:
   - {fileID: 67390936}
   - {fileID: 1059506317}
   - {fileID: 636366796}
-  - {fileID: 899555090}
   m_Father: {fileID: 1094517373}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23696,7 +23619,7 @@ MonoBehaviour:
   neededAP: 4
   workingTime: 20
   activityName: Tauchen
-  neededTool: {fileID: 0}
+  neededTool: 
   collectableMaterials:
   - {fileID: 1061082671}
   - {fileID: 29105309}
@@ -23999,6 +23922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Tintenfisch
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1682661098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24086,6 +24010,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 385686235}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 4
   con: 0
   agi: 3
@@ -24578,6 +24503,7 @@ MonoBehaviour:
   - {fileID: 199331645}
   - {fileID: 57911277}
   - {fileID: 1988205390}
+  isNotCraftable: 0
   healthPoints: 40
   foodPoints: 75
 --- !u!114 &1708686666
@@ -24835,6 +24761,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 7
   con: 0
   agi: 4
@@ -25323,7 +25250,7 @@ MonoBehaviour:
   neededAP: 2
   workingTime: 10
   activityName: Sammeln
-  neededTool: {fileID: 0}
+  neededTool: 
   collectableMaterials:
   - {fileID: 2060415109}
   - {fileID: 505595107}
@@ -25403,6 +25330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wurzel
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1770563772
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25487,6 +25415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Kupfererz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1777314099
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25786,6 +25715,7 @@ MonoBehaviour:
   - {fileID: 385686235}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 9
   con: 0
   agi: 4
@@ -26016,6 +25946,7 @@ MonoBehaviour:
   itemName: Gebratener Hai
   neededMaterials:
   - {fileID: 1820265011}
+  isNotCraftable: 0
   healthPoints: 25
   foodPoints: 75
 --- !u!114 &1820265012
@@ -26108,6 +26039,7 @@ MonoBehaviour:
   - {fileID: 1777314098}
   - {fileID: 823116957}
   - {fileID: 1084439145}
+  isNotCraftable: 0
   str: 0
   con: 10
   agi: -3
@@ -26206,6 +26138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Silbererz
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1823721568
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26359,6 +26292,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 823116957}
   - {fileID: 1823721567}
+  isNotCraftable: 0
   str: 8
   con: 0
   agi: 4
@@ -26692,6 +26626,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 2060415109}
   - {fileID: 822927515}
+  isNotCraftable: 0
   healthPoints: 5
   foodPoints: 25
 --- !u!114 &1872949095
@@ -27076,7 +27011,7 @@ MonoBehaviour:
   neededAP: 4
   workingTime: 20
   activityName: Jagen
-  neededTool: {fileID: 62483223}
+  neededTool: Jagdmesser
   collectableMaterials:
   - {fileID: 1445910433}
   - {fileID: 1940689310}
@@ -27362,6 +27297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Stoffetzen
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1881622068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27661,6 +27597,7 @@ MonoBehaviour:
   - {fileID: 1545720059}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 12
   con: 0
   agi: -5
@@ -27755,6 +27692,7 @@ MonoBehaviour:
   - {fileID: 505595107}
   - {fileID: 505595107}
   - {fileID: 505595107}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &1903196606
@@ -27933,6 +27871,7 @@ MonoBehaviour:
   - {fileID: 1881622067}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 5
   con: 0
   agi: 0
@@ -28193,6 +28132,7 @@ MonoBehaviour:
   - {fileID: 1482888914}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 15
   agi: -2
@@ -28487,6 +28427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Ratte
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &1940689311
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28801,6 +28742,7 @@ MonoBehaviour:
   - {fileID: 1585941398}
   - {fileID: 1585941398}
   - {fileID: 1585941398}
+  isNotCraftable: 0
   healthPoints: 100
   foodPoints: 100
 --- !u!114 &1964278491
@@ -28894,6 +28836,7 @@ MonoBehaviour:
   - {fileID: 550663815}
   - {fileID: 2038111185}
   - {fileID: 2038111185}
+  isNotCraftable: 0
   str: 0
   con: 2
   agi: 0
@@ -29036,6 +28979,7 @@ MonoBehaviour:
   - {fileID: 1084439145}
   - {fileID: 1881622067}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 13
   agi: -2
@@ -29124,6 +29068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Karotten
   neededMaterials: []
+  isNotCraftable: 1
   healthPoints: 5
   foodPoints: 30
 --- !u!114 &1988205391
@@ -29212,6 +29157,7 @@ MonoBehaviour:
   neededMaterials:
   - {fileID: 1061377935}
   - {fileID: 2037439977}
+  isNotCraftable: 0
   MaxStability: 5
 --- !u!114 &1994908957
 MonoBehaviour:
@@ -29297,6 +29243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fledermaus
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &1997306397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29500,6 +29447,7 @@ MonoBehaviour:
   - {fileID: 1823721567}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 13
   con: 0
   agi: 0
@@ -29594,6 +29542,7 @@ MonoBehaviour:
   - {fileID: 1482888914}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 15
   con: 0
   agi: -2
@@ -29684,6 +29633,7 @@ MonoBehaviour:
   itemName: Gebratene Mackrele
   neededMaterials:
   - {fileID: 29105309}
+  isNotCraftable: 0
   healthPoints: 15
   foodPoints: 50
 --- !u!114 &2025133462
@@ -29853,6 +29803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Scharfer Stein
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &2037439978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29937,6 +29888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Lianen
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &2038111186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30119,6 +30071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Kokosnuss
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &2060415110
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30199,6 +30152,7 @@ MonoBehaviour:
   - {fileID: 1545720059}
   - {fileID: 1084439145}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 12
   con: 0
   agi: 5
@@ -30371,6 +30325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Vogel
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!222 &2065784785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30678,6 +30633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Tiger
   neededMaterials: []
+  isNotCraftable: 0
 --- !u!114 &2090543004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30994,6 +30950,7 @@ MonoBehaviour:
   - {fileID: 2038111185}
   - {fileID: 550663815}
   - {fileID: 550663815}
+  isNotCraftable: 0
   str: 0
   con: 4
   agi: 0
@@ -31312,6 +31269,7 @@ MonoBehaviour:
   - {fileID: 1881622067}
   - {fileID: 823116957}
   - {fileID: 823116957}
+  isNotCraftable: 0
   str: 0
   con: 6
   agi: 0

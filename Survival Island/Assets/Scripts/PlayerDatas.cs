@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -23,8 +24,6 @@ public class PlayerDatas : MonoBehaviour {
     {
         if (PlayerPrefs.GetInt("New Game") == 1)
         {
-            Debug.Log("Starting a new Game...");
-
             str = 5;
             con = 5;
             agi = 5;
@@ -47,8 +46,6 @@ public class PlayerDatas : MonoBehaviour {
     private SaveLoad createSaveGameObject()
     {
         SaveLoad data = new SaveLoad();
-
-        Debug.Log("Saving Gamedatas...");
 
         //Ressources
         data.healthMAX = healthMAX;
@@ -113,8 +110,6 @@ public class PlayerDatas : MonoBehaviour {
     {
         if(File.Exists(Application.persistentDataPath+ "/playerInfo.dat"))
         {
-            Debug.Log("Loading Saved Gamedatas...");
-
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             SaveLoad data = (SaveLoad)bf.Deserialize(file);
@@ -190,7 +185,6 @@ public class PlayerDatas : MonoBehaviour {
     //Deleting the savegame file
     public void deleteFile()
     {
-        Debug.Log("Deleted Savegame");
         dontSave = true;
         File.Delete(Application.persistentDataPath + "/playerInfo.dat");
     }

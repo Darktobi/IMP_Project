@@ -168,15 +168,18 @@ public class Player : MonoBehaviour {
 
     public bool checkEquipptedTool(Activity activity)
     {
-        if (activity.getNeededTool() == null)
+        if (activity.getNeededTool() == "")
         {
             return true;
         }
 
-        if (playerData.tool == activity.getNeededTool())
+        if(playerData.tool != null)
         {
-            playerData.tool.subStability();
-            return true;
+            if (playerData.tool.getItemName().Contains(activity.getNeededTool()))
+            {
+                playerData.tool.subStability();
+                return true;
+            }
         }
 
         return false;

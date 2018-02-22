@@ -10,6 +10,8 @@ public abstract class Item : MonoBehaviour {
 
     private int count;
 
+    public bool isNotCraftable;
+
 	private void Start ()
     {
         count = 0;

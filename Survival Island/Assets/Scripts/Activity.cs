@@ -10,7 +10,7 @@ public class Activity : MonoBehaviour {
     [SerializeField]
     private string activityName;
     [SerializeField]
-    private Tool neededTool;
+    private string neededTool;
     [SerializeField]
     private List<Item> collectableMaterials;
 
@@ -32,7 +32,7 @@ public class Activity : MonoBehaviour {
         return activityName;
     }
 
-    public Tool getNeededTool()
+    public string getNeededTool()
     {
         return neededTool;
     }
