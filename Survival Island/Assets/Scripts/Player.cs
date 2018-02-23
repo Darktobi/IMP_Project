@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         counter = 0;
         materialManager = new MaterialManager();
 
-        InvokeRepeating("decreaseFood", 3, 2);
+        InvokeRepeating("decreaseFood", 3, 4);
     }
 
     public float getHealth()
