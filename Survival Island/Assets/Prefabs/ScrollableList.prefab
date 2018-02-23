@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 224057858957955374}
   - component: {fileID: 222549266337400996}
   - component: {fileID: 114233208803127124}
-  - component: {fileID: 114229009449697004}
   m_Layer: 5
   m_Name: ScrollableList
   m_TagString: Untagged
@@ -125,21 +124,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114229009449697004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1240812446135720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c1b144456648b842931fa4bd5614ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemSlot: {fileID: 114386715946407596, guid: 60f247ae1abf2d946a41c5803ce756c0, type: 2}
-  parent: {fileID: 224818445677752798}
-  rowPanel: {fileID: 224859584888391960, guid: b6611079060cc78489d46777c9362ac7, type: 2}
-  itemCount: 30
 --- !u!114 &114233208803127124
 MonoBehaviour:
   m_ObjectHideFlags: 1

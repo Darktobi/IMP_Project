@@ -136,9 +136,6 @@ public class PlayerDatas : MonoBehaviour {
             con = data.con;
             agi = data.agi;
             wis = data.wis;
-            
-            //Inventory
-            new Inventory();
 
             Item[] savedItems = FindObjectsOfType<Item>();
 
@@ -192,17 +189,21 @@ public class PlayerDatas : MonoBehaviour {
                 }
             }
 
-            Location[] allLocations = FindObjectsOfType<Location>();
-            foreach(Location locationName in allLocations)
+            //If Player has an activity to do
+            if(tempActivity != null)
             {
-                if (locationName.getLocationName() == data.currentLocationName)
+                Location[] allLocations = FindObjectsOfType<Location>();
+                foreach (Location locationName in allLocations)
                 {
-                    tempActivity.currentLocation = locationName;
+                    if (locationName.getLocationName() == data.currentLocationName)
+                    {
+                        tempActivity.currentLocation = locationName;
+                    }
                 }
-            }
 
-            ap += tempActivity.getNeededAP();
-            activityManager.setActivity(tempActivity);
+                ap += tempActivity.getNeededAP();
+                activityManager.setActivity(tempActivity);
+            }
         }
     }
 
