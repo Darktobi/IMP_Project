@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 70854240}
   - component: {fileID: 70854239}
   m_Layer: 5
-  m_Name: Looking
+  m_Name: Exploring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededAP: 2
-  workingTime: 1
+  workingTime: 30
   activityName: Erkunden
   neededTool: 
   collectableMaterials:
@@ -12303,7 +12303,6 @@ MonoBehaviour:
   activities:
   - {fileID: 1769405257}
   - {fileID: 853459169}
-  - {fileID: 70854239}
   locationName: "H\xF6hle"
   collectableMaterials:
   - {fileID: 199331645}
@@ -28585,7 +28584,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activities:
   - {fileID: 1769405257}
-  - {fileID: 70854239}
   locationName: Ruine
   collectableMaterials:
   - {fileID: 822927515}
