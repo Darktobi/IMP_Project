@@ -11,13 +11,17 @@ public class PlayerDatas : MonoBehaviour {
     public Equipment weapon, head, chest, hands, legs, feet;
     public Tool tool;
     public Inventory inventory;
+    public ActivityManager activityManager;
     public Player player;
     public string currentLocationName;
     public string currentActivityName;
-    private bool dontSave = false;
 
     //EQ-Slots in UI in Character Display
     public Text[] eqSlots;
+
+    private bool dontSave = false;
+    private Activity tempActivity;
+
 
     private void Awake()
     {
@@ -34,6 +38,9 @@ public class PlayerDatas : MonoBehaviour {
             ap = 8;
             healthMAX = con*10;
             health = healthMAX;
+
+            currentLocationName = "Lager";
+            currentActivityName = "Nichts";
         }
         else
         {
@@ -175,9 +182,27 @@ public class PlayerDatas : MonoBehaviour {
                 }
             }
 
-            //Actions
-            currentLocationName = data.currentLocationName;
-            currentActivityName = data.currentActivityName;
+            //Activity
+            Activity[] allActivities = FindObjectsOfType<Activity>();
+            foreach (Activity activityName in allActivities)
+            {
+                if (activityName.getActivityName() == data.currentActivityName)
+                {
+                    tempActivity = activityName;
+                }
+            }
+
+            Location[] allLocations = FindObjectsOfType<Location>();
+            foreach(Location locationName in allLocations)
+            {
+                if (locationName.getLocationName() == data.currentLocationName)
+                {
+                    tempActivity.currentLocation = locationName;
+                }
+            }
+
+            ap += tempActivity.getNeededAP();
+            activityManager.setActivity(tempActivity);
         }
     }
 

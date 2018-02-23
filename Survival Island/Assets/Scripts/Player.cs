@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
     {
         counter = 0;
         materialManager = new MaterialManager();
+
+        InvokeRepeating("decreaseFood", 3, 2);
     }
 
     public float getHealth()
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour {
             Debug.Log("Spieler ist gestorben! ");
             playerData.deleteFile();
 
-            popUpWindow.createNotificationWindow("Game Over", "Dein Charakter hat es leider nicht geschafft zu überleben,\nsondern ist gestorben!\n\nVersuche es doch noch einmal!");
+            popUpWindow.createNotificationWindow("Game Over", "Dein Charakter hat es leider nicht geschafft zu überleben\nund ist gestorben!\n\nVersuche es doch noch einmal!");
         }
 
         if (playerData.health > playerData.healthMAX)
@@ -144,20 +146,14 @@ public class Player : MonoBehaviour {
         }
     }
 
-
-    private void OnGUI()
+    private void decreaseFood()
     {
-        counter++;
-        if (counter == foodDecrease)
+        if (playerData.food != 0)
         {
-            if (playerData.food != 0)
-            {
-                playerData.food--;
-            } else
-            {
-                playerData.health--;                
-            }
-            counter = 0;
+            playerData.food--;
+        } else
+        {
+            playerData.health--;                
         }
     }
 

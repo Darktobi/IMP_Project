@@ -21,14 +21,11 @@ public class ActivityManager : MonoBehaviour {
     public Image durationBar;
     public Text currentLocationText;
 
-    private void Start ()
+    private void OnAwake ()
     {
         activeActivity = false;
         workingTime = 0;
         eventManager = new EventManager();
-
-        player.setCurrentLocationName("Lager");
-        player.setCurrentActivityName("Nichts");
 
         currentLocationText.text = player.getCurrentLocationName() + ": " + player.getCurrentActivityName();
 

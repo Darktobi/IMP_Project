@@ -18,6 +18,8 @@ public class InGameMenuHandler : MonoBehaviour {
 	
     public void openMenu()
     {
+        Time.timeScale = 0;
+
         gameMenu.SetActive(true);
         gameMenuMain.SetActive(true);
         menuBtn.SetActive(false);
@@ -26,12 +28,16 @@ public class InGameMenuHandler : MonoBehaviour {
 
     public void closeMenu()
     {
+        Time.timeScale = 1;
+
         gameMenu.SetActive(false);
         menuBtn.SetActive(true);
     }
 
     public void loadMainMenu()
     {
+        Time.timeScale = 1;
+
         player.save();
         SceneManager.LoadScene("MainMenu");
     }
