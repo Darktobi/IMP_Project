@@ -142,43 +142,24 @@ public class ActivityManager : MonoBehaviour {
 
         if (currentEvent.GetType() == typeof(PlayerEvent))
         {
-            eventDescription += "\nDu hast\n";
+            int hp = currentEvent.GetComponent<PlayerEvent>().getHealtPoints();
+            int fp = currentEvent.GetComponent<PlayerEvent>().getFoodPoints();
+            int ap = currentEvent.GetComponent<PlayerEvent>().getActivityPoints();
 
-            //Effects on HP
-            if (currentEvent.GetComponent<PlayerEvent>().getHealtPoints() != 0)
-            {
-                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getHealtPoints() + " HP";
-                if (currentEvent.GetComponent<PlayerEvent>().getHealtPoints() < 0)
-                    textEnd = "\n\nverloren";
-                else
-                {
-                    textEnd = "\n\ngewonnen";
-                }
-            }
-            //Effects on AP
-            if (currentEvent.GetComponent<PlayerEvent>().getActivityPoints() != 0)
-            {
-                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getActivityPoints() + " AP";
-                if (currentEvent.GetComponent<PlayerEvent>().getActivityPoints() < 0)
-                    textEnd = "\n\nverloren";
-                else
-                {
-                    textEnd = "\n\ngewonnen";
-                }
-            }
-            //Effects on FP
-            if (currentEvent.GetComponent<PlayerEvent>().getFoodPoints() != 0)
-            {
-                eventDescription += "\n" + currentEvent.GetComponent<PlayerEvent>().getFoodPoints() + " FP";
-                if (currentEvent.GetComponent<PlayerEvent>().getFoodPoints() < 0)
-                    textEnd = "\n\nverloren";
-                else
-                {
-                    textEnd = "\n\ngewonnen";
-                }
-            }
-            eventDescription += textEnd;
+            eventDescription += "\n\nAuswirkungen:";
 
+            if(hp != 0)
+            {
+              eventDescription += "\n" + getPlusSign(hp) + hp + " HP";
+            }
+            if(fp != 0)
+            {
+              eventDescription += "\n" + getPlusSign(fp) + fp + " FP";
+            }
+            if(ap != 0)
+            {
+              eventDescription += "\n" + getPlusSign(ap) + ap + " AP";
+            }
         }
         else if (currentEvent.GetType() == typeof(BattleEvent))
         {
@@ -197,5 +178,15 @@ public class ActivityManager : MonoBehaviour {
         }
 
         return eventDescription;
+    }
+
+    private string getPlusSign(int checkNumber)
+    {
+        if(checkNumber > 0)
+        {
+            return "+";
+        }
+
+        return "";
     }
 }

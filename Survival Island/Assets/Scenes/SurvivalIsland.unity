@@ -6089,8 +6089,8 @@ MonoBehaviour:
   description: "Du legst dich an den Strand und genie\xDFt die Sonne!"
   dangerLevel: 0
   healthPoints: 20
-  activityPoints: 4
   foodPoints: 0
+  activityPoints: 4
 --- !u!224 &478448643 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
@@ -10254,8 +10254,8 @@ MonoBehaviour:
     Er schmeckt sehr gut.
   dangerLevel: 0
   healthPoints: 10
-  activityPoints: 1
   foodPoints: 15
+  activityPoints: 1
 --- !u!1 &815666831
 GameObject:
   m_ObjectHideFlags: 0
@@ -10679,8 +10679,8 @@ MonoBehaviour:
     dabei aber leicht verletzt. '
   dangerLevel: 1
   healthPoints: -10
-  activityPoints: 0
   foodPoints: 0
+  activityPoints: 0
 --- !u!1 &835439649
 GameObject:
   m_ObjectHideFlags: 0
@@ -11135,8 +11135,8 @@ MonoBehaviour:
   description: 'Ein Sturm zieht auf und verletzt dich schwer. '
   dangerLevel: 2
   healthPoints: -30
-  activityPoints: -10
   foodPoints: -30
+  activityPoints: -10
 --- !u!1 &853127162
 GameObject:
   m_ObjectHideFlags: 0
@@ -15388,7 +15388,7 @@ Prefab:
     - target: {fileID: 224818445677752798, guid: 43b92f912f11aac43af0621cb3d4a007,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1240812446135720, guid: 43b92f912f11aac43af0621cb3d4a007, type: 2}
       propertyPath: m_Name
@@ -16137,8 +16137,8 @@ MonoBehaviour:
     ein wenig. "
   dangerLevel: 0
   healthPoints: 10
-  activityPoints: 2
   foodPoints: 0
+  activityPoints: 2
 --- !u!1 &1187049508
 GameObject:
   m_ObjectHideFlags: 0
@@ -19817,8 +19817,8 @@ MonoBehaviour:
     dabei deine Ausdauer."
   dangerLevel: 1
   healthPoints: 0
-  activityPoints: -5
   foodPoints: -15
+  activityPoints: -5
 --- !u!1 &1433902500
 GameObject:
   m_ObjectHideFlags: 0
@@ -23020,8 +23020,8 @@ MonoBehaviour:
     bekommt er dir nicht gut.
   dangerLevel: 1
   healthPoints: -20
-  activityPoints: 0
   foodPoints: -20
+  activityPoints: 0
 --- !u!1 &1612203700
 GameObject:
   m_ObjectHideFlags: 0
@@ -30394,8 +30394,8 @@ MonoBehaviour:
   description: "Eine gro\xDFe Welle hat dich voll erwischt. "
   dangerLevel: 1
   healthPoints: -15
-  activityPoints: -2
   foodPoints: 0
+  activityPoints: -2
 --- !u!1 &2080502610
 GameObject:
   m_ObjectHideFlags: 0
@@ -31191,8 +31191,8 @@ MonoBehaviour:
     du den Weg nach drau\xDFen."
   dangerLevel: 1
   healthPoints: 0
-  activityPoints: -3
   foodPoints: -25
+  activityPoints: -3
 --- !u!224 &2118789359
 RectTransform:
   m_ObjectHideFlags: 0

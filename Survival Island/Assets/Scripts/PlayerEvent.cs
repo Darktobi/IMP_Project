@@ -5,9 +5,10 @@ public class PlayerEvent : GameEvent {
     [SerializeField]
     private int healthPoints;
     [SerializeField]
-    private int activityPoints;
-    [SerializeField]
     private int foodPoints;
+    [SerializeField]
+    private int activityPoints;
+
 
     public override void run(Player player)
     {
@@ -21,13 +22,14 @@ public class PlayerEvent : GameEvent {
         return healthPoints;
     }
 
+    public int getFoodPoints()
+    {
+        return foodPoints;
+    }
+
     public int getActivityPoints()
     {
         return activityPoints;
     }
 
-    public int getFoodPoints()
-    {
-        return foodPoints;
-    }
 }
