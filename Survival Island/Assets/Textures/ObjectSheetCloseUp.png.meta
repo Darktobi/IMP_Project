@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 141caca243badfc4c86f28e738835517
-timeCreated: 1518973088
+timeCreated: 1519590499
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -168,9 +168,9 @@ TextureImporter:
       name: Hammer
       rect:
         serializedVersion: 2
-        x: 2400
+        x: 2549
         y: 1800
-        width: 600
+        width: 275
         height: 600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -211,9 +211,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 600
-        y: 1200
+        y: 1567
         width: 600
-        height: 600
+        height: 233
       alignment: 9
       pivot: {x: 0.45296887, y: 0.7586713}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,11 +225,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1200
-        y: 1200
+        y: 1252
         width: 600
-        height: 600
+        height: 412
       alignment: 9
-      pivot: {x: 0.5, y: 0.41534382}
+      pivot: {x: 0.5, y: 0.51123285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,9 +309,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 600
+        y: 851
         width: 600
-        height: 600
+        height: 349
       alignment: 9
       pivot: {x: 0.50940615, y: 0.73045266}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,9 +435,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2400
-        y: 0
+        y: 155
         width: 600
-        height: 600
+        height: 445
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
